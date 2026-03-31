@@ -1,13 +1,12 @@
 import Link from "next/link";
 import type { Book } from "@/lib/types";
 import { GENRE_COLORS } from "@/lib/config";
-import { getCoverUrl } from "@/lib/data";
 import BookCover from "./BookCover";
 
 export default function BookCard({ book }: { book: Book }) {
   const primaryGenre = book.genres[0];
   const genreColor = GENRE_COLORS[primaryGenre] || "#78716C";
-  const coverSrc = getCoverUrl(book.isbn, "M");
+  const coverSrc = book.coverUrl || "";
 
   return (
     <Link

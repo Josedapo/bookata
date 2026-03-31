@@ -8,13 +8,18 @@
       "id": "matilda",
       "title": "Matilda",
       "author": "Roald Dahl",
-      "isbn": "9788420483009",
-      "ageRange": ["6-8", "8-10"],
-      "genres": ["aventuras"],
+      "isbn": "9788420458946",
+      "ageRange": [
+        "6-8",
+        "8-10"
+      ],
+      "genres": [
+        "aventuras"
+      ],
       "synopsis": "Matilda es una niña extraordinariamente inteligente cuyos padres no valoran su talento. En el colegio encuentra una aliada en la señorita Honey y un enemigo formidable en la directora Trunchbull.",
       "hook": "Roald Dahl escribió la fantasía de todo niño lector: una heroína que demuestra que los libros son un superpoder. Tu hijo se va a identificar desde la primera página.",
       "amazonUrl": "https://www.amazon.es/dp/8420483001",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=xNsPEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "matilda"
     },
     {
@@ -22,25 +27,37 @@
       "title": "El Principito",
       "author": "Antoine de Saint-Exupéry",
       "isbn": "9788498381498",
-      "ageRange": ["8-10", "10-12"],
-      "genres": ["fantasia", "aventuras"],
+      "ageRange": [
+        "8-10",
+        "10-12"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
       "synopsis": "Un piloto perdido en el desierto del Sahara conoce a un pequeño príncipe llegado de otro planeta que le cuenta sus viajes por distintos mundos y las lecciones que ha aprendido.",
       "hook": "Un libro que los niños leen como aventura y los adultos releen descubriendo capas nuevas cada vez. Tu hijo lo leerá tres veces y en cada una encontrará algo distinto.",
       "amazonUrl": "https://www.amazon.es/dp/8498381495",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=rnWREAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "el-principito"
     },
     {
       "id": "harry-potter-piedra-filosofal",
       "title": "Harry Potter y la piedra filosofal",
       "author": "J.K. Rowling",
-      "isbn": "9788498386318",
-      "ageRange": ["8-10", "10-12"],
-      "genres": ["fantasia", "aventuras"],
+      "isbn": "9781781101315",
+      "ageRange": [
+        "8-10",
+        "10-12"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
       "synopsis": "Harry Potter descubre en su undécimo cumpleaños que es un mago y ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería, donde le esperan amigos, enemigos y un destino extraordinario.",
       "hook": "Si tu hijo aún no ha entrado en el mundo de Hogwarts, este es el momento. El primer libro es una puerta que abre 7 volúmenes de lectura compulsiva.",
       "amazonUrl": "https://www.amazon.es/dp/8498386314",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=2zgRDXFWkm8C&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "harry-potter-piedra-filosofal"
     },
     {
@@ -48,12 +65,18 @@
       "title": "Los Futbolísimos: El misterio de los árbitros dormidos",
       "author": "Roberto Santiago",
       "isbn": "9788467561340",
-      "ageRange": ["8-10", "10-12"],
-      "genres": ["misterio", "aventuras"],
+      "ageRange": [
+        "8-10",
+        "10-12"
+      ],
+      "genres": [
+        "misterio",
+        "aventuras"
+      ],
       "synopsis": "Un equipo de fútbol infantil investiga por qué los árbitros se quedan dormidos durante los partidos. Lo que empieza como un misterio deportivo se convierte en una aventura llena de humor.",
       "hook": "Fútbol + misterio + humor: la combinación perfecta para niños que dicen que no les gusta leer. Los Futbolísimos han convertido a miles de niños en lectores.",
       "amazonUrl": "https://www.amazon.es/dp/8467561343",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=yC71mgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "los-futbolisimos-misterio-arbitros-dormidos"
     },
     {
@@ -61,25 +84,36 @@
       "title": "Wonder. La lección de August",
       "author": "R.J. Palacio",
       "isbn": "9788415594024",
-      "ageRange": ["10-12", "12-14"],
-      "genres": ["autoayuda"],
+      "ageRange": [
+        "10-12",
+        "12-14"
+      ],
+      "genres": [
+        "autoayuda"
+      ],
       "synopsis": "August Pullman nació con una deformidad facial y va a asistir por primera vez a un colegio normal. La historia se cuenta desde múltiples perspectivas mostrando cómo un solo acto de bondad puede cambiar una comunidad.",
       "hook": "Este libro cambia cómo los adolescentes ven a los demás. Es una historia que genera conversaciones importantes en casa de forma natural, sin moralizar.",
       "amazonUrl": "https://www.amazon.es/dp/8415594023",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=buKjMQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "wonder-la-leccion-de-august"
     },
     {
       "id": "el-hobbit",
       "title": "El Hobbit",
       "author": "J.R.R. Tolkien",
-      "isbn": "9788445013816",
-      "ageRange": ["10-12", "12-14"],
-      "genres": ["fantasia", "aventuras"],
+      "isbn": "9788445077948",
+      "ageRange": [
+        "10-12",
+        "12-14"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
       "synopsis": "Bilbo Bolsón es un hobbit tranquilo hasta que el mago Gandalf aparece con 13 enanos y le embarca en una aventura para recuperar un tesoro custodiado por el dragón Smaug.",
       "hook": "La aventura clásica que funciona a cualquier edad. Un libro que enseñar a tu hijo antes de que descubra las películas.",
       "amazonUrl": "https://www.amazon.es/dp/8445013815",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=xi2URRig7jYC&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "el-hobbit"
     },
     {
@@ -87,25 +121,35 @@
       "title": "Culpa mía",
       "author": "Mercedes Ron",
       "isbn": "9788490439753",
-      "ageRange": ["14-16"],
-      "genres": ["amor"],
+      "ageRange": [
+        "14-16"
+      ],
+      "genres": [
+        "amor"
+      ],
       "synopsis": "Noah se muda a la mansión de los Leister y conoce a Nick, el hijo de su nuevo padrastro. Entre tensión, secretos familiares y una atracción imposible, sus vidas se entrelazan de forma irreversible.",
       "hook": "El fenómeno que arrasó en BookTok y ya tiene película. Si tu adolescente quiere un libro que no pueda soltar, este es el candidato.",
       "amazonUrl": "https://www.amazon.es/dp/8490439753",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=cgNLDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "culpa-mia"
     },
     {
       "id": "el-juego-de-ender",
       "title": "El juego de Ender",
       "author": "Orson Scott Card",
-      "isbn": "9788413140490",
-      "ageRange": ["12-14", "14-16"],
-      "genres": ["ciencia-ficcion", "aventuras"],
+      "isbn": "9788490194928",
+      "ageRange": [
+        "12-14",
+        "14-16"
+      ],
+      "genres": [
+        "ciencia-ficcion",
+        "aventuras"
+      ],
       "synopsis": "En un futuro donde la Tierra fue atacada por una raza alienígena, los niños más brillantes son reclutados para una escuela militar espacial. Ender Wiggin, de seis años, podría ser la última esperanza.",
       "hook": "Ciencia ficción con un protagonista adolescente que es más inteligente que todos los adultos. Un clásico que engancha a lectores de 12 a 99 años.",
       "amazonUrl": "https://www.amazon.es/dp/8413140498",
-      "coverUrl": null,
+      "coverUrl": "https://books.google.com/books/content?id=1Ij-AgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "el-juego-de-ender"
     }
   ]

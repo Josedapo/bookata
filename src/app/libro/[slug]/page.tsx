@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllBooks, getBookBySlug, getRelatedBooks, getCoverUrl } from "@/lib/data";
+import { getAllBooks, getBookBySlug, getRelatedBooks } from "@/lib/data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBookJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { AGE_GROUPS, BASE_URL, GENRE_COLORS } from "@/lib/config";
@@ -42,7 +42,7 @@ export default async function BookPage({
   const primaryGenre = book.genres[0];
   const genreColor = GENRE_COLORS[primaryGenre] || "#78716C";
   const ageGroup = AGE_GROUPS.find((ag) => ag.range === book.ageRange[0]);
-  const coverSrc = getCoverUrl(book.isbn, "L");
+  const coverSrc = book.coverUrl || "";
 
   return (
     <>
