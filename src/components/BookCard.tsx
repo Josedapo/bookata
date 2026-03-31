@@ -1,0 +1,56 @@
+import Link from "next/link";
+import type { Book } from "@/lib/types";
+import { GENRE_COLORS } from "@/lib/config";
+
+export default function BookCard({ book }: { book: Book }) {
+  const primaryGenre = book.genres[0];
+  const genreColor = GENRE_COLORS[primaryGenre] || "#78716C";
+
+  return (
+    <Link
+      href={`/libro/${book.slug}`}
+      className="book-card-hover block rounded-xl border border-border bg-surface-card overflow-hidden"
+    >
+      <div
+        className="flex h-52 items-center justify-center p-6"
+        style={{ backgroundColor: `${genreColor}12` }}
+      >
+        <div className="text-center">
+          <p
+            className="font-display text-lg font-bold leading-tight"
+            style={{ color: genreColor }}
+          >
+            {book.title}
+          </p>
+          <p className="mt-2 text-sm text-text-secondary">{book.author}</p>
+        </div>
+      </div>
+
+      <div className="p-4">
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {book.ageRange.map((age) => (
+            <span
+              key={age}
+              className="rounded-full bg-primary-light px-2.5 py-0.5 text-xs font-medium text-primary-dark"
+            >
+              {age} años
+            </span>
+          ))}
+          {book.genres.map((genre) => (
+            <span
+              key={genre}
+              className="rounded-full px-2.5 py-0.5 text-xs font-medium text-white"
+              style={{ backgroundColor: GENRE_COLORS[genre] || "#78716C" }}
+            >
+              {genre === "ciencia-ficcion" ? "Ci-Fi" : genre.charAt(0).toUpperCase() + genre.slice(1)}
+            </span>
+          ))}
+        </div>
+
+        <p className="text-sm leading-relaxed text-text-secondary line-clamp-3">
+          {book.hook}
+        </p>
+      </div>
+    </Link>
+  );
+}

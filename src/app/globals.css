@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #B45309;
+  --color-primary-light: #FEF3C7;
+  --color-primary-dark: #92400E;
+  --color-accent: #DC2626;
+  --color-accent-light: #FEE2E2;
+  --color-surface: #FFFBF5;
+  --color-surface-alt: #FDF6EC;
+  --color-surface-card: #FFFFFF;
+  --color-border: #E7DDD1;
+  --color-text: #292524;
+  --color-text-secondary: #78716C;
+  --color-text-muted: #A8A29E;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-source-serif);
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body), Georgia, serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display), "Playfair Display", Georgia, serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.animate-reveal-delay-1 {
+  animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+.animate-reveal-delay-2 {
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.animate-reveal-delay-3 {
+  animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+.book-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+}
+
+.bg-warm-gradient {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-alt) 50%, var(--color-primary-light) 100%);
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
