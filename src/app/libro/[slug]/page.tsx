@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllBooks, getBookBySlug, getRelatedBooks } from "@/lib/data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBookJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
-import { AGE_GROUPS, BASE_URL, GENRE_COLORS } from "@/lib/config";
+import { AGE_GROUPS, GENRES, BASE_URL, GENRE_COLORS } from "@/lib/config";
 import AmazonButton from "@/components/AmazonButton";
 import BookGrid from "@/components/BookGrid";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -67,15 +68,6 @@ export default async function BookPage({
         }}
       />
 
-      <Breadcrumbs
-        items={[
-          ...(ageGroup
-            ? [{ label: ageGroup.label, href: `/${ageGroup.slug}` }]
-            : []),
-          { label: book.title },
-        ]}
-      />
-
       {/* Hero backdrop with blurred cover */}
       {coverSrc && (
         <div
@@ -88,7 +80,7 @@ export default async function BookPage({
               src={coverSrc}
               alt=""
               fill
-              className="object-cover scale-150 blur-[60px] brightness-[0.35]"
+              className="object-cover scale-150 blur-[15px] brightness-[0.45]"
               sizes="100vw"
               aria-hidden="true"
             />
@@ -96,8 +88,21 @@ export default async function BookPage({
           {/* Gradient fade to page background */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 60%, #FFF8F0 100%)' }} />
 
+          {/* Breadcrumbs inside hero */}
+          <div className="relative z-10 mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+            <Breadcrumbs
+              variant="light"
+              items={[
+                ...(ageGroup
+                  ? [{ label: ageGroup.label, href: `/${ageGroup.slug}` }]
+                  : []),
+                { label: book.title },
+              ]}
+            />
+          </div>
+
           {/* Content */}
-          <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-12 sm:flex-row sm:items-end sm:gap-10 sm:px-6 sm:py-16 lg:px-8">
+          <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 pb-12 sm:flex-row sm:items-end sm:gap-10 sm:px-6 sm:pb-16 lg:px-8">
             <div className="flex-shrink-0">
               <Image
                 src={coverSrc}
@@ -113,27 +118,35 @@ export default async function BookPage({
               </h1>
               <p className="mt-1 text-lg text-white/80">{book.author}</p>
               <div className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
-                {book.ageRange.map((age) => (
-                  <span
-                    key={age}
-                    className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm"
-                  >
-                    {age} años
-                  </span>
-                ))}
-                {book.genres.map((genre) => (
-                  <span
-                    key={genre}
-                    className="rounded-full px-3 py-1 text-sm font-medium text-white"
-                    style={{
-                      backgroundColor: (GENRE_COLORS[genre] || "#78716C") + "CC",
-                    }}
-                  >
-                    {genre === "ciencia-ficcion"
-                      ? "Ciencia ficción"
-                      : genre.charAt(0).toUpperCase() + genre.slice(1)}
-                  </span>
-                ))}
+                {book.ageRange.map((age) => {
+                  const ag = AGE_GROUPS.find((a) => a.range === age);
+                  return (
+                    <Link
+                      key={age}
+                      href={ag ? `/${ag.slug}` : "#"}
+                      className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm hover:bg-white/30 transition-colors"
+                    >
+                      {age} años
+                    </Link>
+                  );
+                })}
+                {book.genres.map((genre) => {
+                  const g = GENRES.find((gi) => gi.id === genre);
+                  return (
+                    <Link
+                      key={genre}
+                      href={g ? `/${g.slug}` : "#"}
+                      className="rounded-full px-3 py-1 text-sm font-medium text-white hover:opacity-80 transition-opacity"
+                      style={{
+                        backgroundColor: (GENRE_COLORS[genre] || "#78716C") + "CC",
+                      }}
+                    >
+                      {genre === "ciencia-ficcion"
+                        ? "Ciencia ficción"
+                        : genre.charAt(0).toUpperCase() + genre.slice(1)}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -152,7 +165,7 @@ export default async function BookPage({
 
         <div className="mt-8 rounded-2xl border-l-4 border-primary bg-primary-light/50 p-6">
           <h2 className="font-display text-xl font-bold text-primary-dark">
-            Por qué te va a enganchar
+            ¿Por qué te va a enganchar?
           </h2>
           <p className="mt-3 leading-relaxed text-text">
             {book.hook}

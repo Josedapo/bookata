@@ -24,7 +24,7 @@ export default function AmazonButton({
       onClick={handleClick}
       className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-bold text-white hover:bg-primary-dark transition-colors shadow-md"
     >
-      Comprar en Amazon
+      Ver en Amazon
     </a>
   );
 }

@@ -5,12 +5,22 @@ interface BreadcrumbItem {
   href?: string;
 }
 
-export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export default function Breadcrumbs({
+  items,
+  variant = "default",
+}: {
+  items: BreadcrumbItem[];
+  variant?: "default" | "light";
+}) {
+  const baseColor = variant === "light" ? "text-white/60" : "text-text-muted";
+  const hoverColor = variant === "light" ? "hover:text-white" : "hover:text-primary";
+  const activeColor = variant === "light" ? "text-white/80" : "text-text-secondary";
+
   return (
-    <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-muted">
+    <nav aria-label="Breadcrumb" className={`mb-6 text-sm ${baseColor}`}>
       <ol className="flex flex-wrap items-center gap-1">
         <li>
-          <Link href="/" className="hover:text-primary transition-colors">
+          <Link href="/" className={`${hoverColor} transition-colors`}>
             Inicio
           </Link>
         </li>
@@ -20,12 +30,12 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
             {item.href ? (
               <Link
                 href={item.href}
-                className="hover:text-primary transition-colors"
+                className={`${hoverColor} transition-colors`}
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-text-secondary">{item.label}</span>
+              <span className={activeColor}>{item.label}</span>
             )}
           </li>
         ))}

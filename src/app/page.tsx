@@ -40,7 +40,7 @@ export default function HomePage() {
             Encuentra el libro perfecto para tu hijo
           </h1>
           <p className="text-lg text-white/90">
-            Recomendaciones curadas por edad y género, con opinión editorial para que aciertes seguro.
+            Recomendaciones por edad y género seleccionadas por nuestros expertos, con opinión editorial para que aciertes seguro.
           </p>
         </div>
       </section>
