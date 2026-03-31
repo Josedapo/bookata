@@ -33,7 +33,7 @@ export function getAdolescentBooks(): Book[] {
 
 export function getCoverUrl(isbn: string, size: "S" | "M" | "L" = "L"): string {
   const bareIsbn = isbn.replace(/-/g, "");
-  return `https://covers.openlibrary.org/b/isbn/${bareIsbn}-${size}.jpg`;
+  return `https://covers.openlibrary.org/b/isbn/${bareIsbn}-${size}.jpg?default=false`;
 }
 
 export function getRelatedBooks(book: Book, limit: number = 4): Book[] {
