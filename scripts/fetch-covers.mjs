@@ -12,6 +12,8 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BOOKS_PATH = join(__dirname, "../src/data/books.json");
 
+const PLACEHOLDER_SIZE = 15567;
+
 async function fetchCover(isbn) {
   const bareIsbn = isbn.replace(/-/g, "");
   const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${bareIsbn}`;
@@ -27,14 +29,26 @@ async function fetchCover(isbn) {
     const imageLinks = data.items[0].volumeInfo?.imageLinks;
     if (!imageLinks) return null;
 
-    // Get the best available image, prefer thumbnail
     const rawUrl = imageLinks.thumbnail || imageLinks.smallThumbnail;
     if (!rawUrl) return null;
 
-    // Convert to HTTPS and use zoom=2 for better quality (~300px)
-    return rawUrl
+    // Try zoom=2 first for better quality
+    const zoom2Url = rawUrl
       .replace("http://", "https://")
       .replace("zoom=1", "zoom=2")
+      .replace("&edge=curl", "");
+
+    const zoom2Res = await fetch(zoom2Url);
+    const zoom2Buf = await zoom2Res.arrayBuffer();
+
+    if (zoom2Buf.byteLength !== PLACEHOLDER_SIZE) {
+      return zoom2Url;
+    }
+
+    // Fallback to zoom=1 (smaller but real cover)
+    console.log(`    zoom=2 is placeholder, using zoom=1`);
+    return rawUrl
+      .replace("http://", "https://")
       .replace("&edge=curl", "");
   } catch (err) {
     console.error(`  Error fetching ${isbn}: ${err.message}`);
