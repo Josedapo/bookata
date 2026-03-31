@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllBooks, getBookBySlug, getRelatedBooks } from "@/lib/data";
+import { getAllBooks, getBookBySlug, getRelatedBooks, getCoverUrl } from "@/lib/data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBookJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { AGE_GROUPS, BASE_URL, GENRE_COLORS } from "@/lib/config";
 import AmazonButton from "@/components/AmazonButton";
+import BookCover from "@/components/BookCover";
 import BookGrid from "@/components/BookGrid";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -41,6 +42,7 @@ export default async function BookPage({
   const primaryGenre = book.genres[0];
   const genreColor = GENRE_COLORS[primaryGenre] || "#78716C";
   const ageGroup = AGE_GROUPS.find((ag) => ag.range === book.ageRange[0]);
+  const coverSrc = getCoverUrl(book.isbn, "L");
 
   return (
     <>
@@ -80,15 +82,13 @@ export default async function BookPage({
             className="flex items-center justify-center rounded-xl p-10 lg:col-span-1"
             style={{ backgroundColor: `${genreColor}12` }}
           >
-            <div className="text-center">
-              <p
-                className="font-display text-2xl font-bold leading-tight"
-                style={{ color: genreColor }}
-              >
-                {book.title}
-              </p>
-              <p className="mt-3 text-text-secondary">{book.author}</p>
-            </div>
+            <BookCover
+              src={coverSrc}
+              title={book.title}
+              author={book.author}
+              genreColor={genreColor}
+              size="detail"
+            />
           </div>
 
           <div className="lg:col-span-2">

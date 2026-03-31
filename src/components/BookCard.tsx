@@ -1,10 +1,13 @@
 import Link from "next/link";
 import type { Book } from "@/lib/types";
 import { GENRE_COLORS } from "@/lib/config";
+import { getCoverUrl } from "@/lib/data";
+import BookCover from "./BookCover";
 
 export default function BookCard({ book }: { book: Book }) {
   const primaryGenre = book.genres[0];
   const genreColor = GENRE_COLORS[primaryGenre] || "#78716C";
+  const coverSrc = getCoverUrl(book.isbn, "M");
 
   return (
     <Link
@@ -12,18 +15,15 @@ export default function BookCard({ book }: { book: Book }) {
       className="book-card-hover block rounded-xl border border-border bg-surface-card overflow-hidden"
     >
       <div
-        className="flex h-52 items-center justify-center p-6"
+        className="flex h-60 items-center justify-center overflow-hidden"
         style={{ backgroundColor: `${genreColor}12` }}
       >
-        <div className="text-center">
-          <p
-            className="font-display text-lg font-bold leading-tight"
-            style={{ color: genreColor }}
-          >
-            {book.title}
-          </p>
-          <p className="mt-2 text-sm text-text-secondary">{book.author}</p>
-        </div>
+        <BookCover
+          src={coverSrc}
+          title={book.title}
+          author={book.author}
+          genreColor={genreColor}
+        />
       </div>
 
       <div className="p-4">
