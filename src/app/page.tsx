@@ -1,11 +1,15 @@
-import { getAllBooks } from "@/lib/data";
-import { buildWebsiteJsonLd, buildOrganizationJsonLd, buildItemListJsonLd } from "@/lib/jsonld";
-import AgeGroupNav from "@/components/AgeGroupNav";
+import Image from "next/image";
+import { getBooksByAge } from "@/lib/data";
+import { AGE_GROUPS } from "@/lib/config";
+import { buildWebsiteJsonLd, buildOrganizationJsonLd } from "@/lib/jsonld";
+import BookCarousel from "@/components/BookCarousel";
 import GenreNav from "@/components/GenreNav";
-import BookGrid from "@/components/BookGrid";
 
 export default function HomePage() {
-  const books = getAllBooks();
+  const booksByAge = AGE_GROUPS.map((ag) => ({
+    ...ag,
+    books: getBooksByAge(ag.range),
+  }));
 
   return (
     <>
@@ -21,30 +25,65 @@ export default function HomePage() {
           __html: JSON.stringify(buildOrganizationJsonLd()),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildItemListJsonLd(books, "Libros recomendados")),
-        }}
-      />
 
-      <section className="bg-warm-gradient -mx-4 -mt-8 mb-12 px-4 py-16 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 animate-reveal">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="font-display text-4xl font-bold leading-tight text-text sm:text-5xl">
+      {/* Hero */}
+      <section className="bg-warm-gradient -mx-4 -mt-8 mb-12 px-4 py-14 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 animate-reveal rounded-b-3xl">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+          <Image
+            src="/images/brand/imagotype.png"
+            alt=""
+            width={80}
+            height={80}
+            className="h-20 w-auto"
+          />
+          <h1 className="font-display text-3xl font-bold leading-tight text-white sm:text-5xl">
             Encuentra el libro perfecto para tu hijo
           </h1>
-          <p className="mt-4 text-lg text-text-secondary">
-            Recomendaciones curadas de libros infantiles y juveniles, organizadas
-            por edad y género. Cada libro con nuestra opinión editorial para que
-            aciertes seguro.
+          <p className="text-lg text-white/90">
+            Recomendaciones curadas por edad y género, con opinión editorial para que aciertes seguro.
           </p>
         </div>
       </section>
 
+      {/* Carousels by age, interleaved with genre nav */}
       <div className="space-y-12">
-        <AgeGroupNav />
+        {/* Age 6-8 */}
+        <BookCarousel
+          title={`Libros para niños de ${booksByAge[0].label}`}
+          books={booksByAge[0].books}
+          href={`/${booksByAge[0].slug}`}
+        />
+
+        {/* Age 8-10 */}
+        <BookCarousel
+          title={`Libros para niños de ${booksByAge[1].label}`}
+          books={booksByAge[1].books}
+          href={`/${booksByAge[1].slug}`}
+        />
+
+        {/* Genre navigation */}
         <GenreNav />
-        <BookGrid books={books} title="Todos los libros" />
+
+        {/* Age 10-12 */}
+        <BookCarousel
+          title={`Libros para niños de ${booksByAge[2].label}`}
+          books={booksByAge[2].books}
+          href={`/${booksByAge[2].slug}`}
+        />
+
+        {/* Age 12-14 */}
+        <BookCarousel
+          title={`Libros para adolescentes de ${booksByAge[3].label}`}
+          books={booksByAge[3].books}
+          href={`/${booksByAge[3].slug}`}
+        />
+
+        {/* Age 14-16 */}
+        <BookCarousel
+          title={`Libros para adolescentes de ${booksByAge[4].label}`}
+          books={booksByAge[4].books}
+          href={`/${booksByAge[4].slug}`}
+        />
       </div>
     </>
   );

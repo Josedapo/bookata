@@ -12,7 +12,7 @@ export default function AgeGroupNav() {
           <Link
             key={ag.range}
             href={`/${ag.slug}`}
-            className="book-card-hover group rounded-xl border border-border bg-surface-card p-5 text-center"
+            className="book-card-hover group rounded-2xl border border-border bg-surface-card p-5 text-center shadow-sm"
           >
             <span className="block font-display text-2xl font-bold text-primary group-hover:text-primary-dark transition-colors">
               {ag.range}

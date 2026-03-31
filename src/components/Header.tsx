@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/brand/imagotype.png"
@@ -34,12 +34,12 @@ export default function Header() {
               Por edad
             </span>
             <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-              <div className="rounded-lg border border-border bg-surface-card p-3 shadow-lg min-w-[200px]">
+              <div className="rounded-2xl border border-border bg-surface-card p-3 shadow-lg min-w-[200px]">
                 {AGE_GROUPS.map((ag) => (
                   <Link
                     key={ag.range}
                     href={`/${ag.slug}`}
-                    className="block rounded-md px-3 py-2 text-sm text-text-secondary hover:bg-primary-light hover:text-primary transition-colors"
+                    className="block rounded-xl px-3 py-2 text-sm text-text-secondary hover:bg-primary-light hover:text-primary transition-colors"
                   >
                     {ag.label}
                   </Link>
@@ -53,12 +53,12 @@ export default function Header() {
               Por género
             </span>
             <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-              <div className="rounded-lg border border-border bg-surface-card p-3 shadow-lg min-w-[200px]">
+              <div className="rounded-2xl border border-border bg-surface-card p-3 shadow-lg min-w-[200px]">
                 {GENRES.map((g) => (
                   <Link
                     key={g.id}
                     href={`/${g.slug}`}
-                    className="block rounded-md px-3 py-2 text-sm text-text-secondary hover:bg-primary-light hover:text-primary transition-colors"
+                    className="block rounded-xl px-3 py-2 text-sm text-text-secondary hover:bg-primary-light hover:text-primary transition-colors"
                   >
                     {g.label}
                   </Link>

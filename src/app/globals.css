@@ -1,31 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #B45309;
-  --color-primary-light: #FEF3C7;
-  --color-primary-dark: #92400E;
-  --color-accent: #DC2626;
-  --color-accent-light: #FEE2E2;
-  --color-surface: #FFFBF5;
-  --color-surface-alt: #FDF6EC;
+  --color-primary: #E0663C;
+  --color-primary-light: #FFF0EB;
+  --color-primary-dark: #C44E28;
+  --color-secondary: #E8B84D;
+  --color-secondary-light: #FFF8E7;
+  --color-navy: #1E2A5E;
+  --color-navy-light: #2D3F7A;
+  --color-accent: #E0663C;
+  --color-accent-light: #FFF0EB;
+  --color-surface: #FFFBF7;
+  --color-surface-alt: #FFF5ED;
   --color-surface-card: #FFFFFF;
-  --color-border: #E7DDD1;
-  --color-text: #292524;
-  --color-text-secondary: #78716C;
-  --color-text-muted: #A8A29E;
-  --font-display: var(--font-playfair);
-  --font-body: var(--font-source-serif);
+  --color-border: #F0E6DC;
+  --color-text: #1E2A5E;
+  --color-text-secondary: #5A6484;
+  --color-text-muted: #9CA3BF;
+  --font-display: var(--font-fredoka);
+  --font-body: var(--font-nunito);
 }
 
 body {
   background: var(--color-surface);
   color: var(--color-text);
-  font-family: var(--font-body), Georgia, serif;
+  font-family: var(--font-body), "Nunito", sans-serif;
   overflow-x: hidden;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-display), "Playfair Display", Georgia, serif;
+  font-family: var(--font-display), "Fredoka", sans-serif;
 }
 
 @keyframes fadeInUp {
@@ -65,7 +69,7 @@ h1, h2, h3 {
 }
 
 .bg-warm-gradient {
-  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-alt) 50%, var(--color-primary-light) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-primary) 100%);
 }
 
 .scrollbar-none {

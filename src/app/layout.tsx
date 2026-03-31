@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Playfair_Display, Source_Serif_4 } from "next/font/google";
+import { Fredoka, Nunito } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
   },
 };
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const fredoka = Fredoka({
+  variable: "--font-fredoka",
   subsets: ["latin"],
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
   display: "swap",
 });
@@ -56,7 +56,7 @@ export default function RootLayout({
         `}
       </Script>
       <body
-        className={`${playfair.variable} ${sourceSerif.variable} antialiased`}
+        className={`${fredoka.variable} ${nunito.variable} antialiased`}
       >
         <Header />
         <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

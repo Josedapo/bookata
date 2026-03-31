@@ -22,7 +22,7 @@ export default function AmazonButton({
       target="_blank"
       rel="noopener noreferrer nofollow"
       onClick={handleClick}
-      className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-base font-semibold text-white hover:bg-red-700 transition-colors"
+      className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-bold text-white hover:bg-primary-dark transition-colors shadow-md"
     >
       Comprar en Amazon
     </a>

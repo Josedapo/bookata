@@ -11,7 +11,7 @@ export default function BookCard({ book }: { book: Book }) {
   return (
     <Link
       href={`/libro/${book.slug}`}
-      className="book-card-hover block rounded-xl border border-border bg-surface-card overflow-hidden"
+      className="book-card-hover block rounded-2xl border border-border bg-surface-card overflow-hidden shadow-sm"
     >
       <div
         className="flex h-60 items-center justify-center overflow-hidden"
