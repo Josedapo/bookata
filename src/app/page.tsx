@@ -27,7 +27,7 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="bg-warm-gradient -mx-4 -mt-8 mb-12 px-4 py-14 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 animate-reveal rounded-b-3xl">
+      <section className="bg-warm-gradient -mx-4 -mt-8 mb-12 px-4 py-14 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 animate-reveal" style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', paddingLeft: 'calc(50vw - 50%)', paddingRight: 'calc(50vw - 50%)' }}>
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
           <Image
             src="/images/brand/imagotype.png"

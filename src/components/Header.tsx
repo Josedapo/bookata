@@ -24,7 +24,7 @@ export default function Header() {
             alt="Bookata"
             width={140}
             height={32}
-            className="h-8 w-auto hidden sm:block"
+            className="h-8 w-auto"
           />
         </Link>
 

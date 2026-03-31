@@ -23,8 +23,9 @@ export default function BookCarousel({
           href={href}
           className="inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white hover:bg-primary-dark transition-colors"
         >
-          Ver todos
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <span className="sm:hidden">Todos</span>
+          <span className="hidden sm:inline">Ver todos</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="flex-shrink-0">
             <path d="M6 4l4 4-4 4" />
           </svg>
         </Link>
