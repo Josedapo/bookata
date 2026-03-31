@@ -73,6 +73,12 @@ export default function Header() {
           >
             Sobre Bookata
           </Link>
+          <Link
+            href="/como-seleccionamos"
+            className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+          >
+            Cómo seleccionamos
+          </Link>
         </nav>
 
         <button
@@ -128,6 +134,13 @@ export default function Header() {
             className="block rounded-md px-3 py-2 text-sm font-medium text-text-secondary hover:text-primary"
           >
             Sobre Bookata
+          </Link>
+          <Link
+            href="/como-seleccionamos"
+            onClick={() => setMobileOpen(false)}
+            className="block rounded-md px-3 py-2 text-sm font-medium text-text-secondary hover:text-primary"
+          >
+            Cómo seleccionamos
           </Link>
         </div>
       )}
