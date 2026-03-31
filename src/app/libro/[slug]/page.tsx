@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllBooks, getBookBySlug, getRelatedBooks } from "@/lib/data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBookJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { AGE_GROUPS, BASE_URL, GENRE_COLORS } from "@/lib/config";
 import AmazonButton from "@/components/AmazonButton";
-import BookCover from "@/components/BookCover";
 import BookGrid from "@/components/BookGrid";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -76,73 +76,91 @@ export default async function BookPage({
         ]}
       />
 
-      <article className="animate-reveal">
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div
-            className="flex items-center justify-center rounded-xl p-10 lg:col-span-1"
-            style={{ backgroundColor: `${genreColor}12` }}
-          >
-            <BookCover
+      {/* Hero backdrop with blurred cover */}
+      {coverSrc && (
+        <div
+          className="relative -mx-4 -mt-8 mb-10 overflow-hidden sm:-mx-6 lg:-mx-8"
+          style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
+        >
+          {/* Blurred background */}
+          <div className="absolute inset-0">
+            <Image
               src={coverSrc}
-              title={book.title}
-              author={book.author}
-              genreColor={genreColor}
-              size="detail"
+              alt=""
+              fill
+              className="object-cover scale-150 blur-[60px] brightness-[0.35]"
+              sizes="100vw"
+              aria-hidden="true"
             />
           </div>
+          {/* Gradient fade to page background */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 60%, #FFF8F0 100%)' }} />
 
-          <div className="lg:col-span-2">
-            <h1 className="font-display text-3xl font-bold text-text sm:text-4xl">
-              {book.title}
-            </h1>
-            <p className="mt-1 text-lg text-text-secondary">{book.author}</p>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              {book.ageRange.map((age) => (
-                <span
-                  key={age}
-                  className="rounded-full bg-primary-light px-3 py-1 text-sm font-medium text-primary-dark"
-                >
-                  {age} años
-                </span>
-              ))}
-              {book.genres.map((genre) => (
-                <span
-                  key={genre}
-                  className="rounded-full px-3 py-1 text-sm font-medium text-white"
-                  style={{
-                    backgroundColor: GENRE_COLORS[genre] || "#78716C",
-                  }}
-                >
-                  {genre === "ciencia-ficcion"
-                    ? "Ciencia ficción"
-                    : genre.charAt(0).toUpperCase() + genre.slice(1)}
-                </span>
-              ))}
+          {/* Content */}
+          <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-12 sm:flex-row sm:items-end sm:gap-10 sm:px-6 sm:py-16 lg:px-8">
+            <div className="flex-shrink-0">
+              <Image
+                src={coverSrc}
+                alt={`Portada de ${book.title}`}
+                width={220}
+                height={330}
+                className="h-72 w-auto rounded-xl shadow-2xl sm:h-80"
+              />
             </div>
-
-            <div className="mt-8">
-              <h2 className="font-display text-xl font-bold text-text">
-                Sinopsis
-              </h2>
-              <p className="mt-3 leading-relaxed text-text-secondary">
-                {book.synopsis}
-              </p>
-            </div>
-
-            <div className="mt-8 rounded-xl border-l-4 border-primary bg-primary-light/50 p-6">
-              <h2 className="font-display text-xl font-bold text-primary-dark">
-                Por qué te va a enganchar
-              </h2>
-              <p className="mt-3 leading-relaxed text-text">
-                {book.hook}
-              </p>
-            </div>
-
-            <div className="mt-8">
-              <AmazonButton url={book.amazonUrl} bookTitle={book.title} />
+            <div className="text-center sm:text-left sm:pb-4">
+              <h1 className="font-display text-3xl font-bold text-white sm:text-4xl">
+                {book.title}
+              </h1>
+              <p className="mt-1 text-lg text-white/80">{book.author}</p>
+              <div className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
+                {book.ageRange.map((age) => (
+                  <span
+                    key={age}
+                    className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm"
+                  >
+                    {age} años
+                  </span>
+                ))}
+                {book.genres.map((genre) => (
+                  <span
+                    key={genre}
+                    className="rounded-full px-3 py-1 text-sm font-medium text-white"
+                    style={{
+                      backgroundColor: (GENRE_COLORS[genre] || "#78716C") + "CC",
+                    }}
+                  >
+                    {genre === "ciencia-ficcion"
+                      ? "Ciencia ficción"
+                      : genre.charAt(0).toUpperCase() + genre.slice(1)}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      )}
+
+      <article className="animate-reveal max-w-3xl">
+        <div className="mt-8">
+          <h2 className="font-display text-xl font-bold text-text">
+            Sinopsis
+          </h2>
+          <p className="mt-3 leading-relaxed text-text-secondary">
+            {book.synopsis}
+          </p>
+        </div>
+
+        <div className="mt-8 rounded-2xl border-l-4 border-primary bg-primary-light/50 p-6">
+          <h2 className="font-display text-xl font-bold text-primary-dark">
+            Por qué te va a enganchar
+          </h2>
+          <p className="mt-3 leading-relaxed text-text">
+            {book.hook}
+          </p>
+        </div>
+
+        <div className="mt-8">
+          <AmazonButton url={book.amazonUrl} bookTitle={book.title} />
         </div>
       </article>
 
