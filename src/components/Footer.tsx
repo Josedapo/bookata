@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -5,8 +6,21 @@ export default function Footer() {
     <footer className="border-t border-border bg-surface-alt mt-16">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center">
-          <Link href="/" className="font-display text-xl font-bold text-primary">
-            Bookata
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/images/brand/imagotype.png"
+              alt="Bookata"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
+            />
+            <Image
+              src="/images/brand/logo.png"
+              alt="Bookata"
+              width={120}
+              height={28}
+              className="h-7 w-auto"
+            />
           </Link>
           <p className="max-w-md text-sm text-text-secondary">
             Recomendaciones curadas de libros infantiles y juveniles para padres

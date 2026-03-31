@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AGE_GROUPS, GENRES } from "@/lib/config";
@@ -10,8 +11,21 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="font-display text-2xl font-bold text-primary">
-          Bookata
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/images/brand/imagotype.png"
+            alt="Bookata"
+            width={36}
+            height={36}
+            className="h-9 w-auto"
+          />
+          <Image
+            src="/images/brand/logo.png"
+            alt="Bookata"
+            width={140}
+            height={32}
+            className="h-8 w-auto hidden sm:block"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
