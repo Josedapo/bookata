@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-03-31",
-    "totalBooks": 8
+    "totalBooks": 31
   },
   "books": [
     {
@@ -151,6 +151,424 @@
       "amazonUrl": "https://www.amazon.es/dp/8413140498",
       "coverUrl": "https://books.google.com/books/content?id=1Ij-AgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
       "slug": "el-juego-de-ender"
+    },
+    {
+      "id": "isadora-moon-va-al-colegio",
+      "title": "Isadora Moon va al colegio",
+      "author": "Harriet Muncaster",
+      "isbn": "9788420485188",
+      "ageRange": [
+        "6-8"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
+      "synopsis": "Isadora Moon es mitad hada, mitad vampiro, y siempre totalmente única. Cuando llega el momento de empezar el colegio, no sabe si ir al de hadas o al de vampiros, así que decide ir a uno de niños normales.",
+      "hook": "La serie favorita de las niñas de 6-7 años en España. Isadora es diferente a todo y a todos, y eso es exactamente lo que la hace especial. Tu hija se va a ver reflejada.",
+      "amazonUrl": "https://www.amazon.es/dp/8420485187",
+      "coverUrl": "https://books.google.com/books/content?id=tmaREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "isadora-moon-va-al-colegio"
+    },
+    {
+      "id": "bat-pat-tesoro-cementerio",
+      "title": "Bat Pat: El tesoro del cementerio",
+      "author": "Roberto Pavanello",
+      "isbn": "9788484414230",
+      "ageRange": [
+        "6-8",
+        "8-10"
+      ],
+      "genres": [
+        "misterio",
+        "aventuras"
+      ],
+      "synopsis": "Bat Pat es un murciélago parlanchín que junto a los hermanos Silver se enfrenta a misterios terroríficamente divertidos. En esta aventura descubren un tesoro escondido en un viejo cementerio.",
+      "hook": "Misterio sin miedo: la dosis perfecta de suspense para primeros lectores que quieren historias emocionantes pero no terroríficas. Ideal para enganchar a niños de 7-8 años.",
+      "amazonUrl": "https://www.amazon.es/dp/848441423X",
+      "coverUrl": "https://books.google.com/books/content?id=hTl7LwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "bat-pat-tesoro-cementerio"
+    },
+    {
+      "id": "fray-perico-y-su-borrico",
+      "title": "Fray Perico y su borrico",
+      "author": "Juan Muñoz Martín",
+      "isbn": "9788411820561",
+      "ageRange": [
+        "6-8",
+        "8-10"
+      ],
+      "genres": [
+        "aventuras"
+      ],
+      "synopsis": "En un convento de Salamanca, la llegada de Fray Perico y su borrico Calcetín altera la pacífica vida de veinte frailes con situaciones absurdas llenas de humor y ternura.",
+      "hook": "El clásico español que ha vendido más de un millón de ejemplares. Humor inocente, personajes entrañables y capítulos cortos perfectos para leer antes de dormir.",
+      "amazonUrl": "https://www.amazon.es/dp/8467589280",
+      "coverUrl": "https://books.google.com/books/content?id=gI3YEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "fray-perico-y-su-borrico"
+    },
+    {
+      "id": "kika-superbruja-libro-hechizos",
+      "title": "Kika Superbruja y el libro de hechizos",
+      "author": "KNISTER",
+      "isbn": "9788421681244",
+      "ageRange": [
+        "6-8",
+        "8-10"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
+      "synopsis": "Kika es una niña normal hasta que un día encuentra un libro de hechizos que perteneció a la bruja Elviruja. A partir de ese momento se convierte en una superbruja capaz de vivir aventuras increíbles.",
+      "hook": "La serie que ha hecho leer a millones de niños en España. Magia cotidiana, humor y aventuras con una protagonista que demuestra que las niñas normales pueden ser extraordinarias.",
+      "amazonUrl": "https://www.amazon.es/dp/8421681249",
+      "coverUrl": "https://books.google.com/books/content?id=kMOOPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "kika-superbruja-libro-hechizos"
+    },
+    {
+      "id": "el-pequeno-nicolas",
+      "title": "El pequeño Nicolás",
+      "author": "René Goscinny",
+      "isbn": "9788412990201",
+      "ageRange": [
+        "6-8",
+        "8-10"
+      ],
+      "genres": [
+        "aventuras"
+      ],
+      "synopsis": "Nicolás es un niño travieso que disfruta en el colegio con sus inseparables amigos. Juntos viven situaciones desternillantes que reflejan con humor la vida cotidiana de la infancia.",
+      "hook": "Humor inteligente que funciona para niños y adultos por igual. Del creador de Astérix, un clásico universal que no pasa de moda. Perfecto para leer en familia.",
+      "amazonUrl": "https://www.amazon.es/dp/849122114X",
+      "coverUrl": "https://books.google.com/books/content?id=_nRcEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "el-pequeno-nicolas"
+    },
+    {
+      "id": "diario-de-greg-pringao-total",
+      "title": "Diario de Greg: Un pringao total",
+      "author": "Jeff Kinney",
+      "isbn": "9788427203426",
+      "ageRange": [
+        "8-10",
+        "10-12"
+      ],
+      "genres": [
+        "aventuras"
+      ],
+      "synopsis": "Greg Heffley tiene 12 años y narra en su diario las hilarantes desventuras del curso escolar, mezclando texto con ilustraciones llenas de humor.",
+      "hook": "El libro que consigue que los niños que dicen odiar leer devoren 200 páginas en un fin de semana. Mezcla de cómic y novela que engancha desde la primera página.",
+      "amazonUrl": "https://www.amazon.es/dp/8498672228",
+      "coverUrl": "https://books.google.com/books/content?id=iz7ODwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "diario-de-greg-pringao-total"
+    },
+    {
+      "id": "geronimo-stilton-1",
+      "title": "Mi nombre es Stilton, Gerónimo Stilton",
+      "author": "Geronimo Stilton",
+      "isbn": "9788408047544",
+      "ageRange": [
+        "8-10"
+      ],
+      "genres": [
+        "aventuras",
+        "misterio"
+      ],
+      "synopsis": "Gerónimo Stilton es un ratón editor del periódico más famoso de la Isla de los Ratones. En su primera aventura se ve envuelto en una historia llena de misterio, humor y queso.",
+      "hook": "Tipografía de colores, ilustraciones en cada página y un protagonista ratón con mucho carácter. La serie que ha introducido a millones de niños de 8 años en la lectura.",
+      "amazonUrl": "https://www.amazon.es/dp/840804754X",
+      "coverUrl": "https://books.google.com/books/content?id=SPS4wAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "geronimo-stilton-1"
+    },
+    {
+      "id": "charlie-fabrica-chocolate",
+      "title": "Charlie y la fábrica de chocolate",
+      "author": "Roald Dahl",
+      "isbn": "9788420458922",
+      "ageRange": [
+        "8-10",
+        "10-12"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
+      "synopsis": "El señor Wonka ha escondido cinco billetes de oro en sus chocolatinas. Charlie tiene la suerte de encontrar uno y visitará la fábrica más extraordinaria del mundo.",
+      "hook": "Si tu hijo disfrutó con Matilda, este es el siguiente paso natural. Roald Dahl en su máxima expresión: imaginación desbordante, humor negro y una historia que no se olvida.",
+      "amazonUrl": "https://www.amazon.es/dp/8420482889",
+      "coverUrl": "https://books.google.com/books/content?id=wtsPEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "charlie-fabrica-chocolate"
+    },
+    {
+      "id": "los-cinco-tesoro-isla",
+      "title": "Los Cinco y el tesoro de la isla",
+      "author": "Enid Blyton",
+      "isbn": "9788426142924",
+      "ageRange": [
+        "8-10",
+        "10-12"
+      ],
+      "genres": [
+        "misterio",
+        "aventuras"
+      ],
+      "synopsis": "Tres hermanos conocen a su prima Jorge y juntos descubren que frente a la Isla de Kirrin hay un galeón hundido que guarda un tesoro. La primera aventura del grupo de detectives más famoso.",
+      "hook": "El origen de las novelas de misterio para niños. Sesenta años después, Los Cinco siguen enganchando a nuevas generaciones. Si tu hijo quiere resolver enigmas, empieza aquí.",
+      "amazonUrl": "https://www.amazon.es/dp/8426142923",
+      "coverUrl": "https://books.google.com/books/content?id=bQ6IjgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "los-cinco-tesoro-isla"
+    },
+    {
+      "id": "manolito-gafotas",
+      "title": "Manolito Gafotas",
+      "author": "Elvira Lindo",
+      "isbn": "9788432214233",
+      "ageRange": [
+        "10-12"
+      ],
+      "genres": [
+        "aventuras"
+      ],
+      "synopsis": "Manolito es un niño del barrio madrileño de Carabanchel que narra con desparpajo y gracia sus aventuras cotidianas: el colegio, la familia, los amigos del barrio.",
+      "hook": "El retrato más auténtico y divertido de la infancia española. Elvira Lindo creó un personaje que habla como hablan los niños de verdad. Lectura obligatoria para crecer en España.",
+      "amazonUrl": "https://www.amazon.es/dp/843221423X",
+      "coverUrl": "https://books.google.com/books/content?id=GvbF8E_pSigC&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "manolito-gafotas"
+    },
+    {
+      "id": "percy-jackson-ladron-rayo",
+      "title": "Percy Jackson: El ladrón del rayo",
+      "author": "Rick Riordan",
+      "isbn": "9788498386264",
+      "ageRange": [
+        "10-12",
+        "12-14"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
+      "synopsis": "Percy Jackson descubre que es hijo de Poseidón y que los dioses griegos existen en el siglo XXI. Debe encontrar el rayo de Zeus para evitar una guerra entre los dioses.",
+      "hook": "Mitología griega convertida en aventura trepidante. Si tu hijo agotó Harry Potter y quiere más, Percy Jackson es el siguiente universo que le va a atrapar.",
+      "amazonUrl": "https://www.amazon.es/dp/8498386268",
+      "coverUrl": "https://books.google.com/books/content?id=vHWREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "percy-jackson-ladron-rayo"
+    },
+    {
+      "id": "momo",
+      "title": "Momo",
+      "author": "Michael Ende",
+      "isbn": "9788419507303",
+      "ageRange": [
+        "10-12",
+        "12-14"
+      ],
+      "genres": [
+        "fantasia"
+      ],
+      "synopsis": "Momo es una niña que posee la cualidad de hacer sentir bien a todos los que la escuchan. Pero la llegada de los hombres grises, que roban el tiempo de las personas, cambiará todo.",
+      "hook": "Michael Ende escribió una fábula sobre lo que más falta nos hace hoy: tiempo. Un libro que los niños leen como fantasía y los padres como espejo de la vida moderna.",
+      "amazonUrl": "https://www.amazon.es/dp/8420482765",
+      "coverUrl": "https://books.google.com/books/content?id=O1O3EAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "momo"
+    },
+    {
+      "id": "cronicas-narnia-leon-bruja-armario",
+      "title": "El león, la bruja y el armario",
+      "author": "C.S. Lewis",
+      "isbn": "9788408099031",
+      "ageRange": [
+        "10-12"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
+      "synopsis": "Cuatro hermanos descubren un armario mágico que les transporta al reino de Narnia, donde los animales hablan y una bruja ha sumido todo en un invierno eterno.",
+      "hook": "La puerta de entrada a uno de los grandes mundos de la fantasía. Antes de Hogwarts existió Narnia, y sigue siendo igual de mágico.",
+      "amazonUrl": "https://www.amazon.es/dp/8408099035",
+      "coverUrl": "https://books.google.com/books/content?id=oya9pwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "cronicas-narnia-leon-bruja-armario"
+    },
+    {
+      "id": "historia-interminable",
+      "title": "La historia interminable",
+      "author": "Michael Ende",
+      "isbn": "9788420471549",
+      "ageRange": [
+        "10-12",
+        "12-14"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
+      "synopsis": "Bastián roba un libro misterioso y al leerlo descubre que Fantasía está en peligro. Solo un humano puede salvar el reino, y Bastián se verá arrastrado dentro de la historia.",
+      "hook": "El libro sobre libros. Una novela que celebra la lectura y la imaginación como ninguna otra. Si tu hijo es lector, este libro le hará sentirse protagonista.",
+      "amazonUrl": "https://www.amazon.es/dp/8420471542",
+      "coverUrl": "https://books.google.com/books/content?id=GZzsMgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "la-historia-interminable"
+    },
+    {
+      "id": "la-chica-invisible",
+      "title": "La chica invisible",
+      "author": "Blue Jeans",
+      "isbn": "9788408187233",
+      "ageRange": [
+        "12-14",
+        "14-16"
+      ],
+      "genres": [
+        "misterio"
+      ],
+      "synopsis": "Aurora Ríos aparece muerta en los vestuarios del instituto. Julia Plaza, una compañera con inteligencia prodigiosa, se obsesiona con descubrir la verdad. Un thriller juvenil que inspiró una serie de Disney+.",
+      "hook": "El thriller juvenil español que arrasa. Si tu adolescente quiere un libro que le quite el sueño y no pueda dejar de leer hasta saber quién fue, este es.",
+      "amazonUrl": "https://www.amazon.es/dp/8408239147",
+      "coverUrl": "https://books.google.com/books/content?id=BHRNDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "la-chica-invisible"
+    },
+    {
+      "id": "cazadores-sombras-ciudad-hueso",
+      "title": "Cazadores de sombras: Ciudad de Hueso",
+      "author": "Cassandra Clare",
+      "isbn": "9788408095927",
+      "ageRange": [
+        "12-14",
+        "14-16"
+      ],
+      "genres": [
+        "fantasia",
+        "aventuras"
+      ],
+      "synopsis": "Clary Fray presencia un asesinato en una discoteca que la introduce en un mundo oculto de demonios y cazadores de sombras. Descubre que ella misma forma parte de ese mundo.",
+      "hook": "Fantasía urbana con acción, romance y un mundo sobrenatural que engancha tanto como Harry Potter. Seis libros para no parar de leer.",
+      "amazonUrl": "https://www.amazon.es/dp/8408209841",
+      "coverUrl": "https://books.google.com/books/content?id=dMrbQls1mo0C&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "cazadores-sombras-ciudad-hueso"
+    },
+    {
+      "id": "los-juegos-del-hambre",
+      "title": "Los juegos del hambre",
+      "author": "Suzanne Collins",
+      "isbn": "9788427246003",
+      "ageRange": [
+        "14-16"
+      ],
+      "genres": [
+        "ciencia-ficcion",
+        "aventuras"
+      ],
+      "synopsis": "En un futuro distópico, veinticuatro jóvenes son obligados a participar en un reality show mortal. Katniss Everdeen se presenta voluntaria para ocupar el lugar de su hermana pequeña.",
+      "hook": "La distopía que definió una generación. Acción, crítica social y una protagonista que no necesita que nadie la salve. Si tu adolescente solo quiere leer un libro este año, que sea este.",
+      "amazonUrl": "https://www.amazon.es/dp/8427202121",
+      "coverUrl": "https://books.google.com/books/content?id=kBPg0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "los-juegos-del-hambre"
+    },
+    {
+      "id": "divergente",
+      "title": "Divergente",
+      "author": "Veronica Roth",
+      "isbn": "9788427201187",
+      "ageRange": [
+        "14-16"
+      ],
+      "genres": [
+        "ciencia-ficcion",
+        "aventuras"
+      ],
+      "synopsis": "En un Chicago distópico dividido en cinco facciones, Beatrice Prior descubre que no encaja en ninguna: es divergente, y eso la convierte en una amenaza para el sistema.",
+      "hook": "Si Los Juegos del Hambre le engancharon, Divergente es el siguiente paso. Misma intensidad, diferente mundo, y una pregunta que todo adolescente se hace: ¿quién soy realmente?",
+      "amazonUrl": "https://www.amazon.es/dp/8427201184",
+      "coverUrl": "https://books.google.com/books/content?id=TGmREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "divergente"
+    },
+    {
+      "id": "campos-de-fresas",
+      "title": "Campos de fresas",
+      "author": "Jordi Sierra i Fabra",
+      "isbn": "9788413926032",
+      "ageRange": [
+        "14-16"
+      ],
+      "genres": [
+        "autoayuda"
+      ],
+      "synopsis": "Luciana entra en coma tras consumir una pastilla de éxtasis. Mientras sus amigos buscan al camello, distintas voces narran las horas críticas.",
+      "hook": "Una novela dura, directa y necesaria. Jordi Sierra i Fabra no moraliza: cuenta una historia que golpea y deja pensando. Lectura imprescindible para adolescentes.",
+      "amazonUrl": "https://www.amazon.es/dp/8467593946",
+      "coverUrl": "https://books.google.com/books/content?id=mXljEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "campos-de-fresas"
+    },
+    {
+      "id": "invisible",
+      "title": "Invisible",
+      "author": "Eloy Moreno",
+      "isbn": "9788416588435",
+      "ageRange": [
+        "12-14",
+        "14-16"
+      ],
+      "genres": [
+        "autoayuda"
+      ],
+      "synopsis": "La historia de un niño que se ha vuelto invisible. Una novela sobre el acoso escolar que muestra cómo la indiferencia puede ser la forma más cruel de violencia.",
+      "hook": "El libro sobre bullying que todo adolescente debería leer. Eloy Moreno consigue que el lector entienda cómo se siente ser invisible. Bestseller traducido a más de 15 idiomas.",
+      "amazonUrl": "https://www.amazon.es/dp/8416588430",
+      "coverUrl": "https://books.google.com/books/content?id=rl2REAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "invisible"
+    },
+    {
+      "id": "a-todos-los-chicos",
+      "title": "A todos los chicos de los que me enamoré",
+      "author": "Jenny Han",
+      "isbn": "9788408128441",
+      "ageRange": [
+        "14-16"
+      ],
+      "genres": [
+        "amor"
+      ],
+      "synopsis": "Lara Jean guarda cartas de amor para cada chico del que se ha enamorado. Un día alguien las envía por error y su vida romántica pasa de imaginaria a completamente fuera de control.",
+      "hook": "Romántica, divertida y con una protagonista que se muere de vergüenza cada tres páginas. Si tu adolescente vio la película de Netflix y quiere más, el libro es mucho mejor.",
+      "amazonUrl": "https://www.amazon.es/dp/8408128442",
+      "coverUrl": "https://books.google.com/books/content?id=vVrsAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "a-todos-los-chicos"
+    },
+    {
+      "id": "bajo-la-misma-estrella",
+      "title": "Bajo la misma estrella",
+      "author": "John Green",
+      "isbn": "9788415594048",
+      "ageRange": [
+        "14-16"
+      ],
+      "genres": [
+        "amor",
+        "autoayuda"
+      ],
+      "synopsis": "Hazel y Gus se conocen en un grupo de apoyo para enfermos de cáncer. A pesar de todo, encuentran el amor mientras lidian con la enfermedad y la búsqueda de sentido.",
+      "hook": "John Green escribió la historia de amor más honesta sobre la vida y la muerte. No es triste: es real. Tu adolescente la leerá de un tirón y la recordará siempre.",
+      "amazonUrl": "https://www.amazon.es/dp/8466335366",
+      "coverUrl": "https://books.google.com/books/content?id=cvnINtLUcLMC&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+      "slug": "bajo-la-misma-estrella"
+    },
+    {
+      "id": "crepusculo",
+      "title": "Crepúsculo",
+      "author": "Stephenie Meyer",
+      "isbn": "9788420469287",
+      "ageRange": [
+        "14-16"
+      ],
+      "genres": [
+        "amor",
+        "fantasia"
+      ],
+      "synopsis": "Bella Swan se muda a Forks y conoce al misterioso Edward Cullen. Pronto descubre que Edward es un vampiro y que amarle podría costarle la vida.",
+      "hook": "Más de 3 millones de ejemplares vendidos solo en España. Amor, vampiros y tensión en cada página. El fenómeno que convirtió a millones de adolescentes en lectores.",
+      "amazonUrl": "https://www.amazon.es/dp/8420469289",
+      "coverUrl": "https://books.google.com/books/content?id=GFRAbwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "crepusculo"
     }
   ]
 }
