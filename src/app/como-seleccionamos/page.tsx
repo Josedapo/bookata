@@ -57,7 +57,7 @@ export default function ComoSeleccionamosPage() {
             </h2>
             <p className="mt-3">
               Cada libro tiene una sección &ldquo;Por qué te va a
-              enganchar&rdquo; que es nuestra opinión personal, no una copia de
+              encantar&rdquo; que es nuestra opinión personal, no una copia de
               la contraportada. Escribimos estas recomendaciones pensando en el
               padre o madre que está leyendo: qué puede esperar, por qué ese
               libro funciona para esa edad, y qué tiene de especial.
