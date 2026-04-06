@@ -3,12 +3,12 @@ import { GENRES } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/metadata";
 import GenrePageTemplate from "@/components/GenrePageTemplate";
 
-const genre = GENRES.find((g) => g.id === "autoayuda")!;
+const genre = GENRES.find((g) => g.id === "comic")!;
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Libros de crecimiento personal para niños y adolescentes",
-  description: "Libros que inspiran a niños y adolescentes a conocerse mejor y desarrollar empatía a través de historias que dejan huella.",
-  path: "/libros-autoayuda-juvenil",
+  title: "Cómics y novelas gráficas para niños y adolescentes",
+  description: "Cómics y novelas gráficas para niños y adolescentes: historias visuales que enganchan desde la primera viñeta, perfectas para todos los niveles de lectura.",
+  path: "/libros-comic-juvenil",
 });
 
 export default function Page() {

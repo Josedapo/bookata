@@ -141,9 +141,7 @@ export default async function BookPage({
                         backgroundColor: (GENRE_COLORS[genre] || "#78716C") + "CC",
                       }}
                     >
-                      {genre === "ciencia-ficcion"
-                        ? "Ciencia ficción"
-                        : genre.charAt(0).toUpperCase() + genre.slice(1)}
+                      {g?.label || genre.charAt(0).toUpperCase() + genre.slice(1)}
                     </Link>
                   );
                 })}
@@ -154,18 +152,9 @@ export default async function BookPage({
       )}
 
       <article className="animate-reveal max-w-3xl">
-        <div className="mt-8">
-          <h2 className="font-display text-xl font-bold text-text">
-            Sinopsis
-          </h2>
-          <p className="mt-3 leading-relaxed text-text-secondary">
-            {book.synopsis}
-          </p>
-        </div>
-
         <div className="mt-8 rounded-2xl border-l-4 border-primary bg-primary-light/50 p-6">
           <h2 className="font-display text-xl font-bold text-primary-dark">
-            ¿Por qué te va a enganchar?
+            ¿Por qué te va a encantar?
           </h2>
           <p className="mt-3 leading-relaxed text-text">
             {book.hook}

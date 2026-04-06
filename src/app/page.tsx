@@ -47,43 +47,19 @@ export default function HomePage() {
 
       {/* Carousels by age, interleaved with genre nav */}
       <div className="space-y-12">
-        {/* Age 6-8 */}
-        <BookCarousel
-          title={`Libros para niños de ${booksByAge[0].label}`}
-          books={booksByAge[0].books}
-          href={`/${booksByAge[0].slug}`}
-        />
-
-        {/* Age 8-10 */}
-        <BookCarousel
-          title={`Libros para niños de ${booksByAge[1].label}`}
-          books={booksByAge[1].books}
-          href={`/${booksByAge[1].slug}`}
-        />
-
-        {/* Genre navigation */}
-        <GenreNav />
-
-        {/* Age 10-12 */}
-        <BookCarousel
-          title={`Libros para niños de ${booksByAge[2].label}`}
-          books={booksByAge[2].books}
-          href={`/${booksByAge[2].slug}`}
-        />
-
-        {/* Age 12-14 */}
-        <BookCarousel
-          title={`Libros para adolescentes de ${booksByAge[3].label}`}
-          books={booksByAge[3].books}
-          href={`/${booksByAge[3].slug}`}
-        />
-
-        {/* Age 14-16 */}
-        <BookCarousel
-          title={`Libros para adolescentes de ${booksByAge[4].label}`}
-          books={booksByAge[4].books}
-          href={`/${booksByAge[4].slug}`}
-        />
+        {booksByAge.map((ag, i) => {
+          const prefix = parseInt(ag.range.split("-")[0]) >= 12 ? "adolescentes" : "niños";
+          return (
+            <div key={ag.range}>
+              {i === 3 && <div className="mb-12"><GenreNav /></div>}
+              <BookCarousel
+                title={`Libros para ${prefix} de ${ag.label}`}
+                books={ag.books}
+                href={`/${ag.slug}`}
+              />
+            </div>
+          );
+        })}
       </div>
     </>
   );

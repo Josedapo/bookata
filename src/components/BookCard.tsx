@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Book } from "@/lib/types";
-import { GENRE_COLORS } from "@/lib/config";
+import { GENRE_COLORS, GENRES } from "@/lib/config";
 import BookCover from "./BookCover";
 
 export default function BookCard({ book }: { book: Book }) {
@@ -41,7 +41,7 @@ export default function BookCard({ book }: { book: Book }) {
               className="rounded-full px-2.5 py-0.5 text-xs font-medium text-white"
               style={{ backgroundColor: GENRE_COLORS[genre] || "#78716C" }}
             >
-              {genre === "ciencia-ficcion" ? "Ci-Fi" : genre.charAt(0).toUpperCase() + genre.slice(1)}
+              {GENRES.find((g) => g.id === genre)?.label || genre.charAt(0).toUpperCase() + genre.slice(1)}
             </span>
           ))}
         </div>

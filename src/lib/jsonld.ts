@@ -32,7 +32,7 @@ export function buildBookJsonLd(book: Book) {
     author: { "@type": "Person", name: book.author },
     isbn: book.isbn,
     url: `${BASE_URL}/libro/${book.slug}`,
-    description: book.synopsis,
+    description: book.hook,
     ...(book.coverUrl ? { image: book.coverUrl } : {}),
   };
 }

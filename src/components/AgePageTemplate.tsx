@@ -1,9 +1,8 @@
-import type { AgeRange } from "@/lib/types";
 import type { AgeGroup } from "@/lib/types";
 import { getBooksByAge } from "@/lib/data";
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
-import { BASE_URL } from "@/lib/config";
-import BookGrid from "./BookGrid";
+import { BASE_URL, SECTIONS } from "@/lib/config";
+import BookCarousel from "./BookCarousel";
 import Breadcrumbs from "./Breadcrumbs";
 
 export default function AgePageTemplate({
@@ -12,6 +11,11 @@ export default function AgePageTemplate({
   ageGroup: AgeGroup;
 }) {
   const books = getBooksByAge(ageGroup.range);
+
+  const sectionRows = SECTIONS.map((section) => ({
+    ...section,
+    books: books.filter((b) => b.sections.includes(section.id)),
+  })).filter((row) => row.books.length > 0);
 
   return (
     <>
@@ -46,8 +50,14 @@ export default function AgePageTemplate({
         </p>
       </div>
 
-      <div className="mt-10">
-        <BookGrid books={books} />
+      <div className="mt-10 space-y-12">
+        {sectionRows.map((row) => (
+          <BookCarousel
+            key={row.id}
+            title={row.label}
+            books={row.books}
+          />
+        ))}
       </div>
 
       {books.length === 0 && (

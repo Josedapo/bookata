@@ -1,574 +1,714 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-31",
-    "totalBooks": 31
+    "lastUpdated": "2026-04-06",
+    "totalBooks": 36
   },
   "books": [
     {
-      "id": "matilda",
-      "title": "Matilda",
-      "author": "Roald Dahl",
-      "isbn": "9788420458946",
+      "id": "la-vaca-que-puso-un-huevo",
+      "title": "La vaca que puso un huevo",
+      "author": "Andy Cutbill",
+      "isbn": "978-8479015619",
       "ageRange": [
-        "6-8",
-        "8-10"
+        "3-5"
+      ],
+      "genres": [
+        "valores",
+        "aventuras"
+      ],
+      "sections": [
+        "acierto-seguro"
+      ],
+      "hook": "Es de esos cuentos que arrancan sonrisas desde el primer momento. La historia es tan disparatada y tierna que los peques se quedan pegados a la página, queriendo saber cómo una vaca acaba metida en semejante lío. Y, entre risas, se llevan un mensaje precioso sobre creer en uno mismo y en lo especial que puede ser aquello que te hace diferente",
+      "amazonUrl": "https://amzn.to/4sPxt1c",
+      "coverUrl": "https://books.google.com/books/content?id=6E1-tgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "la-vaca-que-puso-un-huevo"
+    },
+    {
+      "id": "la-casa-de-tomasa",
+      "title": "La casa de Tomasa",
+      "author": "Phyllis Root",
+      "isbn": "978-8426359377",
+      "ageRange": [
+        "3-5"
       ],
       "genres": [
         "aventuras"
       ],
-      "synopsis": "La edición en tapa dura de Matilda, el clásico más querido de Roald Dahl. La magia de los libros convertida en el regalo perfecto. Matilda es una ávida lectora de solo cinco años. Sensible e inteligente, todos la admiran menos sus mediocres padres, que la consideran una inútil. Además, tiene poderes extraños y maravillosos... Un día, Matilda decide liberarse y empieza a emplearlos contra la abominable y cruel señorita Trunchbull. Las historias inolvidables de Roald Dahl merecen una edición a la altura de su magia. Las ediciones en tapa dura de la colección «Alfaguara Clásicos» han sido pensadas para convertirse en un regalo especial y duradero: libros que no solo se leen, sino que se atesoran en la biblioteca familiar. Con acabados cuidados y un diseño elegante, son la elección perfecta para compartir la alegría de la lectura y dejar huella en quienes más queremos.",
-      "hook": "Roald Dahl escribió la fantasía de todo niño lector: una heroína que demuestra que los libros son un superpoder. Tu hijo se va a identificar desde la primera página.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788420458946",
-      "coverUrl": "https://books.google.com/books/content?id=xNsPEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "matilda"
+      "sections": [
+        "acierto-seguro"
+      ],
+      "hook": "Es la historia de Tomasa, que se monta una casita ideal para ella y su gato, pero de repente se le empieza a acoplar todo el mundo. Lo mejor es que el libro tiene solapas que vas abriendo y ves cómo la casa se va quedando pequeña ¡Superdivertido para leerlo con ellos y que vayan descubriendo quién se esconde en cada rincón!",
+      "amazonUrl": "https://amzn.to/4bRvIuE",
+      "coverUrl": "https://books.google.com/books/content?id=U7EiAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "la-casa-de-tomasa"
     },
     {
-      "id": "el-principito",
-      "title": "El Principito",
-      "author": "Antoine de Saint-Exupéry",
-      "isbn": "9788498381498",
+      "id": "a-que-sabe-la-luna",
+      "title": "¿A qué sabe la luna?",
+      "author": "Michael Grejniec",
+      "isbn": "978-8484645641",
       "ageRange": [
-        "8-10",
-        "10-12"
+        "3-5"
       ],
       "genres": [
-        "fantasia",
+        "valores"
+      ],
+      "sections": [
+        "acierto-seguro"
+      ],
+      "hook": "Es pura poesía visual sobre el trabajo en equipo. La estructura es acumulativa (un animal llama a otro), lo que les permite participar en la lectura anticipando quién viene. Les deja una sensación de paz y compañerismo preciosa",
+      "amazonUrl": "https://amzn.to/4sk8dPL",
+      "coverUrl": "https://books.google.com/books/content?id=ambFAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "a-que-sabe-la-luna"
+    },
+    {
+      "id": "la-luz-de-lucia",
+      "title": "La luz de Lucía",
+      "author": "Margarita del Mazo",
+      "isbn": "978-8416078950",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "amor",
+        "valores"
+      ],
+      "sections": [
+        "acierto-seguro"
+      ],
+      "hook": "La luz de Lucía es como encender una pequeña linterna en medio de la noche: cálido, mágico y lleno de esperanza. Los peques se enganchan porque la pequeña luciérnaga Lucía les recuerda que todos brillamos de formas distintas, incluso cuando no nos damos cuenta. Y al final, se quedan con esa sensación preciosa de que su luz interior importa y puede iluminar a los demás.",
+      "amazonUrl": "https://amzn.to/4scASGg",
+      "coverUrl": "https://books.google.com/books/content?id=nVLDwAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "la-luz-de-lucia"
+    },
+    {
+      "id": "shhh-tenemos-un-plan",
+      "title": "¡Shhh! Tenemos un plan",
+      "author": "Chris Haughton",
+      "isbn": "978-8417673215",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "aventuras",
+        "valores"
+      ],
+      "sections": [
+        "favoritos-ninos"
+      ],
+      "hook": "Tiene un estilo artístico muy moderno pero que ellos pillan a la primera. La repetición de \"1, 2, 3... ¡ya!\" les invita a participar físicamente. Es una lección sobre cómo la delicadeza vence a la fuerza, pero contada con mucha risa.",
+      "amazonUrl": "https://amzn.to/4sfKPTx",
+      "coverUrl": "https://books.google.com/books/content?id=FOVhwQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "shhh-tenemos-un-plan"
+    },
+    {
+      "id": "que-asco-de-sandwich",
+      "title": "¡Qué asco de sandwich!",
+      "author": "Gareth Edwards",
+      "isbn": "978-8415116899",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
         "aventuras"
       ],
-      "synopsis": "\"He aquí mi secreto, que no puede ser más simple: solo con el corazón se puede ver bien; lo esencial es invisible a los ojos\". Autorretrato y obra testamentaria, fábula mítica y relato filosófico que interroga acerca de la relación del ser humano con su prójimo y con el mundo, El Principito concentra, con maravillosa simplicidad, la larga y constante reflexión de Saint-Exupéry sobre la amistad, el amor, la responsabilidad y el sentido de la vida, en un contexto marcado por el conflicto mundial y el desasosiego de un escritor piloto profundamente afectado por su soledad. ENGLISH DESCRIPTION The Little Prince is a classic tale of equal appeal to children and adults. On one level it is the story of an airman's discovery, in the desert, of a small boy from another planet - the Little Prince of the title - and his stories of intergalactic travel, while on the other hand it is a thought-provoking allegory of the human condition. The Little Prince has been selected as a Common Core Text Exemplar (Grades 4-5, Stories).",
-      "hook": "Un libro que los niños leen como aventura y los adultos releen descubriendo capas nuevas cada vez. Tu hijo lo leerá tres veces y en cada una encontrará algo distinto.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788498381498",
-      "coverUrl": "https://books.google.com/books/content?id=rnWREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "el-principito"
+      "sections": [
+        "favoritos-ninos"
+      ],
+      "hook": "Un sándwich que se cae al suelo y le pasan mil desgracias asquerosas. Los niños disfrutan muchísimo con el \"¡puaj!\" cada vez que el sándwich empeora. Es humor visual del bueno que les mantiene pegados a la página.",
+      "amazonUrl": "https://amzn.to/4mbPzIu",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9788415116899-L.jpg",
+      "slug": "que-asco-de-sandwich"
     },
     {
-      "id": "harry-potter-piedra-filosofal",
-      "title": "Harry Potter y la piedra filosofal",
-      "author": "J.K. Rowling",
-      "isbn": "9781781101315",
+      "id": "el-topo-que-queria-saber-quien-se-habia-hecho-aquello-en-su-cabeza",
+      "title": "El topo que quería saber quién se había hecho aquello en su cabeza",
+      "author": "Werner Holzwarth",
+      "isbn": "978-8448846305",
       "ageRange": [
-        "8-10",
-        "10-12"
+        "3-5"
       ],
       "genres": [
-        "fantasia",
         "aventuras"
       ],
-      "synopsis": "Con las manos temblorosas, Harry le dio la vuelta al sobre y vio un sello de lacre púrpura con un escudo de armas: un león, un águila, un tejón y una serpiente, que rodeaban una gran letra H. Harry Potter nunca había oído nada sobre Hogwarts cuando las cartas comienzan a caer en el felpudo del número cuatro de Privet Drive. Escritas en tinta verde en un pergamino amarillento con un sello morado, sus horribles tíos las han confiscado velozmente. En su undécimo cumpleaños, un hombre gigante de ojos negros llamado Rubeus Hagrid aparece con una noticia extraordinaria: Harry Potter es un mago y tiene una plaza en el Colegio Hogwarts de Magia y Hechicería. ¡Una aventura increíble está a punto de empezar! Esta edición está traducida al castellano. Existe otra edición disponible para los lectores de español latinoamericano. Tema musical compuesto por James Hannigan.",
-      "hook": "Si tu hijo aún no ha entrado en el mundo de Hogwarts, este es el momento. El primer libro es una puerta que abre 7 volúmenes de lectura compulsiva.",
-      "amazonUrl": "https://www.amazon.es/s?k=9781781101315",
-      "coverUrl": "https://books.google.com/books/content?id=2zgRDXFWkm8C&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "harry-potter-piedra-filosofal"
+      "sections": [
+        "favoritos-ninos"
+      ],
+      "hook": "Una joya que no puede faltar en ningún hogar para despertar su pasión por las historias. Al tener una lectura ágil y repetitiva, los niños siguen el hilo perfectamente y se divierten mucho formando parte de la narración en todo momento.",
+      "amazonUrl": "https://amzn.to/4bPJs9b",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9788448846305-L.jpg",
+      "slug": "el-topo-que-queria-saber-quien-se-habia-hecho-aquello-en-su-cabeza"
     },
     {
-      "id": "los-futbolisimos",
-      "title": "Los Futbolísimos: El misterio de los árbitros dormidos",
-      "author": "Roberto Santiago",
-      "isbn": "9788467591323",
+      "id": "nac-nac-el-monstruo-comelibros",
+      "title": "Ñac-ñac, el monstruo comelibros",
+      "author": "Emma Yarlett",
+      "isbn": "978-8469604915",
       "ageRange": [
-        "8-10",
-        "10-12"
+        "3-5"
       ],
       "genres": [
-        "misterio",
-        "aventuras"
+        "aventuras",
+        "fantasia"
       ],
-      "synopsis": "Un equipo de fútbol infantil investiga por qué los árbitros se quedan dormidos durante los partidos. Lo que empieza como un misterio deportivo se convierte en una aventura llena de humor.",
-      "hook": "Fútbol + misterio + humor: la combinación perfecta para niños que dicen que no les gusta leer. Los Futbolísimos han convertido a miles de niños en lectores.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788467591323",
-      "coverUrl": "https://books.google.com/books/content?id=LHbHDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "los-futbolisimos-misterio-arbitros-dormidos"
+      "sections": [
+        "favoritos-ninos"
+      ],
+      "hook": "Ñac-ñac, el monstruo comelibros es pura diversión desde la primera página: un bichito travieso que se mete en los cuentos como si fueran puertas secretas. Los peques se parten de risa siguiéndolo mientras hace de las suyas, y sienten esa emoción de “¿qué va a pasar ahora?”. Además, les despierta un amor enorme por los libros, porque convierte la lectura en un juego irresistible",
+      "amazonUrl": "https://amzn.to/4vbi39k",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9788469604915-L.jpg",
+      "slug": "nac-nac-el-monstruo-comelibros"
     },
     {
-      "id": "wonder",
-      "title": "Wonder. La lección de August",
-      "author": "R.J. Palacio",
-      "isbn": "9788415594024",
+      "id": "el-punto",
+      "title": "El punto",
+      "author": "Peter Hamilton Reynolds",
+      "isbn": "978-8427241954",
       "ageRange": [
-        "10-12",
-        "12-14"
+        "3-5"
       ],
       "genres": [
-        "autoayuda"
+        "valores"
       ],
-      "synopsis": "August es un niño muy feo. Nació con varios síndromes que, combinados, son lo peor que a nadie le podría pasar. Sus orejas son como dos coliflores o dos puños cerrados, tiene los ojos un poco más abajo de donde deberían estar, su nariz se parece a la de Voldemort y debe concentrarse para no escupir cuando mastica. August sabe que su cara es un cuadro, pero vive con ello. Qué remedio. Claro que hasta ahora lo ha llevado más o menos bien porque estudiaba en casa... pero este año va a ir al colegio. Vais a tener que leeros este libro. Estupendísimamente escrito, hilado con un humor muy fino y repleto de personajes maravillosos, cuenta una historia que sobrecoge, que duele, que hace reír, que contiene guiños y que deja una sensación de paz increíble. No es ni juvenil, ni infantil, ni adulto, es un poco de todo, un libro de esos que son para todas las edades. Está narrado por varias voces, y cada una cuenta un cachito diferente de la historia. Porque así es la vida: un mismo momento tiene mil versiones y una misma versión tiene mil verdades.",
-      "hook": "Este libro cambia cómo los adolescentes ven a los demás. Es una historia que genera conversaciones importantes en casa de forma natural, sin moralizar.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788415594024",
-      "coverUrl": "https://books.google.com/books/content?id=buKjMQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "wonder-la-leccion-de-august"
+      "sections": [
+        "recomendados-profes"
+      ],
+      "hook": "Una niña que cree que no sabe dibujar, hasta que su profesora la anima a hacer simplemente un punto… y ese pequeño gesto se convierte en el inicio de un viaje creativo que le demuestra que sí es capaz. A tu peque le encantará porque es un cuento sencillo, inspirador y muy emotivo que anima a creer en uno mismo y a atreverse a empezar, aunque sea con algo pequeñito.",
+      "amazonUrl": "https://amzn.to/4mdHVNJ",
+      "coverUrl": "https://books.google.com/books/content?id=vlBCzabjby0C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "el-punto"
     },
     {
-      "id": "el-hobbit",
-      "title": "El Hobbit",
-      "author": "J.R.R. Tolkien",
-      "isbn": "9788445077948",
+      "id": "de-aqui-no-pasa-nadie",
+      "title": "¡De aquí no pasa nadie!",
+      "author": "Isabel Minhós Martins",
+      "isbn": "978-8416003778",
       "ageRange": [
-        "10-12",
-        "12-14"
-      ],
-      "genres": [
-        "fantasia",
-        "aventuras"
-      ],
-      "synopsis": "La puerta de entrada a la Tierra Media. \"Smaug parecía profundamente dormido cuando espió una vez más la entrada. ¡Pero fingía estar dormido! ¡Estaba vigilando la entrada del túnel! Sacado de su cómodo agujero hobbit por Gandalf y una banda de enanos, Bilbo se encuentra de pronto en medio de una conspiración que pretende apoderarse del tesoro de Smaug el Magnífico, un enorme y muy peligroso dragón... «Todos los que aman esos libros para niños que pueden ser leídos y releídos por adultos han de tomar buena cuenta de que una nueva estrella ha aparecido en esa constelación.» C.S. Lewis. . «Tolkien era un narrador de genio» Literary Review. . Tolkien es uno de los autores de fantasía más importantes de todos los tiempos. . En septiembre de 2022, Amazon Video estrenó la serie de El Señor de los Anillos, Los Anillos de Poder. Una superproducción, la más cara de la historia de la plataforma, que compite con Juego de Tronos. . Nueva edición revisada . El Hobbit es un libro excelente para introducir tanto a jóvenes lectores como a adultos en el mundo de la fantasía.",
-      "hook": "La aventura clásica que funciona a cualquier edad. Un libro que enseñar a tu hijo antes de que descubra las películas.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788445077948",
-      "coverUrl": "https://books.google.com/books/content?id=xi2URRig7jYC&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "el-hobbit"
-    },
-    {
-      "id": "culpa-mia",
-      "title": "Culpa mía",
-      "author": "Mercedes Ron",
-      "isbn": "9788490438725",
-      "ageRange": [
-        "14-16"
-      ],
-      "genres": [
-        "amor"
-      ],
-      "synopsis": "El mundo de Axlin está plagado de monstruos. Algunos atacan a los viajeros en los caminos, otros asedian las aldeas hasta que logran arrasarlas por completo y otros entran en las casas por las noches para llevarse a los niños mientras duermen. Axlin ha crecido siendo consciente de que cualquier día le puede tocar a ella. Su gente ha sobrevivido a los monstruos durante generaciones y ha aprendido a evitarlos en la medida de lo posible. Pero un día Axlin descubre que existen muchos tipos de monstruos diferentes, que cada aldea se enfrenta a sus propias pesadillas y que hay criaturas que no conoce y ante las que no sabe cómo defenderse. Axlin es la escriba de su aldea, la única que sabe leer y escribir. Debido a ello, nadie de su entorno comprende realmente la importancia de su trabajo. Pero ella se ha propuesto investigar todo lo que pueda sobre los monstruos y plasmar sus descubrimientos en un libro que pueda servir de guía y protección a otras personas. Por eso decide partir con los buhoneros en una larga ruta para reunir la sabiduría ancestral de las aldeas en su precaria lucha contra los monstruos. No obstante, a lo largo de su viaje descubrirá cosas que jamás habría imaginado cuando partió.",
-      "hook": "El fenómeno que arrasó en BookTok y ya tiene película. Si tu adolescente quiere un libro que no pueda soltar, este es el candidato.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788490438725",
-      "coverUrl": "https://books.google.com/books/content?id=8jFVDgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "culpa-mia"
-    },
-    {
-      "id": "el-juego-de-ender",
-      "title": "El juego de Ender",
-      "author": "Orson Scott Card",
-      "isbn": "9788490194928",
-      "ageRange": [
-        "12-14",
-        "14-16"
-      ],
-      "genres": [
-        "ciencia-ficcion",
-        "aventuras"
-      ],
-      "synopsis": "La novela más famosa de ciencia ficción moderna: un clásico indiscutible, ganadora de los premios Hugo, Nebula y SF Chronicle. La Tierra se ve amenazada por una raza extraterrestre, los Insectores, que se comunican telepáticamente y consideran no tener nada en común con los humanos, a quienes pretenden destruir. Para vencerlos es necesario una nueva clase de genio militar, y por ello se ha permitido el nacimiento de Ender, lo que constituye, en cierta forma, una anomalía, pues es el tercer hijo de una pareja en un mundo que ha limitado estrictamente a dos el número de descendientes. El niño Ender deberá aprender todo lo relativo a la guerra en los videojuegos y en los peligrosos ensayos de batallas espaciales que realiza con sus compañeros. A la habilidad en el tratamiento de las emociones, ya característica de Orson Scott Card, se une en este libro el interés por el empleo de las simulaciones por ordenador y los juegos de fantasía en la formación militar, estratégica y psicológica del protagonista. Reseñas: «El gran libro de ciencia ficción para adolescentes que no leen ciencia ficción, principalmente porque no habla de robots sino de niños contra adultos.» El diario.es «Una historia con acción e ideas que incluso los no lectores devorarán con avidez.» iPulp Fiction",
-      "hook": "Ciencia ficción con un protagonista adolescente que es más inteligente que todos los adultos. Un clásico que engancha a lectores de 12 a 99 años.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788490194928",
-      "coverUrl": "https://books.google.com/books/content?id=1Ij-AgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "el-juego-de-ender"
-    },
-    {
-      "id": "isadora-moon-va-al-colegio",
-      "title": "Isadora Moon va al colegio",
-      "author": "Harriet Muncaster",
-      "isbn": "9788420485188",
-      "ageRange": [
+        "3-5",
         "6-8"
       ],
       "genres": [
-        "fantasia",
+        "valores",
         "aventuras"
       ],
-      "synopsis": "Mitad hada, mitad vampiro ¡y totalmente única! Disfruta de la lectura con las aventuras de Isadora Moon, un personaje súper especial. Isadora Moon es especial porque es diferente. Su mamá es un hada, su papá un vampiro y ella tiene un poquito de los dos. Le encanta la noche, los murciélagos y su tutú negro de ballet, pero también la luz del sol, las varitas mágicas y su conejo rosa Pinky. Cuando llega el momento de empezar el colegio, Isadora no sabe a cuál debe ir: ¿al de hadas o al de vampiros? Con irresistibles ilustraciones en negro y rosa y una heroína única, «Isadora Moon» es una encantadora y divertida serie de lecturas ideal para jóvenes lectores que quieren flores y purpurina, pero a los que también les atrae el mundo misterioso de los vampiros.ENGLISH DESCRIPTIONMeet Isadora Moon! She's half-fairy, half-vampire and totally unique!Isadora Moon loves sunshine — and nighttime. She loves her magic wand — and her black tutu. She loves spooky bats — and Pink Rabbit. Isadora is half-fairy, half-vampire, and she’s special because she is different! Now Isadora’s parents want her to start school, but she’s not sure where she belongs — fairy school or vampire school?",
-      "hook": "La serie favorita de las niñas de 6-7 años en España. Isadora es diferente a todo y a todos, y eso es exactamente lo que la hace especial. Tu hija se va a ver reflejada.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788420485188",
-      "coverUrl": "https://books.google.com/books/content?id=tmaREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "isadora-moon-va-al-colegio"
+      "sections": [
+        "recomendados-profes"
+      ],
+      "hook": "Se parten de risa viendo cómo todos los personajes se amontonan de forma caótica en una sola página. Les encanta ver cómo todos quieren pasar, pero el guardia se mantiene firme... hasta que una pelota cruza la frontera accidentalmente. Este pequeño incidente provoca una \"rebelión\" pacífica, demostrando que las fronteras son absurdas y que la convivencia es mucho más divertida.",
+      "amazonUrl": "https://amzn.to/4scBCew",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9788416003778-L.jpg",
+      "slug": "de-aqui-no-pasa-nadie"
     },
     {
-      "id": "bat-pat-tesoro-cementerio",
-      "title": "Bat Pat: El tesoro del cementerio",
-      "author": "Roberto Pavanello",
-      "isbn": "9788484414230",
+      "id": "elmer",
+      "title": "Elmer",
+      "author": "David McKee",
+      "isbn": "978-8448823283",
       "ageRange": [
-        "6-8",
-        "8-10"
+        "3-5"
       ],
       "genres": [
-        "misterio",
-        "aventuras"
+        "valores"
       ],
-      "synopsis": "When Bat Pat, a talking bat who lives in a cemetery and writes scary books, spots a suspicious caped figure, he is attacked by a crow and rescued by the Silver family, who help him search for a treasure with the aid of a ghostly sea captain.",
-      "hook": "Misterio sin miedo: la dosis perfecta de suspense para primeros lectores que quieren historias emocionantes pero no terroríficas. Ideal para enganchar a niños de 7-8 años.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788484414230",
-      "coverUrl": "https://books.google.com/books/content?id=hTl7LwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "bat-pat-tesoro-cementerio"
+      "sections": [
+        "recomendados-profes"
+      ],
+      "hook": "Elmer es un elefante de colores en un mundo de elefantes grises. Es el canto a la diferencia por excelencia. Los niños adoran buscar a Elmer entre los demás y entienden que ser distinto es, precisamente, lo que nos hace especiales.",
+      "amazonUrl": "https://amzn.to/4sbYUkU",
+      "coverUrl": "https://books.google.com/books/content?id=NztpPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "elmer"
     },
     {
-      "id": "fray-perico-y-su-borrico",
-      "title": "Fray Perico y su borrico",
-      "author": "Juan Muñoz Martín",
-      "isbn": "9788411820561",
+      "id": "las-jirafas-no-pueden-bailar",
+      "title": "Las jirafas no pueden bailar",
+      "author": "Giles Andreae",
+      "isbn": "978-8421683125",
       "ageRange": [
-        "6-8",
-        "8-10"
+        "3-5"
+      ],
+      "genres": [
+        "valores"
+      ],
+      "sections": [
+        "recomendados-profes"
+      ],
+      "hook": "Chulísimo para hablar de la autoestima. Chufa la jirafa es patosa, pero descubre que solo necesita \"otra música\" para bailar. Es muy rítmico y las ilustraciones son súper alegres. Ayuda mucho a los peques que son un poco más tímidos.",
+      "amazonUrl": "https://amzn.to/4dMhZGX",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9788421683125-L.jpg",
+      "slug": "las-jirafas-no-pueden-bailar"
+    },
+    {
+      "id": "si-no-comi-nada",
+      "title": "¡Si no comí nada!",
+      "author": "Mar Benegas",
+      "isbn": "978-8491014980",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "valores"
+      ],
+      "sections": [
+        "humor"
+      ],
+      "hook": "Es uno de los libros favoritos de los peques porque la hora del cuento se convierte en un festival de risas. El lobo feroz va al médico con un empacho tremendo y a medida que avanza la historia, van apareciendo por ahí un montón de personajes, como la abuelita, los cabritillos...",
+      "amazonUrl": "https://amzn.to/4tqKQVy",
+      "coverUrl": "https://books.google.com/books/content?id=pzxQzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "si-no-comi-nada"
+    },
+    {
+      "id": "este-album-se-ha-comido-a-mi-perro",
+      "title": "¡Este álbum se ha comido a mi perro!",
+      "author": "Richard Byrne",
+      "isbn": "978-8469601419",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "fantasia"
+      ],
+      "sections": [
+        "humor"
+      ],
+      "hook": "Los personajes desaparecen literalmente por el pliegue del libro. El niño tiene que girar el libro, sacudirlo y ayudar a los protagonistas. Esa interacción física mezclada con el absurdo de la situación hace que se meen de la risa.",
+      "amazonUrl": "https://amzn.to/4tvNc5N",
+      "coverUrl": "https://books.google.com/books/content?id=hnUbogEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "este-album-se-ha-comido-a-mi-perro"
+    },
+    {
+      "id": "voy-a-comedte",
+      "title": "¡Voy a comedte!",
+      "author": "Jean-Marc Derouen",
+      "isbn": "978-8492750863",
+      "ageRange": [
+        "3-5"
       ],
       "genres": [
         "aventuras"
       ],
-      "synopsis": "En el siglo XIX, la llegada de fray Perico y su borrico Calcetín va a trastornar la apacible existencia de los veinte frailes de un convento de Salamanca que viven haciendo el bien y repartiendo lo poco que tienen. El convento no tardará en vivir situaciones disparatadas, llenas de humor y alegría, gracias a este simpático personaje.Una divertida historia de aventuras sobre un fraile y su borrico.",
-      "hook": "El clásico español que ha vendido más de un millón de ejemplares. Humor inocente, personajes entrañables y capítulos cortos perfectos para leer antes de dormir.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788411820561",
-      "coverUrl": "https://books.google.com/books/content?id=gI3YEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "fray-perico-y-su-borrico"
+      "sections": [
+        "humor"
+      ],
+      "hook": "Prepárate para reír. El lobo habla con una \"z\" porque tiene un pelo en la lengua, y eso hace que el \"miedo\" al lobo desaparezca de un plumazo. Es ideal para leerlo poniendo voces y ver cómo el peque se parte de la risa con los líos del lobo.",
+      "amazonUrl": "https://amzn.to/4vbI9sA",
+      "coverUrl": "https://books.google.com/books/content?id=VSVEmgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "voy-a-comedte"
     },
     {
-      "id": "kika-superbruja-libro-hechizos",
-      "title": "Kika Superbruja y el libro de hechizos",
-      "author": "KNISTER",
-      "isbn": "9788421681244",
+      "id": "las-princesas-tambien-se-tiran-pedos",
+      "title": "Las princesas tambien se tiran pedos",
+      "author": "Ilan Brenman",
+      "isbn": "978-8498453157",
       "ageRange": [
-        "6-8",
-        "8-10"
+        "3-5",
+        "6-8"
       ],
       "genres": [
-        "fantasia",
-        "aventuras"
+        "valores",
+        "fantasia"
       ],
-      "synopsis": "¿Quién es realmente la bruja Elviruja? ¿Por qué su libro de hechizos acabó en manos de Kika? ¿Cómo influyó en ello el dragón Héctor? ¿Y qué pintan el perverso brujo Jerónimo y el malaspulgas de su perro Serafín en esta historia? ¡Por fin vas a saberlo TODO sobre cómo empezaron las aventuras de Kika Superbruja!",
-      "hook": "La serie que ha hecho leer a millones de niños en España. Magia cotidiana, humor y aventuras con una protagonista que demuestra que las niñas normales pueden ser extraordinarias.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788421681244",
-      "coverUrl": "https://books.google.com/books/content?id=kMOOPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "kika-superbruja-libro-hechizos"
+      "sections": [
+        "humor"
+      ],
+      "hook": "Un padre le confiesa a su hija el secreto mejor guardado: ¡las princesas también se tiran pedos! Por ejemplo, Cenicienta se tiró un pedo de los gordos justo cuando el príncipe la sacó a bailar. Es superdivertido para romper con estereotipos y reírse un rato con los niños de algo tan natural.",
+      "amazonUrl": "https://amzn.to/41IgIt0",
+      "coverUrl": "https://books.google.com/books/content?id=BY9qygAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "las-princesas-tambien-se-tiran-pedos"
     },
     {
-      "id": "el-pequeno-nicolas",
-      "title": "El pequeño Nicolás",
-      "author": "René Goscinny",
-      "isbn": "9788412990201",
+      "id": "de-que-color-es-un-beso",
+      "title": "¿De qué color es un beso?",
+      "author": "Rocio Bonilla",
+      "isbn": "978-8498457841",
       "ageRange": [
-        "6-8",
-        "8-10"
+        "3-5"
+      ],
+      "genres": [
+        "valores"
+      ],
+      "sections": [
+        "mentes-curiosas"
+      ],
+      "hook": "Una niña dibuja de todo pero, de repente, se queda bloqueada porque no sabe de qué color pintar un beso. Va repasando todos los colores: el rojo del enfado, el verde de la verdura, el amarillo del sol... Es una pasada porque te sirve para hablar con los peques de cómo se sienten sin que parezca una clase de psicología. Al final, ¡se dan cuenta de que los besos pueden ser de mil colores",
+      "amazonUrl": "https://amzn.to/4sRwbCT",
+      "coverUrl": "https://books.google.com/books/content?id=0TBCjgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "de-que-color-es-un-beso"
+    },
+    {
+      "id": "el-libro-inquieto",
+      "title": "El libro inquieto",
+      "author": "Los Krickelkrakels",
+      "isbn": "978-8492750641",
+      "ageRange": [
+        "3-5"
       ],
       "genres": [
         "aventuras"
       ],
-      "synopsis": "Nicolás, el protagonista, es un niño de escuela primaria con sus inquietudes y sus inocentes travesuras. Si bien el relato fue concebido en la Francia de los años sesenta, sus ocurrencias pueden ser las mismas que las de cualquier niño en la actualidad. La universalidad es un concepto que guía todas las obras de René Goscinny (el genial coautor de Asterix y guionista de Lucky Luke), posiblemente porque él mismo fue producto de una familia con distintos orígenes y de una sociedad cosmopolita, como lo fue la Argentina en donde vivió sus años de crianza y juventud. Además, lo que potencia a los textos y los hace únicos e irrepetibles, es el talento descomunal del gran maestro del “sentimiento dibujado”, Jean-Jacques Sempé. Sus ilustraciones están compuestas por la soltura de un trazo que se deja volar por la página, con una danza de líneas que siempre muestran el detalle preciso para el hecho humorístico: una mirada, una pose, una acción. Las aventuras del pequeño Nicolás se convirtieron en un gran fenómeno de la literatura infantil mundial. Goscinny desborda en un humor y creatividad sin límites con Nicolás, su familia y toda esa galería de personajes entrañables. Entre ellos, Alcestes, Eudes, Agnan, Joaquín, Clotario, Rufo, Godofredo, Majencio, María Eduvigis, Luiseta, y adultos como Blédurt, la maestra, el Caldo… El presente volumen, que es el primer compilado realizado en 1960 por la editorial francesa Denoël, cuenta con los siguientes relatos publicados originalmente en el periódico Sud-Ouest Dimanche y en la revista Pilote: “Un recuerdo que atesoraremos” “Los cowboys” “El Caldo” “Fútbol” “Vino el inspector” “Rex” “Chochó” “El hermoso ramo” “Los boletines” “Luiseta” “Ensayamos para el ministro” “Fumo” “Pulgarcito” “La bicicleta” “Estoy enfermo” “Nos divertimos mucho” “Frecuento a Agnan” “Al señor Bordenave no le gusta el sol” “Me voy de casa”. Hoy, la colección ostenta 14 títulos publicados en 45 países, en muchos de los cuales El Pequeño Nicolás es lectura obligatoria en las escuelas.",
-      "hook": "Humor inteligente que funciona para niños y adultos por igual. Del creador de Astérix, un clásico universal que no pasa de moda. Perfecto para leer en familia.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788412990201",
-      "coverUrl": "https://books.google.com/books/content?id=_nRcEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "el-pequeno-nicolas"
+      "sections": [
+        "mentes-curiosas"
+      ],
+      "hook": "Es un libro interactivo de los de verdad. Va de un bicho que le va retando a hacer cosas: '¡Rápido, agítame!', '¡Ahora dame un beso!'. Es divertidísimo porque los niños sienten que ellos mandan en la historia y que gracias a sus 'poderes' los personajes se mueven. ¡Se lo pasan bomba!",
+      "amazonUrl": "https://amzn.to/4ttIrJP",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9788492750641-L.jpg",
+      "slug": "el-libro-inquieto"
     },
     {
-      "id": "diario-de-greg-pringao-total",
-      "title": "Diario de Greg: Un pringao total",
-      "author": "Jeff Kinney",
-      "isbn": "9788427203426",
+      "id": "ayuda-hay-un-elfo-atrapado-en-este-libro",
+      "title": "¡Ayuda! Hay un elfo atrapado en este libro",
+      "author": "Rene Cournoyer",
+      "isbn": "979-8283643632",
       "ageRange": [
-        "8-10",
-        "10-12"
+        "3-5"
       ],
       "genres": [
-        "aventuras"
+        "fantasia"
       ],
-      "synopsis": "El primer libro del diario más tronchante y desternillante, Diario de Greg. Un auténtico fenómeno mundial. Ser casi adolescente puede ser un fastidio. Nadie lo sabe mejor que Greg Heffley, inmerso en el duro ambiente del instituto, donde los chicos bajitos que aún no han pegado el estirón tienen que compartir los pasillos con grandullones que ya se afeitan dos veces al día. «En primer lugar, quiero dejar una cosa bien clara: esto no es un diario. Ya sé lo que pone en la portada. Mira que cuando Mamá lo fue a comprar le pedí DE MANERA ESPECÍFICA que si compraba una libreta no tuviera el rotulito de diario». Greg Heffley tiene 12 años y su madre le compra un diario que abarcará un curso escolar: de septiembre a junio. Conoceremos a Greg a través de las hilarantes y enternecedoras desventuras que narra e ilustra en su libreta. Estamos ante un retrato cómico de la vida, la voz y las costumbres de los niños preadolescentes. Este debut hará a todo el mundo troncharse de risa.",
-      "hook": "El libro que consigue que los niños que dicen odiar leer devoren 200 páginas en un fin de semana. Mezcla de cómic y novela que engancha desde la primera página.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788427203426",
-      "coverUrl": "https://books.google.com/books/content?id=iz7ODwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "diario-de-greg-pringao-total"
+      "sections": [
+        "mentes-curiosas"
+      ],
+      "hook": "Este libro convierte la lectura en un juego divertidísimo donde tu peque se siente parte de la historia. Cada página le pide que haga algo —soplar, sacudir, girar— y eso les fascina, porque sienten que realmente están ayudando al elfo a escapar. Es un cuento que desata carcajadas y crea un momento mágico de complicidad entre quien lee y quien escucha.",
+      "amazonUrl": "https://amzn.to/4bVN6wQ",
+      "coverUrl": "https://books.google.com/books/content?id=tkPYzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "ayuda-hay-un-elfo-atrapado-en-este-libro"
     },
     {
-      "id": "geronimo-stilton-1",
-      "title": "Mi nombre es Stilton, Gerónimo Stilton",
-      "author": "Geronimo Stilton",
-      "isbn": "9788408047544",
+      "id": "la-familia-gatez-en-el-museo",
+      "title": "La familia Gátez en el museo",
+      "author": "Lucy Brownridge",
+      "isbn": "978-8412906318",
       "ageRange": [
-        "8-10"
+        "3-5"
+      ],
+      "genres": [
+        "educativo"
+      ],
+      "sections": [
+        "mentes-curiosas"
+      ],
+      "hook": "A la familia Gátez le basta un día en el museo para montar una aventura divertidísima. Libro lleno de solapas que invitan a curiosear y perderse entre cientos de detalles. Y lo mejor: las ilustraciones son una preciosidad, de esas que invitan a mirar despacio, disfrutar y volver atrás solo por el placer de descubrir algo nuevo en cada rincón.",
+      "amazonUrl": "https://amzn.to/4c82ruy",
+      "coverUrl": "https://books.google.com/books/content?id=y1dh0QEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "la-familia-gatez-en-el-museo"
+    },
+    {
+      "id": "asi-es-mi-corazon",
+      "title": "Así es mi corazón",
+      "author": "Jo Witek",
+      "isbn": "978-8469601433",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "valores",
+        "amor"
+      ],
+      "sections": [
+        "emociones"
+      ],
+      "hook": "Este libro es como mirarse en un espejo que entiende todo lo que pasa por dentro de tu peque. Cada emoción está contada con mucha delicadeza: «Mi corazón es como una casita. Dentro pasan muchas cosas... ¡y están todas revueltas! Hay risas ruidosas y días con lluvia, enfados grandotes y ganas de saltar a la pata coja. Hoy voy a abrir la puerta de mi corazón para invitarte a pasar»",
+      "amazonUrl": "https://amzn.to/41eaqBb",
+      "coverUrl": "https://books.google.com/books/content?id=EgkMogEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "asi-es-mi-corazon"
+    },
+    {
+      "id": "tu-y-yo-el-cuento-mas-bonito-del-mundo",
+      "title": "Tú y yo - El cuento más bonito del mundo",
+      "author": "Elisenda Roca",
+      "isbn": "978-8491010388",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "educativo",
+        "amor"
+      ],
+      "sections": [
+        "emociones"
+      ],
+      "hook": "Tú y yo – El cuento más bonito del mundo\" es como un abrazo hecho libro: dulce, cercano y lleno de momentos que los peques reconocen al instante. Les engancha porque habla del amor cotidiano, ese que se cuela en los gestos pequeños y hace que todo se sienta seguro y especial. Y al terminar, queda esa sensación cálida de “qué suerte tenernos”",
+      "amazonUrl": "https://amzn.to/47IGUat",
+      "coverUrl": "https://books.google.com/books/content?id=HD-JjgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "tu-y-yo-el-cuento-mas-bonito-del-mundo"
+    },
+    {
+      "id": "el-hilo-invisible",
+      "title": "El hilo invisible",
+      "author": "Míriam Tirado",
+      "isbn": "978-8418054716",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "educativo",
+        "amor"
+      ],
+      "sections": [
+        "emociones"
+      ],
+      "hook": "¿Sabes ese miedo que tienen a quedarse solos? Pues este libro les cuenta que ese hilo no se rompe nunca, ni con los enfados ni con la distancia. A los niños les tranquiliza la idea de tener un 'superpoder' que les conecta con la gente que quieren. Es supertierno y les ayuda un montón a entender que el cariño no depende de estar pegados de ti todo el día.",
+      "amazonUrl": "https://amzn.to/4si7wq6",
+      "coverUrl": "https://books.google.com/books/content?id=PA7xzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "el-hilo-invisible"
+    },
+    {
+      "id": "topito-terremoto",
+      "title": "Topito terremoto",
+      "author": "Anna Llenas",
+      "isbn": "978-8448847906",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "valores"
+      ],
+      "sections": [
+        "emociones"
+      ],
+      "hook": "Es la historia de un topito que no para quieto ni un segundo, el típico que dicen que 'es un terremoto' o que 'no se concentra'. Al final, solo necesita que alguien tenga un poco de paciencia y le ayude a canalizar toda esa energía sin ponerle etiquetas. ¡Vamos, que nos sentimos identificados más de uno!",
+      "amazonUrl": "https://amzn.to/4tmwOUR",
+      "coverUrl": "https://books.google.com/books/content?id=EK_KswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "topito-terremoto"
+    },
+    {
+      "id": "escuela-de-monstruos",
+      "title": "Escuela de monstruos",
+      "author": "Sally Rippin",
+      "isbn": "978-8418483189",
+      "ageRange": [
+        "3-5",
+        "6-8"
+      ],
+      "genres": [
+        "aventuras",
+        "fantasia"
+      ],
+      "sections": [
+        "leer-solo"
+      ],
+      "hook": "En esta primera aventura de la Escuela de Monstruos, los alumnos descubren que su nueva mascota es… ¡enorme! Y claro, cuando algo es tan grandote, las travesuras también lo son. Es una historia divertida y llena de humor monstruoso que engancha desde la primera página. Los peques disfrutan con las rimas, las letras en mayúscula y las ilustraciones llenas de color, que hacen que aprender a leer se sienta como un juego.",
+      "amazonUrl": "https://amzn.to/48qINsq",
+      "coverUrl": "https://books.google.com/books/content?id=KmOREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "escuela-de-monstruos"
+    },
+    {
+      "id": "los-dectives-zopencos",
+      "title": "Los dectives zopencos",
+      "author": "Roberto Sánchez Ruiz",
+      "isbn": "978-8408278450",
+      "ageRange": [
+        "3-5",
+        "6-8"
       ],
       "genres": [
         "aventuras",
         "misterio"
       ],
-      "synopsis": "Desde que he contratado a mi nueva ayudante Pinky Pick, me ha ocurrido de todo: me han obligado a pasar la Nochevieja en el Polo Norte, he recorrido kilómetros a la deriva sobre iceberg y he bailado salsa durante horas y horas… ¿Quién es Geronimo Stilton? ¡Soy yo! Soy un tipo distraído, con la cabeza en las nubes... Dirijo un periódico, pero mi verdadera pasión es escribir. ¡Aquí en Ratonia, en la Isla de los Ratones, todos mis libros son unos bestsellers! Pero ¿cómo?, ¿no los conocéis? Son esas historias cómicas, tan tiernas como un queso de bola, tan gustosas como un gorgonzola y tan entretenidas como contarle los agujeros a una loncha de gruyer... En definitiva, historias morrocotudas, ¡palabra de Geronimo Stilton!",
-      "hook": "Tipografía de colores, ilustraciones en cada página y un protagonista ratón con mucho carácter. La serie que ha introducido a millones de niños de 8 años en la lectura.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788408047544",
-      "coverUrl": "https://books.google.com/books/content?id=SPS4wAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "geronimo-stilton-1"
+      "sections": [
+        "leer-solo"
+      ],
+      "hook": "Es un libro perfecto para primeros lectores: está escrito en letra mayúscula, con rimas sencillas y mucho humor, lo que hace que leer sea fácil y muy entretenido. Los personajes son tan disparatados que los peques se enganchan enseguida, y la posibilidad de elegir el final añade un toque de emoción que les encanta.",
+      "amazonUrl": "https://amzn.to/4m9Z8Y8",
+      "coverUrl": "https://books.google.com/books/content?id=L9RcPQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "los-dectives-zopencos"
     },
     {
-      "id": "charlie-fabrica-chocolate",
-      "title": "Charlie y la fábrica de chocolate",
-      "author": "Roald Dahl",
-      "isbn": "9788420458922",
+      "id": "las-fantasticotas",
+      "title": "Las Fantasticotas",
+      "author": "Laura Vila",
+      "isbn": "978-8408267140",
       "ageRange": [
-        "8-10",
-        "10-12"
+        "3-5"
       ],
       "genres": [
-        "fantasia",
-        "aventuras"
+        "aventuras",
+        "educativo"
       ],
-      "synopsis": "Cuando leer se convierte también en regalar: la edición más bonita de Charlie y la fábrica de chocolate de Roald Dahl. El señor Wonka, dueño de la magnífica fábrica de chocolate, ha escondido cinco billetes de oro en sus chocolatinas. Quienes los encuentren serán los elegidos para visitar la fábrica. Charlie tiene la fortuna de encontrar uno de esos billetes y, a partir de ese momento, su vida cambiará para siempre. Las historias inolvidables de Roald Dahl merecen una edición a la altura de su magia. Las ediciones en tapa dura de la colección «Alfaguara Clásicos» han sido pensadas para convertirse en un regalo especial y duradero: libros que no solo se leen, sino que se atesoran en la biblioteca familiar. Con acabados cuidados y un diseño elegante, son la elección perfecta para compartir la alegría de la lectura y dejar huella en quienes más queremos.",
-      "hook": "Si tu hijo disfrutó con Matilda, este es el siguiente paso natural. Roald Dahl en su máxima expresión: imaginación desbordante, humor negro y una historia que no se olvida.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788420458922",
-      "coverUrl": "https://books.google.com/books/content?id=wtsPEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "charlie-fabrica-chocolate"
+      "sections": [
+        "leer-solo"
+      ],
+      "hook": "Es un cuento perfecto para primeros lectores: divertido, rimado y escrito en mayúsculas, lo que facilita muchísimo la lectura autónoma. Los peques disfrutan con el ritmo, el humor y las ilustraciones llenas de color, y además descubren valores como el respeto por los animales y la curiosidad por el mundo que les rodea.",
+      "amazonUrl": "https://amzn.to/47EtYlT",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9788408267140-L.jpg",
+      "slug": "las-fantasticotas"
     },
     {
-      "id": "los-cinco-tesoro-isla",
-      "title": "Los Cinco y el tesoro de la isla",
-      "author": "Enid Blyton",
-      "isbn": "9788426142924",
+      "id": "drila-cocodrila",
+      "title": "Drila Cocodrila",
+      "author": "Gómez",
+      "isbn": "978-8408275367",
       "ageRange": [
-        "8-10",
-        "10-12"
+        "3-5"
       ],
       "genres": [
-        "misterio",
-        "aventuras"
+        "aventuras",
+        "comic"
       ],
-      "synopsis": "Tres hermanos conocen a su prima Jorge y juntos descubren que frente a la Isla de Kirrin hay un galeón hundido que guarda un tesoro. La primera aventura del grupo de detectives más famoso.",
-      "hook": "El origen de las novelas de misterio para niños. Sesenta años después, Los Cinco siguen enganchando a nuevas generaciones. Si tu hijo quiere resolver enigmas, empieza aquí.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788426142924",
-      "coverUrl": "https://books.google.com/books/content?id=bQ6IjgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "los-cinco-tesoro-isla"
+      "sections": [
+        "leer-solo"
+      ],
+      "hook": "En Pradoverde, Drila y sus amigos se enfrentan a un problema que parece más grande que ellos, así que tendrán que parar, pensar y trabajar en equipo para encontrar la mejor solución. A tu peque le encantará porque las situaciones son muy reconocibles, las ilustraciones están llenas de detalles, y la historia transmite de forma sencilla la importancia de pensar antes de actuar.",
+      "amazonUrl": "https://amzn.to/4sfN3Cn",
+      "coverUrl": "https://books.google.com/books/content?id=BzvKEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "drila-cocodrila"
     },
     {
-      "id": "manolito-gafotas",
-      "title": "Manolito Gafotas",
-      "author": "Elvira Lindo",
-      "isbn": "9788432214233",
+      "id": "yo-matare-monstruos-por-ti",
+      "title": "Yo mataré monstruos por ti",
+      "author": "Santi Balmes",
+      "isbn": "978-8493897888",
       "ageRange": [
-        "10-12"
+        "3-5"
       ],
       "genres": [
-        "aventuras"
+        "aventuras",
+        "educativo"
       ],
-      "synopsis": "\"Manolito Gafotas, como lo conocen todos en su barrio de Carabanchel (Alto), es un niño dicharachero que vive con sus padres, su abuelo Nicolás y su hermano pequeño, el Imbécil, y que siempre está dispuesto a contar su visión de las cosas. Junto a su mejor amigo, el Orejones López, y su mayor enemigo, el chulito Yihad, la vuelta al colegio Diego Velázquez se convierte en una aventura. La llegada de un nuevo compañero, Paquito Medina, una cita en el Árbol del Ahorcado con Susana o el cumpleaños más feliz del abuelo Nicolás son algunos de los acontecimientos memorables del primer libro de Manolito Gafotas.\"-- 4e de couverture.",
-      "hook": "El retrato más auténtico y divertido de la infancia española. Elvira Lindo creó un personaje que habla como hablan los niños de verdad. Lectura obligatoria para crecer en España.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788432214233",
-      "coverUrl": "https://books.google.com/books/content?id=GvbF8E_pSigC&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "manolito-gafotas"
+      "sections": [
+        "leer-juntos"
+      ],
+      "hook": "Es un cuento dulce y reconfortante sobre los miedos infantiles, contado con mucha sensibilidad y un toque de humor. Las ilustraciones, llenas de ternura, hacen que la historia se sienta cercana y acogedora, y el mensaje final transmite seguridad, valentía y la importancia de comprender aquello que nos asusta.",
+      "amazonUrl": "https://amzn.to/3PGsVvL",
+      "coverUrl": "https://books.google.com/books/content?id=__CWpwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "yo-matare-monstruos-por-ti"
     },
     {
-      "id": "percy-jackson-ladron-rayo",
-      "title": "Percy Jackson: El ladrón del rayo",
-      "author": "Rick Riordan",
-      "isbn": "9788498386264",
+      "id": "un-besito-y-a-dormir",
+      "title": "Un besito y ¡a dormir!",
+      "author": "Patricia Geis",
+      "isbn": "978-8491010630",
       "ageRange": [
-        "10-12",
-        "12-14"
+        "3-5"
       ],
       "genres": [
-        "fantasia",
-        "aventuras"
+        "educativo"
       ],
-      "synopsis": "TIMES 2020, los 100 mejores libros juveniles de todos los tiempos Acompaña a Percy a través de esta apasionante serie de aventuras sobre un mundo secreto, el mundo que los antiguos dioses griegos han recreado a nuestro alrededor en pleno siglo XXI. ¿Qué pasaría si un día descubrieras que, en realidad, eres hijo de un dios griego que debe cumplir una misión secreta? Pues eso es lo que le sucede a Percy Jackson, que a partir de ese momento se dispone a vivir los acontecimientos más emocionantes de su vida. Expulsado de seis colegios, Percy padece dislexia y dificultades para concentrarse, o al menos esa es la versión oficial. Objeto de burlas por inventarse historias fantásticas, ni siquiera él mismo acaba de creérselas hasta el día que los dioses del Olimpo le revelan la verdad: Percy es nada menos que un semidiós, es decir, el hijo de un dios y una mortal. Y como tal ha de descubrir quién ha robado el rayo de Zeus y así evitar que estalle una guerra entre los dioses. Para cumplir la misión contará con la ayuda de sus amigos Grover, un joven sátiro, y Annabeth, hija de Atenea. ** Más vendidos del The New York Times y Publishers Weekly. ** Llevada a la gran pantalla a cargo de Chris Columbus, director de las dos primeras entregas de «Harry Potter». ENGLISH DESCRIPTION TIMES 2020 100 Best YA of All Times Percy Jackson is a good kid, but he can't seem to focus on his schoolwork or control his temper. And lately, being away at boarding school is only getting worse: Percy could have sworn his pre-algebra teacher turned into a monster and tried to kill him. When Percy's mom finds out, she knows it's time that he knew the truth about where he came from, and that he go to the one place he'll be safe. She sends Percy to Camp Half Blood, a summer camp for demigods (on Long Island), where he learns that the father he never knew is Poseidon, God of the Sea. Soon a mystery unfolds and together with his friends -- one a satyr and the other the demigod daughter of Athena -- Percy sets out on a quest across the United States to reach the gates of the Underworld (located in a recording studio in Hollywood) and prevent a catastrophic war between the gods.",
-      "hook": "Mitología griega convertida en aventura trepidante. Si tu hijo agotó Harry Potter y quiere más, Percy Jackson es el siguiente universo que le va a atrapar.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788498386264",
-      "coverUrl": "https://books.google.com/books/content?id=vHWREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "percy-jackson-ladron-rayo"
+      "sections": [
+        "leer-juntos"
+      ],
+      "hook": "Es un libro de cartón resistente, con piezas troqueladas y bolsillitos que permiten a los peques participar en cada paso de la rutina nocturna. Les encanta porque pueden manipular las figuras, imitar a los personajes y convertir el momento de ir a dormir en un juego cariñoso y divertido. Además, el formato interactivo les ayuda a adquirir hábitos mientras disfrutan de una historia sencilla y acogedora.",
+      "amazonUrl": "https://amzn.to/4si7D4R",
+      "coverUrl": "https://books.google.com/books/content?id=6WfcjwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "un-besito-y-a-dormir"
     },
     {
-      "id": "momo",
-      "title": "Momo",
-      "author": "Michael Ende",
-      "isbn": "9788419507303",
+      "id": "el-pez-arcoiris",
+      "title": "El pez arcoíris",
+      "author": "Marcus Pfister",
+      "isbn": "978-8448860257",
       "ageRange": [
-        "10-12",
-        "12-14"
+        "3-5"
       ],
       "genres": [
-        "fantasia"
+        "educativo",
+        "amor"
       ],
-      "synopsis": "Porque el tiempo es vida, y la vida reside en el corazón. Edición 50o aniversario ilustrada por Ayesha L. Rubio Momo es una niña muy especial que posee la maravillosa cualidad de hacer sentir bien a todo aquel que la escucha. Pero la llegada de los hombres grises, que pretenden apoderarse del tiempo de las personas, va a cambiar su vida. Ella será la única en no dejarse engañar por ellos y, con la ayuda de la tortuga Casiopea y del Maestro Hora, emprenderá una aventura fantástica contra estos ladrones de tiempo.",
-      "hook": "Michael Ende escribió una fábula sobre lo que más falta nos hace hoy: tiempo. Un libro que los niños leen como fantasía y los padres como espejo de la vida moderna.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788419507303",
-      "coverUrl": "https://books.google.com/books/content?id=O1O3EAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "momo"
+      "sections": [
+        "leer-juntos"
+      ],
+      "hook": "El pez arcoíris es como darse un chapuzón en un cuento que brilla por dentro. La historia engancha porque habla de compartir y de lo bonito que es abrir el corazón, pero lo hace con una sencillez que los peques entienden al vuelo. Les deja esa sensación cálida de que ser generoso no te quita nada, al contrario: te hace brillar más",
+      "amazonUrl": "https://amzn.to/4v66hgt",
+      "coverUrl": "https://books.google.com/books/content?id=p0QKAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "el-pez-arcoiris"
     },
     {
-      "id": "cronicas-narnia-leon-bruja-armario",
-      "title": "El león, la bruja y el armario",
-      "author": "C.S. Lewis",
-      "isbn": "9788408099031",
+      "id": "adivina-cuanto-te-quiero",
+      "title": "Adivina cuánto te quiero",
+      "author": "Sam McBratney",
+      "isbn": "978-8416126071",
       "ageRange": [
-        "10-12"
-      ],
-      "genres": [
-        "fantasia",
-        "aventuras"
-      ],
-      "synopsis": "Narnia..., un mundo congelado..., una tierra que aguarda su liberación. Cuatro niños descubren un armario que les sirve de puerta de acceso a Narnia, un país congelado en un invierno eterno y sin Navidad. Entonces, cumpliendo con las viejas profecías, los niños —junto con el león Aslan—serán los encargados de liberar al reino de la tiranía de la Bruja Blanca y recuperar el verano, la luz y la alegría para todos los habitantes de Narnia.",
-      "hook": "La puerta de entrada a uno de los grandes mundos de la fantasía. Antes de Hogwarts existió Narnia, y sigue siendo igual de mágico.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788408099031",
-      "coverUrl": "https://books.google.com/books/content?id=oya9pwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "cronicas-narnia-leon-bruja-armario"
-    },
-    {
-      "id": "historia-interminable",
-      "title": "La historia interminable",
-      "author": "Michael Ende",
-      "isbn": "9788420471549",
-      "ageRange": [
-        "10-12",
-        "12-14"
-      ],
-      "genres": [
-        "fantasia",
-        "aventuras"
-      ],
-      "synopsis": "La Emperatriz Infantil está mortalmente enferma y su reino corre un grave peligro. La salvación depende de Atreyu, un valiente guerrero de la tribu de los pieles verdes, y Bastian, un niño tímido que lee con pasión un libro mágico. Mil aventuras les llevarán a reunirse y a conocer una fabulosa galería de personajes, y juntos dar forma a una de las grandes creaciones de la literatura de todos los tiempos.",
-      "hook": "El libro sobre libros. Una novela que celebra la lectura y la imaginación como ninguna otra. Si tu hijo es lector, este libro le hará sentirse protagonista.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788420471549",
-      "coverUrl": "https://books.google.com/books/content?id=GZzsMgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "la-historia-interminable"
-    },
-    {
-      "id": "la-chica-invisible",
-      "title": "La chica invisible",
-      "author": "Blue Jeans",
-      "isbn": "9788408187233",
-      "ageRange": [
-        "12-14",
-        "14-16"
-      ],
-      "genres": [
-        "misterio"
-      ],
-      "synopsis": "Aurora Ríos es invisible para casi todos. Los acontecimientos del pasado han hecho que se aísle del mundo y que apenas se relacione. A sus diecisiete años, no tiene amigos y está harta de que los habitantes de aquel pueblo hablen a su espalda. Una noche de mayo, su madre no la encuentra en casa cuando regresa del trabajo. No es lo habitual. Aurora aparece muerta a la mañana siguiente en el vestuario de su instituto, el Rubén Darío. Tiene un golpe en la cabeza y han dejado una brújula junto a su cuerpo. ¿Quién es el responsable de aquel terrible suceso? Julia Plaza, compañera de clase de la chica invisible, está obsesionada con encontrar la respuesta. Su gran inteligencia y su memoria prodigiosa le sirven para realizar el cubo de Rubik en cincuenta segundos o ser invencible jugando al ajedrez. Pero ¿podrá ayudar a sus padres en la resolución de aquel enigma? Su madre, Aitana, es la forense del caso y su padre, Miguel Ángel, el sargento de la Policía Judicial de la Guardia Civil encargado de la investigación. Julia, junto a su inseparable amigo Emilio, un chico muy particular con una mirada inquietante, tratará de hacer todo lo que esté en su mano para que el asesinato de Aurora Ríos no quede impune. ¿Conseguirán averiguar quién es el Asesino de la brújula y qué hay detrás de aquella extraña muerte? Esta novela ha inspirado la éxitosa serie de Disney+ y es el comienzo de la Trilogía LA CHICA INVISIBLE que continúa con El puzle de cristal y culmina con La promesa de Julia.",
-      "hook": "El thriller juvenil español que arrasa. Si tu adolescente quiere un libro que le quite el sueño y no pueda dejar de leer hasta saber quién fue, este es.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788408187233",
-      "coverUrl": "https://books.google.com/books/content?id=BHRNDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "la-chica-invisible"
-    },
-    {
-      "id": "cazadores-sombras-ciudad-hueso",
-      "title": "Cazadores de sombras: Ciudad de Hueso",
-      "author": "Cassandra Clare",
-      "isbn": "9788408095927",
-      "ageRange": [
-        "12-14",
-        "14-16"
-      ],
-      "genres": [
-        "fantasia",
-        "aventuras"
-      ],
-      "synopsis": "En el Pandemonium, la discoteca de moda de Nueva York, Clary sigue a un atractivo chico de pelo azul hasta que presencia su muerte a manos de tres jóvenes cubiertos de extraños tatuajes. Desde esa noche, su destino se une al de esos tres cazadores de sombras, guerreros dedicados a liberar a la tierra de demonios y, sobre todo, al de Jace, un chico con aspecto de ángel y tendencia a actuar como un idiota...",
-      "hook": "Fantasía urbana con acción, romance y un mundo sobrenatural que engancha tanto como Harry Potter. Seis libros para no parar de leer.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788408095927",
-      "coverUrl": "https://books.google.com/books/content?id=dMrbQls1mo0C&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "cazadores-sombras-ciudad-hueso"
-    },
-    {
-      "id": "los-juegos-del-hambre",
-      "title": "Los juegos del hambre",
-      "author": "Suzanne Collins",
-      "isbn": "9788427246003",
-      "ageRange": [
-        "14-16"
-      ],
-      "genres": [
-        "ciencia-ficcion",
-        "aventuras"
-      ],
-      "synopsis": "Los Juegos del Hambre como nunca los habías visto antes. En una oscura versión del futuro próximo, doce chicos y doce chicas se ven obligados a participar en un reality show llamado Los juegos del hambre. Solo hay una regla: matar o morir. Cuando Katniss Everdeen, una joven de dieciséis años, se presenta voluntaria para ocupar el lugar de su hermana en los juegos, lo entiende como una condena a muerte. Sin embargo, Katniss ya ha visto la muerte de cerca y la supervivencia forma parte de su naturaleza. Redescubre la icónica primera novela de la saga, con la desgarradora historia de Katniss acompañada por las detalladas ilustraciones de Nico Delort.",
-      "hook": "La distopía que definió una generación. Acción, crítica social y una protagonista que no necesita que nadie la salve. Si tu adolescente solo quiere leer un libro este año, que sea este.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788427246003",
-      "coverUrl": "https://books.google.com/books/content?id=kBPg0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "los-juegos-del-hambre"
-    },
-    {
-      "id": "divergente",
-      "title": "Divergente",
-      "author": "Veronica Roth",
-      "isbn": "9788427201187",
-      "ageRange": [
-        "14-16"
-      ],
-      "genres": [
-        "ciencia-ficcion",
-        "aventuras"
-      ],
-      "synopsis": "Una elección que delimita quiénes son tus amigos. Una elección que define tus creencias. Una elección que determina tus lealtades... para siempre. Una sola elección puede transformarte. En el Chicago distópico de Beatrice, la sociedad está dividida en cinco facciones. En una ceremonia anual, todos los chicos de dieciséis años deben decidir a qué facción dedicarán el resto de sus vidas. Beatrice tiene que elegir entre quedarse con su familia... y ser quien realmente es. Así que toma una decisión que sorprenderá a todo el mundo, incluida ella... ENGLISH DESCRIPTION: This first book in Veronica Roth's #1 New York Times bestselling Divergent series of books is the novel the inspired the major motion picture starring Shailene Woodley, Theo James, and Kate Winslet. This dystopian series set in a futuristic Chicago has captured the hearts of millions of teen and adult readers. Perfect for fans of the Hunger Games and Maze Runner series, Divergent and its sequels, Insurgent and Allegiant, are the gripping story of a dystopian world transformed by courage, self-sacrifice, and love. One choice can transform you. Beatrice Prior's society is divided into five factions—Candor (the honest), Abnegation (the selfless), Dauntless (the brave), Amity (the peaceful), and Erudite (the intelligent). Beatrice must choose between staying with her Abnegation family and transferring factions. Her choice will shock her community and herself. But the newly christened Tris also has a secret, one she's determined to keep hidden, because in this world, what makes you different makes you dangerous.",
-      "hook": "Si Los Juegos del Hambre le engancharon, Divergente es el siguiente paso. Misma intensidad, diferente mundo, y una pregunta que todo adolescente se hace: ¿quién soy realmente?",
-      "amazonUrl": "https://www.amazon.es/s?k=9788427201187",
-      "coverUrl": "https://books.google.com/books/content?id=TGmREAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "divergente"
-    },
-    {
-      "id": "campos-de-fresas",
-      "title": "Campos de fresas",
-      "author": "Jordi Sierra i Fabra",
-      "isbn": "9788413926032",
-      "ageRange": [
-        "14-16"
-      ],
-      "genres": [
-        "autoayuda"
-      ],
-      "synopsis": "Luciana es una joven que ha tomado una decisión equivocada y está pagando las consecuencias de sus actos. Sus amigos intentarán ayudarla para que pueda corregir ese terrible error. ¿Podrá la joven disponer de una segunda oportunidad y tomar las riendas de su vida? Una estremecedora historia sobre los peligros que acechan a los jóvenes de hoy.",
-      "hook": "Una novela dura, directa y necesaria. Jordi Sierra i Fabra no moraliza: cuenta una historia que golpea y deja pensando. Lectura imprescindible para adolescentes.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788413926032",
-      "coverUrl": "https://books.google.com/books/content?id=mXljEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "campos-de-fresas"
-    },
-    {
-      "id": "invisible",
-      "title": "Invisible",
-      "author": "Eloy Moreno",
-      "isbn": "9788416588435",
-      "ageRange": [
-        "12-14",
-        "14-16"
-      ],
-      "genres": [
-        "autoayuda"
-      ],
-      "synopsis": "Emotiva, conmovedora, diferente... Invisible narra, a través de los ojos de un niño, una historia que podría ser la de cualquiera de nosotros. ¿Quién no ha deseado alguna vez ser invisible? ¿Quién no ha deseado alguna vez dejar de serlo? El problema es que nunca he llegado a controlar bien ese poder: A veces, cuando más ganas tenía de ser invisible, era cuando más gente me veía, y en cambio, cuando deseaba que todos me vieran, era cuando a mi cuerpo le daba por desaparecer. ENGLISH DESCRIPTION Moving, emotional, different ... Through a child’s eyes, Invisible tells a story that could be that of any one of us. Who hasn’t at one point wished they were invisible? Who hasn’t wanted to stop being invisible? The problem is that I have never been able to control that power: Sometimes, when I mostly felt a desire to be invisible, it was when more people saw me, on the other hand, when I wanted everyone to see me, it was when my body decided to disappear.",
-      "hook": "El libro sobre bullying que todo adolescente debería leer. Eloy Moreno consigue que el lector entienda cómo se siente ser invisible. Bestseller traducido a más de 15 idiomas.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788416588435",
-      "coverUrl": "https://books.google.com/books/content?id=rl2REAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "invisible"
-    },
-    {
-      "id": "a-todos-los-chicos",
-      "title": "A todos los chicos de los que me enamoré",
-      "author": "Jenny Han",
-      "isbn": "9788408128441",
-      "ageRange": [
-        "14-16"
+        "3-5"
       ],
       "genres": [
         "amor"
       ],
-      "synopsis": "\"Lara Jean guarda sus cartas de amor en una caja. No son cartas que le hayan enviado, las ha escrito ella, una por cada chico de los que se ha enamorado. En ellas se muestra tal cual es, porque sabe que nadie las leerá. Hasta que un día alguien las envía por equivocación y la vida amorosa de Lara Jean pasa de 'imaginaria' a estar totalmente fuera de control.\"--",
-      "hook": "Romántica, divertida y con una protagonista que se muere de vergüenza cada tres páginas. Si tu adolescente vio la película de Netflix y quiere más, el libro es mucho mejor.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788408128441",
-      "coverUrl": "https://books.google.com/books/content?id=vVrsAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "a-todos-los-chicos"
+      "sections": [
+        "leer-juntos"
+      ],
+      "hook": "Es un cuento sencillo y muy tierno que se ha convertido en un clásico por su calidez y su mensaje universal. A tu peque le encantará porque transmite seguridad, cariño y esa sensación de “te quiero más” que tanto disfrutan repetir. Las ilustraciones suaves y delicadas acompañan la historia con mucha ternura, y el ritmo tranquilo lo convierte en un libro perfecto para leer antes de dormir y reforzar el vínculo afectivo.",
+      "amazonUrl": "https://amzn.to/4mfMeZ2",
+      "coverUrl": "https://books.google.com/books/content?id=uN62rQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "adivina-cuanto-te-quiero"
     },
     {
-      "id": "bajo-la-misma-estrella",
-      "title": "Bajo la misma estrella",
-      "author": "John Green",
-      "isbn": "9788415594048",
+      "id": "nos-tratamos-bien",
+      "title": "Nos tratamos bien",
+      "author": "Lucía Serrano",
+      "isbn": "978-8448865207",
       "ageRange": [
-        "14-16"
+        "3-5"
       ],
       "genres": [
-        "amor",
-        "autoayuda"
+        "educativo",
+        "valores"
       ],
-      "synopsis": "Bajo la misma estrella es la novela que ha catapultado a John Green al éxito. Una historia que explora cuán exquisita y trágica puede ser la aventura de saberse vivo y querer a alguien. Emotiva, irónica y afilada. Una novela teñida de humor y de tragedia que habla de nuestra capacidad para soñar incluso en las circunstancias más difíciles. A Hazel y a Gus les gustaría tener vidas más corrientes. Algunos dirían que no han nacido con estrella, que su mundo es injusto. Hazel y Gus son solo adolescentes, pero si algo les ha enseñado el cáncer que ambos padecen es que no hay tiempo para lamentaciones, porque, nos guste o no, solo existe el hoy y el ahora. Y por ello, con la intención de hacer realidad el mayor deseo de Hazel -conocer a su escritor favorito-, cruzarán juntos el Atlántico para vivir una aventura contrarreloj, tan catártica como desgarradora. Destino: Amsterdam, el lugar donde reside el enigmático y malhumorado escritor, la única persona que tal vez pueda ayudarles a ordenar las piezas del enorme puzle del que forman parte... Mejor libro del año según Time y Entretaintment Weekly. Más de 7 millones de ejemplares vendidos en el mundo. Número 1 en las listas de best sellers durante meses. La crítica ha dicho... «Una novela sobre la vida y la muerte, y sobre los que están atrapados entre las dos... Reirás, llorarás y te quedarás con ganas de más.» Markus Zusak, autor de La ladrona de libros «Una novela imposible de olvidar, para jóvenes y no tan jóvenes.» USA Today «Absolutamente genial. [...] Un ejemplo perfecto de por qué los adultos leen novelas juveniles.» Time «Esta novela es un triunfo.» Booklist «Divertida... Conmovedora... Luminosa.» Entretaintment Weekly «Una mezcla de melancolía, dulzura, filosofía y humor.» New York Times «John Green aúna lo profundo y lo cotidiano en esta desgarradora novela.» Washington Post «Una historia dolorosamente bella sobre la vida y las pérdidas.» School Library Journal",
-      "hook": "John Green escribió la historia de amor más honesta sobre la vida y la muerte. No es triste: es real. Tu adolescente la leerá de un tirón y la recordará siempre.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788415594048",
-      "coverUrl": "https://books.google.com/books/content?id=cvnINtLUcLMC&printsec=frontcover&img=1&zoom=2&source=gbs_api",
-      "slug": "bajo-la-misma-estrella"
+      "sections": [
+        "cuidar-de-mi"
+      ],
+      "hook": "A través de escenas del día a día, este libro invita a reflexionar sobre cómo nos relacionamos con los demás. A tu peque le encantará porque el mensaje es directo, cercano y fácil de entender, y las ilustraciones de Lucía Serrano son expresivas y llenas de significado. Es un libro que ayuda a hablar sobre emociones, límites y convivencia de una forma natural, convirtiéndose en una herramienta estupenda para fomentar el respeto en casa y en el cole.",
+      "amazonUrl": "https://amzn.to/4dthqBI",
+      "coverUrl": "https://books.google.com/books/content?id=u53XzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "nos-tratamos-bien"
     },
     {
-      "id": "crepusculo",
-      "title": "Crepúsculo",
-      "author": "Stephenie Meyer",
-      "isbn": "9788420469287",
+      "id": "monstruo-azul",
+      "title": "Monstruo azul",
+      "author": "Olga de Dios",
+      "isbn": "978-8417028312",
       "ageRange": [
-        "14-16"
+        "3-5"
       ],
       "genres": [
-        "amor",
-        "fantasia"
+        "educativo",
+        "aventuras"
       ],
-      "synopsis": "«Hay tres cosas de las que estoy completamente segura. Primera, Edward es un vampiro. Segunda, una parte de él se muere por beber mi sangre. Y tercera, estoy total y perdidamente enamorada de él». Cuando Isabella Swan se muda a Forks, una pequeña localidad del estado de Washington en la que no deja de llover, piensa que es lo más aburrido que le podía haber ocurrido en la vida. Pero su vida da un giro excitante y aterrador una vez que se encuentra con el misterioso y seductor Edward Cullen. Hasta ese momento, Edgard se las ha arreglado para mantener en secreto su identidad vampírica, pero ahora nadie se encuentra a salvo, y sobre todo Isabella, la persona a quien más quiere Edward...",
-      "hook": "Más de 3 millones de ejemplares vendidos solo en España. Amor, vampiros y tensión en cada página. El fenómeno que convirtió a millones de adolescentes en lectores.",
-      "amazonUrl": "https://www.amazon.es/s?k=9788420469287",
-      "coverUrl": "https://books.google.com/books/content?id=GFRAbwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "slug": "crepusculo"
+      "sections": [
+        "cuidar-de-mi"
+      ],
+      "hook": "Monstruo Azul\" cuenta la historia de un grupo de amigos que juegan sin pensar en las consecuencias, hasta que uno de ellos empieza a mirar a su alrededor y descubre que sus acciones están dañando el mundo que tanto quiere. A partir de ahí, inicia un camino de reflexión y cambio para recuperar la armonía de su entorno. A tu peque le encantará porque es un cuento lleno de color, ternura y valores como el respeto, la empatía y la convivencia.",
+      "amazonUrl": "https://amzn.to/4ctO5oD",
+      "coverUrl": "https://books.google.com/books/content?id=l16lzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "monstruo-azul"
+    },
+    {
+      "id": "los-limites-corporales-me-hacen-mas-fuerte",
+      "title": "Los límites corporales me hacen más fuerte",
+      "author": "Elizabeth Cole",
+      "isbn": "978-1957457413",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "educativo"
+      ],
+      "sections": [
+        "cuidar-de-mi"
+      ],
+      "hook": "Este cuento explica, de forma sencilla y muy visual, qué son los límites corporales y por qué es importante que cada niño aprenda a reconocerlos y a expresarlos con seguridad. A tu peque le encantará porque está escrito con un lenguaje claro y cercano, ideal para entender conceptos que a veces resultan difíciles de explicar. Las ilustraciones son cálidas, y el mensaje refuerza su autoestima, su autonomía y la idea de que su cuerpo es suyo y merece ser cuidado y respetado.",
+      "amazonUrl": "https://amzn.to/4t1B4th",
+      "coverUrl": "https://books.google.com/books/content?id=LSHFzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "slug": "los-limites-corporales-me-hacen-mas-fuerte"
+    },
+    {
+      "id": "el-poder-del-leon",
+      "title": "El poder del león",
+      "author": "Elizabeth Cole",
+      "isbn": "979-1387695071",
+      "ageRange": [
+        "3-5"
+      ],
+      "genres": [
+        "educativo",
+        "valores"
+      ],
+      "sections": [
+        "cuidar-de-mi"
+      ],
+      "hook": "Un pequeño león descubre que ser fuerte no significa rugir más alto, sino aprender a decir “hasta aquí” cuando algo no le hace sentir bien. A través de situaciones cotidianas, va entendiendo que poner límites es una forma de cuidarse y de respetarse a sí mismo. A tu peque le encantará porque el mensaje es claro, positivo y muy fácil de aplicar en su día a día. Además, la historia le ayuda a ganar seguridad y a reconocer sus emociones.",
+      "amazonUrl": "https://amzn.to/3PGILGG",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9791387695071-L.jpg",
+      "slug": "el-poder-del-leon"
     }
   ]
 }
