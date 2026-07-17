@@ -12,10 +12,13 @@ export default function AgePageTemplate({
 }) {
   const books = getBooksByAge(ageGroup.range);
 
-  const sectionRows = SECTIONS.map((section) => ({
-    ...section,
-    books: books.filter((b) => b.sections.includes(section.id)),
-  })).filter((row) => row.books.length > 0);
+  const sectionRows = SECTIONS.filter((s) => s.ageRange === ageGroup.range)
+    .sort((a, b) => a.order - b.order)
+    .map((section) => ({
+      ...section,
+      books: books.filter((b) => b.sections.includes(section.id)),
+    }))
+    .filter((row) => row.books.length > 0);
 
   return (
     <>

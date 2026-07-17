@@ -9,16 +9,9 @@ export type Genre =
   | "amor"
   | "comic";
 
-export type Section =
-  | "acierto-seguro"
-  | "favoritos-ninos"
-  | "recomendados-profes"
-  | "humor"
-  | "mentes-curiosas"
-  | "emociones"
-  | "leer-solo"
-  | "leer-juntos"
-  | "cuidar-de-mi";
+// Sections are curated per age range (e.g. "8-10--mucho-mas-que-futbol"),
+// so the id is a free-form slug rather than a fixed union.
+export type Section = string;
 
 export interface Book {
   id: string;
@@ -38,6 +31,8 @@ export interface SectionInfo {
   id: Section;
   label: string;
   slug: string;
+  ageRange: AgeRange;
+  order: number;
 }
 
 export interface BooksData {
