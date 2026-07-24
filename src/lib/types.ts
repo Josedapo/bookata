@@ -21,6 +21,7 @@ export interface Book {
   ageRange: AgeRange[];
   genres: Genre[];
   sections: Section[];
+  synopsis: string;
   hook: string;
   amazonUrl: string;
   coverUrl: string | null;

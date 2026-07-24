@@ -152,9 +152,20 @@ export default async function BookPage({
       )}
 
       <article className="animate-reveal max-w-3xl">
-        <div className="mt-8 rounded-2xl border-l-4 border-primary bg-primary-light/50 p-6">
+        {book.synopsis && (
+          <div className="mt-8 rounded-2xl border border-border bg-white/60 p-6">
+            <h2 className="font-display text-xl font-bold text-text">
+              De qué va
+            </h2>
+            <p className="mt-3 leading-relaxed text-text">
+              {book.synopsis}
+            </p>
+          </div>
+        )}
+
+        <div className="mt-6 rounded-2xl border-l-4 border-primary bg-primary-light/50 p-6">
           <h2 className="font-display text-xl font-bold text-primary-dark">
-            ¿Por qué te va a encantar?
+            ¿Por qué les encanta?
           </h2>
           <p className="mt-3 leading-relaxed text-text">
             {book.hook}

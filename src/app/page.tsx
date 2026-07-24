@@ -26,23 +26,20 @@ export default function HomePage() {
         }}
       />
 
-      {/* Hero */}
-      <section className="bg-warm-gradient -mx-4 -mt-8 mb-12 px-4 py-14 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 animate-reveal" style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', paddingLeft: 'calc(50vw - 50%)', paddingRight: 'calc(50vw - 50%)' }}>
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-          <Image
-            src="/images/brand/imagotype.png"
-            alt=""
-            width={80}
-            height={80}
-            className="h-20 w-auto"
-          />
-          <h1 className="font-display text-3xl font-bold leading-tight text-white sm:text-5xl">
-            Encuentra el libro perfecto para tu hijo
-          </h1>
-          <p className="text-lg text-white/90">
-            Recomendaciones por edad y género seleccionadas por nuestros expertos, con opinión editorial para que aciertes seguro.
-          </p>
-        </div>
+      {/* Hero banner */}
+      <section className="-mt-8 mb-12 animate-reveal" style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
+        <h1 className="sr-only">
+          Encuentra el libro perfecto para tu hijo: recomendaciones por edad y género
+        </h1>
+        <Image
+          src="/images/brand/banner-cabecera.png"
+          alt="Bookata: libros infantiles y juveniles recomendados por edad y género"
+          width={1536}
+          height={470}
+          priority
+          sizes="100vw"
+          className="h-auto w-full"
+        />
       </section>
 
       {/* Carousels by age, interleaved with genre nav */}

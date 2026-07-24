@@ -38,3 +38,4 @@ next-env.d.ts
 
 # Build artifacts from data scripts
 scripts/out/
+.claude/

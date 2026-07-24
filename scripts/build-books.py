@@ -40,6 +40,12 @@ HOOK_MARKERS = [
     "A los niños les encanta porque...",
 ]
 
+# Markers that open the "what it's about" block, before the hook markers above
+SYNOPSIS_MARKERS = [
+    "De qué va:",
+    "De qué va",
+]
+
 
 def strip_accents(s: str) -> str:
     return "".join(
@@ -106,6 +112,16 @@ def parse_genres(raw: str) -> list[str]:
     return out
 
 
+def _first_hook_idx(syn: str) -> int:
+    """Index of the earliest hook marker in syn, or len(syn) if none."""
+    end = len(syn)
+    for marker in HOOK_MARKERS:
+        idx = syn.find(marker)
+        if idx != -1 and idx < end:
+            end = idx
+    return end
+
+
 def extract_hook(syn: str) -> tuple[str, bool]:
     """Return (hook, found_marker). Hook = text after the 'why' marker."""
     if not syn:
@@ -121,14 +137,49 @@ def extract_hook(syn: str) -> tuple[str, bool]:
     return syn.strip(), False
 
 
+def extract_synopsis(syn: str) -> tuple[str, bool]:
+    """Return (synopsis, found_marker). Synopsis = text between the 'De qué va'
+    marker and the first hook marker. If no 'De qué va' marker, take everything
+    before the hook marker."""
+    if not syn:
+        return "", False
+    start, found = 0, False
+    for marker in SYNOPSIS_MARKERS:
+        idx = syn.find(marker)
+        if idx != -1:
+            start = idx + len(marker)
+            found = True
+            break
+    end = _first_hook_idx(syn)
+    text = syn[start:end].strip(" .\n\r\t").strip()
+    if text and text[0].islower():
+        text = text[0].upper() + text[1:]
+    return text, found
+
+
 def section_label(raw: str) -> str:
     # first line only, collapse whitespace
     line = str(raw).split("\n")[0]
     return re.sub(r"\s+", " ", line).strip()
 
 
+def load_existing_covers() -> dict[str, str]:
+    """Map isbn13 -> resolved coverUrl from the current books.json, so a rebuild
+    keeps the covers already resolved by resolve-covers.py instead of falling
+    back to the unreliable ISBN-derived URL."""
+    if not BOOKS_OUT.exists():
+        return {}
+    data = json.loads(BOOKS_OUT.read_text(encoding="utf-8"))
+    return {
+        b["isbn"]: b["coverUrl"]
+        for b in data.get("books", [])
+        if b.get("isbn") and b.get("coverUrl")
+    }
+
+
 def main() -> None:
     wb = openpyxl.load_workbook(XLSX, data_only=True)
+    existing_covers = load_existing_covers()
 
     # age range per sheet, in sheet order
     sheet_age = {
@@ -177,9 +228,13 @@ def main() -> None:
             isbn13 = clean_isbn(str(r[C_ISBN] or ""))
             ages = parse_ages(str(r[C_AGE] or "")) or [age]
             genres = parse_genres(str(r[C_GENRE] or ""))
-            hook, found = extract_hook(str(r[C_SYN] or ""))
+            raw_syn = str(r[C_SYN] or "")
+            hook, found = extract_hook(raw_syn)
             if not found:
                 warnings.append(f"[hook sin marcador] {title}")
+            synopsis, syn_found = extract_synopsis(raw_syn)
+            if not syn_found:
+                warnings.append(f"[synopsis sin marcador 'De qué va'] {title}")
             amazon = str(r[C_AMAZON]).strip() if r[C_AMAZON] else ""
 
             key = isbn13 or slugify(title)
@@ -205,9 +260,10 @@ def main() -> None:
                 "ageRange": ages,
                 "genres": genres,
                 "sections": [current_section_id] if current_section_id else [],
+                "synopsis": synopsis,
                 "hook": hook,
                 "amazonUrl": amazon,
-                "coverUrl": cover_url(isbn13),
+                "coverUrl": existing_covers.get(isbn13) or cover_url(isbn13),
                 "slug": slug,
             }
             books_by_isbn[key] = book
@@ -227,7 +283,7 @@ def main() -> None:
             seen_slugs[s] = 1
 
     data = {
-        "meta": {"lastUpdated": "2026-07-17", "totalBooks": len(books)},
+        "meta": {"lastUpdated": "2026-07-24", "totalBooks": len(books)},
         "books": books,
     }
     BOOKS_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
