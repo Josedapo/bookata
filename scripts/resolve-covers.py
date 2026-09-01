@@ -23,7 +23,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BOOKS = ROOT / "src" / "data" / "books.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15"
-COVER = "https://m.media-amazon.com/images/P/{code}.01._SCLZZZZZZZ_SX300_.jpg"
+# 500 px is the largest variant Amazon serves for these ASINs. At 300 px the
+# covers were being upscaled on retina screens, where a 186 px card needs a
+# 372 px source. Delivered bytes do not change: next/image resizes to the
+# width each device actually requests.
+COVER = "https://m.media-amazon.com/images/P/{code}.01._SCLZZZZZZZ_SX500_.jpg"
 MIN_BYTES = 1000  # Amazon's empty placeholder is 43 bytes
 
 FORCE = "--all" in sys.argv

@@ -1,41 +1,203 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #E0663C;
-  --color-primary-light: #FFF0EB;
-  --color-primary-dark: #C44E28;
-  --color-secondary: #E8B84D;
-  --color-secondary-light: #FFF8E7;
-  --color-navy: #1E2A5E;
-  --color-navy-light: #2D3F7A;
-  --color-accent: #E0663C;
-  --color-accent-light: #FFF0EB;
-  --color-surface: #FFF8F0;
-  --color-surface-alt: #FFEDD5;
+  /* Dark stage. Deeper than the logo's navy outline so the logo separates cleanly. */
+  --color-ink: #0B1030;
+  --color-ink-soft: #141B44;
+  --color-ink-elevated: #1C2456;
+  --color-ink-line: #2C3670;
+
+  /* Light catalogue surface */
+  --color-surface: #FDFBF7;
+  --color-surface-alt: #F5F0E8;
   --color-surface-card: #FFFFFF;
-  --color-border: #F0E6DC;
-  --color-text: #1E2A5E;
-  --color-text-secondary: #5A6484;
-  --color-text-muted: #9CA3BF;
-  --font-display: var(--font-fredoka);
-  --font-body: var(--font-nunito);
+  --color-border: #EBE4DA;
+
+  /* Accent, taken from the logo itself */
+  --color-primary: #E0663C;
+  --color-primary-dark: #C24A22;
+  --color-primary-light: #FFF1EA;
+  --color-gold: #F0B429;
+  --color-ruby: #D93F2B;
+
+  /* Text */
+  --color-text: #151A38;
+  --color-text-secondary: #5A6180;
+  --color-text-muted: #949BB5;
+  --color-on-ink: #FFFFFF;
+  --color-on-ink-soft: #B4BCDD;
+
+  --font-display: var(--font-outfit);
+  --font-body: var(--font-inter);
+
+  --shadow-cover: 0 18px 40px -18px rgba(11, 16, 48, 0.55);
+  --shadow-cover-lift: 0 28px 60px -20px rgba(11, 16, 48, 0.6);
 }
 
-body {
-  background: var(--color-surface);
-  color: var(--color-text);
-  font-family: var(--font-body), "Nunito", sans-serif;
-  overflow-x: hidden;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-body), system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
 
-h1, h2, h3 {
-  font-family: var(--font-display), "Fredoka", sans-serif;
+/*
+ * Custom classes live in the components layer on purpose: Tailwind's utilities
+ * sit in a later layer, so a utility such as `lg:grid` can override `.rail`'s
+ * default `display: flex` at a breakpoint. Unlayered rules would win over every
+ * utility and silently break responsive overrides.
+ */
+@layer components {
+  /* Page gutter. Sections opt in, so any block can still run full-bleed. */
+  .shell {
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .shell {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Horizontal rail behind every carousel. Snap gives the app-like feel on touch. */
+  /*
+   * Smoothness comes from the arrow handler's `scrollBy({behavior:"smooth"})`,
+   * not from CSS. Setting `scroll-behavior: smooth` here as well made the two
+   * fight each other and left native touch scrolling feeling laggy.
+   */
+  .rail {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+  }
+
+  .rail > * {
+    scroll-snap-align: start;
+    flex: none;
+  }
+
+  /*
+   * Cinematic legibility gradients over imagery.
+   *
+   * `.scrim` and `.scrim-side` are designed to stack on the hero: the vertical
+   * one only anchors the bottom edge, the horizontal one carries the type
+   * column. Stacked opacities multiply, so each stays light on its own.
+   */
+  .scrim {
+    background: linear-gradient(
+      to top,
+      rgba(11, 16, 48, 0.85) 0%,
+      rgba(11, 16, 48, 0.4) 30%,
+      rgba(11, 16, 48, 0.12) 60%,
+      rgba(11, 16, 48, 0) 100%
+    );
+  }
+
+  /* Horizontal companion to `.scrim`, used where type sits on the left. */
+  .scrim-side {
+    background: linear-gradient(
+      to right,
+      rgba(11, 16, 48, 0.88) 0%,
+      rgba(11, 16, 48, 0.62) 40%,
+      rgba(11, 16, 48, 0.16) 72%,
+      rgba(11, 16, 48, 0) 100%
+    );
+  }
+
+  /*
+   * For image tiles that carry a title plus two lines of metadata. Heavier at
+   * the base than `.scrim-card` so the label always clears a busy cover, while
+   * the top half of the artwork stays visible.
+   */
+  .scrim-tile {
+    background: linear-gradient(
+      to top,
+      rgba(11, 16, 48, 0.97) 0%,
+      rgba(11, 16, 48, 0.9) 32%,
+      rgba(11, 16, 48, 0.58) 62%,
+      rgba(11, 16, 48, 0.18) 100%
+    );
+  }
+
+  .scrim-card {
+    background: linear-gradient(
+      to top,
+      rgba(11, 16, 48, 0.9) 0%,
+      rgba(11, 16, 48, 0.45) 52%,
+      rgba(11, 16, 48, 0.05) 100%
+    );
+  }
+
+  .animate-reveal {
+    animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-reveal-delay-1 {
+    animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.09s both;
+  }
+
+  .animate-reveal-delay-2 {
+    animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+  }
+
+  .animate-reveal-delay-3 {
+    animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.27s both;
+  }
+
+  .animate-fade {
+    animation: fadeIn 0.25s ease-out both;
+  }
 }
+
+/* ---------- Motion ---------- */
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -43,40 +205,37 @@ h1, h2, h3 {
   }
 }
 
-.animate-reveal {
-  animation: fadeInUp 0.5s ease-out both;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.animate-reveal-delay-1 {
-  animation: fadeInUp 0.5s ease-out 0.1s both;
-}
+/*
+ * There is deliberately no scroll-linked reveal here.
+ *
+ * An earlier version used `animation-timeline: view()` with an opacity-0 start
+ * frame. On a viewport tall enough that a section never enters the animation
+ * range (a very tall window, or a page short enough that it cannot scroll) the
+ * animation stays at progress 0 and the section renders permanently invisible.
+ * Hiding real content behind a decorative effect is not a trade worth making,
+ * so entrance motion is limited to the time-based `.animate-reveal` classes,
+ * which always finish, plus hover and scroll transitions on the rails.
+ */
 
-.animate-reveal-delay-2 {
-  animation: fadeInUp 0.5s ease-out 0.2s both;
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-.animate-reveal-delay-3 {
-  animation: fadeInUp 0.5s ease-out 0.3s both;
-}
-
-.book-card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.book-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
-}
-
-.bg-warm-gradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-primary) 100%);
-}
-
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
+  .animate-reveal,
+  .animate-reveal-delay-1,
+  .animate-reveal-delay-2,
+  .animate-reveal-delay-3,
+  .animate-fade {
+    animation: none;
+  }
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/metadata";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Cómo seleccionamos los libros",
@@ -12,14 +13,15 @@ export const metadata: Metadata = buildPageMetadata({
 export default function ComoSeleccionamosPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Cómo seleccionamos" }]} />
+      <PageHeader
+        eyebrow="Metodología"
+        title="Cómo seleccionamos los libros"
+        description="Ningún libro entra en Bookata por ser un superventas. Esto es lo que miramos antes de recomendar un título."
+        breadcrumbs={<Breadcrumbs variant="light" items={[{ label: "Cómo seleccionamos" }]} />}
+      />
 
-      <article className="mx-auto max-w-2xl animate-reveal">
-        <h1 className="font-display text-3xl font-bold text-text sm:text-4xl">
-          Cómo seleccionamos los libros
-        </h1>
-
-        <div className="mt-8 space-y-8 text-lg leading-relaxed text-text-secondary">
+      <article className="shell py-12 sm:py-16">
+        <div className="mx-auto max-w-2xl space-y-8 text-lg leading-relaxed text-text-secondary">
           <section>
             <h2 className="font-display text-xl font-bold text-text">
               Criterios de selección

@@ -12,12 +12,12 @@ export default function Breadcrumbs({
   items: BreadcrumbItem[];
   variant?: "default" | "light";
 }) {
-  const baseColor = variant === "light" ? "text-white/60" : "text-text-muted";
+  const baseColor = variant === "light" ? "text-white/55" : "text-text-muted";
   const hoverColor = variant === "light" ? "hover:text-white" : "hover:text-primary";
   const activeColor = variant === "light" ? "text-white/80" : "text-text-secondary";
 
   return (
-    <nav aria-label="Breadcrumb" className={`mb-6 text-sm ${baseColor}`}>
+    <nav aria-label="Breadcrumb" className={`mb-5 text-sm ${baseColor}`}>
       <ol className="flex flex-wrap items-center gap-1">
         <li>
           <Link href="/" className={`${hoverColor} transition-colors`}>
@@ -35,7 +35,12 @@ export default function Breadcrumbs({
                 {item.label}
               </Link>
             ) : (
-              <span className={activeColor}>{item.label}</span>
+              <span
+                className={`${activeColor} block max-w-[52vw] truncate sm:max-w-none sm:overflow-visible`}
+                title={item.label}
+              >
+                {item.label}
+              </span>
             )}
           </li>
         ))}

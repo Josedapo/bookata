@@ -3,36 +3,32 @@
 import Image from "next/image";
 import { useState } from "react";
 
+/**
+ * Fills its parent, which is always an aspect-2/3 box. Falls back to a typeset
+ * card if Amazon ever stops serving a cover, so a rail never shows a hole.
+ */
 export default function BookCover({
   src,
   title,
   author,
-  genreColor,
-  size = "card",
+  sizes,
+  priority = false,
 }: {
-  src: string;
+  src: string | null;
   title: string;
-  author: string;
-  genreColor: string;
-  size?: "card" | "detail";
+  author?: string;
+  sizes: string;
+  priority?: boolean;
 }) {
-  const [hasError, setHasError] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  const dimensions =
-    size === "detail"
-      ? { width: 200, height: 300, className: "h-64 w-auto" }
-      : { width: 128, height: 192, className: "h-48 w-auto" };
-
-  if (hasError) {
+  if (!src || failed) {
     return (
-      <div className="text-center p-6">
-        <p
-          className="font-display text-lg font-bold leading-tight"
-          style={{ color: genreColor }}
-        >
+      <div className="flex h-full w-full flex-col items-center justify-center gap-1 bg-ink-elevated p-3 text-center">
+        <p className="font-display text-sm font-semibold leading-tight text-on-ink">
           {title}
         </p>
-        <p className="mt-2 text-sm text-text-secondary">{author}</p>
+        {author && <p className="text-xs text-on-ink-soft">{author}</p>}
       </div>
     );
   }
@@ -41,10 +37,12 @@ export default function BookCover({
     <Image
       src={src}
       alt={`Portada de ${title}`}
-      width={dimensions.width}
-      height={dimensions.height}
-      className={`${dimensions.className} rounded shadow-md object-contain`}
-      onError={() => setHasError(true)}
+      fill
+      sizes={sizes}
+      priority={priority}
+      loading={priority ? undefined : "lazy"}
+      onError={() => setFailed(true)}
+      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
     />
   );
 }

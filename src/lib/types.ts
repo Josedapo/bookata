@@ -47,8 +47,26 @@ export interface BooksData {
 export interface AgeGroup {
   range: AgeRange;
   label: string;
+  /** Short display form used on the visual age cards, e.g. "3 — 5". */
+  display: string;
+  /** Editorial one-liner shown under the range on the age cards. */
+  tagline: string;
   slug: string;
   description: string;
+}
+
+/**
+ * A cross-age editorial collection. `sections` holds ids from SECTIONS; a
+ * collection whose sections yield no books is simply not rendered, which is how
+ * collections with no real catalogue backing stay declared but empty.
+ */
+export interface CollectionInfo {
+  id: string;
+  label: string;
+  slug: string;
+  tagline: string;
+  description: string;
+  sections: Section[];
 }
 
 export interface GenreInfo {

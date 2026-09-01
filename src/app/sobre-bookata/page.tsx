@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/metadata";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Sobre Bookata",
@@ -12,14 +13,15 @@ export const metadata: Metadata = buildPageMetadata({
 export default function SobreBookataPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Sobre Bookata" }]} />
+      <PageHeader
+        eyebrow="Quiénes somos"
+        title="Sobre Bookata"
+        description="Encontrar un buen libro para un niño no debería ser tan difícil."
+        breadcrumbs={<Breadcrumbs variant="light" items={[{ label: "Sobre Bookata" }]} />}
+      />
 
-      <article className="mx-auto max-w-2xl animate-reveal">
-        <h1 className="font-display text-3xl font-bold text-text sm:text-4xl">
-          Sobre Bookata
-        </h1>
-
-        <div className="mt-8 space-y-6 text-lg leading-relaxed text-text-secondary">
+      <article className="shell py-12 sm:py-16">
+        <div className="mx-auto max-w-2xl space-y-6 text-lg leading-relaxed text-text-secondary">
           <p>
             Bookata nace de una frustración sencilla: encontrar un buen libro
             para un niño no debería ser tan difícil. Los padres quieren que sus

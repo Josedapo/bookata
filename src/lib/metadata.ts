@@ -5,14 +5,21 @@ export function buildPageMetadata({
   title,
   description,
   path,
+  absoluteTitle = false,
 }: {
   title: string;
   description: string;
   path: string;
+  /**
+   * Skip the layout's "%s | Bookata" template. Used by the home page, whose
+   * title already carries the brand and would otherwise read "… | Bookata |
+   * Bookata".
+   */
+  absoluteTitle?: boolean;
 }): Metadata {
   const url = `${BASE_URL}${path}`;
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     openGraph: {
       title,

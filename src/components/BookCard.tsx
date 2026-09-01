@@ -1,54 +1,73 @@
 import Link from "next/link";
 import type { Book } from "@/lib/types";
-import { GENRE_COLORS, GENRES } from "@/lib/config";
+import { AGE_GROUPS } from "@/lib/config";
+import { isSafeBet } from "@/lib/data";
 import BookCover from "./BookCover";
 
-export default function BookCard({ book }: { book: Book }) {
-  const primaryGenre = book.genres[0];
-  const genreColor = GENRE_COLORS[primaryGenre] || "#78716C";
-  const coverSrc = book.coverUrl || "";
+/**
+ * Cover-first book card. The cover carries the card; title, author and age sit
+ * underneath in small type. Used identically in grids and in carousel rails so
+ * the catalogue reads as one system.
+ */
+export default function BookCard({
+  book,
+  tone = "light",
+  sizes = "(min-width: 1024px) 200px, (min-width: 640px) 26vw, 42vw",
+  priority = false,
+  showBadge = true,
+}: {
+  book: Book;
+  tone?: "light" | "dark";
+  sizes?: string;
+  priority?: boolean;
+  /** Off inside collections where every book already carries the badge. */
+  showBadge?: boolean;
+}) {
+  const ageLabel = AGE_GROUPS.find((ag) => ag.range === book.ageRange[0])?.label;
+  const safeBet = showBadge && isSafeBet(book);
+
+  const titleColor = tone === "dark" ? "text-on-ink" : "text-text";
+  const metaColor = tone === "dark" ? "text-on-ink-soft" : "text-text-secondary";
 
   return (
-    <Link
-      href={`/libro/${book.slug}`}
-      className="book-card-hover block rounded-2xl border border-border bg-surface-card overflow-hidden shadow-sm"
-    >
+    <Link href={`/libro/${book.slug}`} className="group block">
       <div
-        className="flex h-60 items-center justify-center overflow-hidden"
-        style={{ backgroundColor: `${genreColor}12` }}
+        className={`relative aspect-2/3 overflow-hidden rounded-xl shadow-cover transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-cover-lift ${
+          tone === "dark" ? "bg-ink-soft" : "bg-surface-alt"
+        }`}
       >
         <BookCover
-          src={coverSrc}
+          src={book.coverUrl}
           title={book.title}
           author={book.author}
-          genreColor={genreColor}
+          sizes={sizes}
+          priority={priority}
         />
+
+        {safeBet && (
+          <span className="absolute left-2 top-2 rounded-full bg-gold/95 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink shadow-sm">
+            Acierto seguro
+          </span>
+        )}
+
+        {/* Revealed on hover, hidden from touch devices where hover is meaningless. */}
+        <div className="scrim-card pointer-events-none absolute inset-0 flex items-end justify-center pb-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white shadow-lg">
+            Ver libro
+          </span>
+        </div>
       </div>
 
-      <div className="p-4">
-        <div className="mb-3 flex flex-wrap gap-1.5">
-          {book.ageRange.map((age) => (
-            <span
-              key={age}
-              className="rounded-full bg-primary-light px-2.5 py-0.5 text-xs font-medium text-primary-dark"
-            >
-              {age} años
-            </span>
-          ))}
-          {book.genres.map((genre) => (
-            <span
-              key={genre}
-              className="rounded-full px-2.5 py-0.5 text-xs font-medium text-white"
-              style={{ backgroundColor: GENRE_COLORS[genre] || "#78716C" }}
-            >
-              {GENRES.find((g) => g.id === genre)?.label || genre.charAt(0).toUpperCase() + genre.slice(1)}
-            </span>
-          ))}
-        </div>
-
-        <p className="text-sm leading-relaxed text-text-secondary line-clamp-3">
-          {book.hook}
-        </p>
+      <div className="mt-2.5 px-0.5">
+        <h3
+          className={`line-clamp-2 font-body text-sm font-semibold leading-snug ${titleColor} transition-colors group-hover:text-primary`}
+        >
+          {book.title}
+        </h3>
+        <p className={`mt-0.5 line-clamp-1 text-xs ${metaColor}`}>{book.author}</p>
+        {ageLabel && (
+          <p className={`mt-0.5 text-xs ${metaColor} opacity-80`}>{ageLabel}</p>
+        )}
       </div>
     </Link>
   );

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllBooks } from "@/lib/data";
+import { getAllBooks, getPopulatedCollections } from "@/lib/data";
 import { AGE_GROUPS, GENRES, BASE_URL } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -28,7 +28,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/por-edades`,
+      lastModified: lastMod,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/colecciones`,
+      lastModified: lastMod,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
+
+  // Only collections that resolve to real books are generated, so only those
+  // are listed here.
+  const collectionPages: MetadataRoute.Sitemap = getPopulatedCollections().map(
+    ({ collection }) => ({
+      url: `${BASE_URL}/colecciones/${collection.slug}`,
+      lastModified: lastMod,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })
+  );
 
   const genrePages: MetadataRoute.Sitemap = GENRES.map((g) => ({
     url: `${BASE_URL}/${g.slug}`,
@@ -64,6 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...agePages,
     ...hubPage,
     ...genrePages,
+    ...collectionPages,
     ...bookPages,
     ...utilityPages,
   ];
