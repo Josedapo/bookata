@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildPageMetadata } from "@/lib/metadata";
-import { buildBreadcrumbJsonLd } from "@/lib/jsonld";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/jsonld";
 import { BASE_URL } from "@/lib/config";
 import AgeShowcase from "@/components/AgeShowcase";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -14,9 +14,31 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/por-edades",
 });
 
+const FAQ = [
+  {
+    question: "¿Cómo sé qué libro es adecuado para la edad de mi hijo?",
+    answer:
+      "Mira dos cosas antes que la edad de la contraportada: la forma del libro y el tema. La forma es la longitud, el tamaño de letra y si hay ilustraciones, y determina si va a poder terminarlo. El tema es lo que decide si va a querer empezarlo. Un lector de nueve años con un interés fuerte lee cosas de doce, y al revés.",
+  },
+  {
+    question: "¿Y si lee por debajo o por encima de su edad?",
+    answer:
+      "Es lo normal, no una señal de nada. Si le cuesta, baja de franja sin avisarle: lo que hunde a un lector nuevo es abandonar libros a la mitad. Si va sobrado, sube de franja mirando el tema, porque a los diez años se lee sin problema una novela de doce pero no todos los asuntos de los que trata.",
+  },
+  {
+    question: "¿Y si no le gusta leer?",
+    answer:
+      "Casi siempre es que no ha dado con el libro, no que no le guste leer. Hay selecciones hechas para eso: libros que entran rápido, se leen en pocas tardes y no parecen deberes.",
+  },
+];
+
 export default function PorEdadesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(FAQ)) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

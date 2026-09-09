@@ -65,3 +65,19 @@ export function buildBreadcrumbJsonLd(
     })),
   };
 }
+
+/**
+ * FAQPage for question blocks that are visible on the page. Only ever called
+ * with questions a reader can actually see, which is what the markup requires.
+ */
+export function buildFaqJsonLd(qa: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: qa.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+}

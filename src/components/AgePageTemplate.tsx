@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { AgeGroup } from "@/lib/types";
 import { getBooksByAge } from "@/lib/data";
-import { buildItemListJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
+import { buildItemListJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/jsonld";
 import { AGE_GROUPS, BASE_URL, SECTIONS } from "@/lib/config";
 import BookCarousel from "./BookCarousel";
 import Breadcrumbs from "./Breadcrumbs";
@@ -23,6 +23,16 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
 
   const otherAges = AGE_GROUPS.filter((ag) => ag.range !== ageGroup.range);
 
+  const reluctantAnswer =
+    "Es lo más habitual a esta edad, y casi siempre es cuestión de no haber dado todavía con el libro. Los que mejor funcionan con lectores que dicen que leer no es lo suyo entran rápido, se leen en pocas tardes y no parecen deberes.";
+  const faq = [
+    {
+      question: `¿Qué libros son buenos para un ${audience === "niños" ? "niño" : "adolescente"} de ${ageGroup.label}?`,
+      answer: ageGroup.guidance,
+    },
+    { question: "¿Y si no le gusta leer?", answer: reluctantAnswer },
+  ];
+
   return (
     <>
       <script
@@ -42,6 +52,11 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
             ])
           ),
         }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faq)) }}
       />
 
       <PageHeader
@@ -70,8 +85,7 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
       */}
       <section className="shell pt-10 sm:pt-12">
         <h2 className="font-display text-xl font-bold text-text sm:text-2xl">
-          ¿Qué libros son buenos para un {audience === "niños" ? "niño" : "adolescente"} de{" "}
-          {ageGroup.label}?
+          {faq[0].question}
         </h2>
         <p className="mt-3 max-w-3xl leading-relaxed text-text-secondary">
           {ageGroup.guidance}
