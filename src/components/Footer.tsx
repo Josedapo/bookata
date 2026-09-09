@@ -15,6 +15,7 @@ export default function Footer() {
                 alt=""
                 width={566}
                 height={441}
+                sizes="48px"
                 className="h-9 w-auto"
               />
               <Image
@@ -22,6 +23,7 @@ export default function Footer() {
                 alt="Bookata"
                 width={973}
                 height={256}
+                sizes="128px"
                 className="h-7 w-auto"
               />
             </Link>

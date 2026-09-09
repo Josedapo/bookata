@@ -64,7 +64,7 @@ export default function Header() {
               alt=""
               width={566}
               height={441}
-              priority
+              sizes="48px"
               className="h-8 w-auto sm:h-9"
             />
             <Image
@@ -72,7 +72,7 @@ export default function Header() {
               alt="Bookata"
               width={973}
               height={256}
-              priority
+              sizes="160px"
               className="h-6 w-auto sm:h-7"
             />
           </Link>

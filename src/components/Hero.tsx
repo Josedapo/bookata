@@ -18,6 +18,7 @@ export default function Hero() {
         alt=""
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         quality={80}
         className="object-cover object-center"
