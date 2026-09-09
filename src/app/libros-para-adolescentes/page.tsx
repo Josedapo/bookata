@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Libros para adolescentes — Recomendaciones juveniles",
+  title: "Libros para adolescentes recomendados",
   description:
     "Los mejores libros para adolescentes recomendados por edad. Literatura juvenil curada con opinión editorial: romance, fantasía, misterio, ciencia ficción y más.",
   path: "/libros-para-adolescentes",

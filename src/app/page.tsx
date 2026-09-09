@@ -15,9 +15,9 @@ import AboutStrip from "@/components/AboutStrip";
  * was the only page that never called buildPageMetadata.
  */
 export const metadata: Metadata = buildPageMetadata({
-  title: "Bookata — Libros infantiles y juveniles recomendados por edad",
+  title: "Libros infantiles y juveniles por edad | Bookata",
   description:
-    "Descubre los mejores libros para niños y adolescentes organizados por edad y género. Recomendaciones curadas para padres con opinión editorial y enlace de compra.",
+    "Libros infantiles y juveniles elegidos uno a uno y ordenados por edad y por tipo de lector. Con edad recomendada y por qué engancha cada uno.",
   path: "/",
   absoluteTitle: true,
 });

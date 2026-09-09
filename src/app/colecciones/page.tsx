@@ -9,7 +9,7 @@ import CoverMosaic from "@/components/CoverMosaic";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Colecciones Bookata — Selecciones de libros por tipo de lector",
+  title: "Colecciones de libros por tipo de lector",
   description:
     "Colecciones de libros infantiles y juveniles que cruzan edades y géneros: para lectores que devoran historias, para quienes dicen que no les gusta leer, misterios, clásicos que nunca fallan y más.",
   path: "/colecciones",

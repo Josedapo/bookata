@@ -38,7 +38,7 @@ export async function generateMetadata({
   if (!collection) return {};
 
   const metadata = buildPageMetadata({
-    title: `${collection.label} — Colección Bookata`,
+    title: `${collection.label} — Colección`,
     description: collection.description,
     path: `/colecciones/${collection.slug}`,
   });

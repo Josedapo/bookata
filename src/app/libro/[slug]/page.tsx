@@ -32,9 +32,20 @@ export async function generateMetadata({
   const book = getBookBySlug(slug);
   if (!book) return {};
 
+  /*
+    The hook runs to 350-400 characters, which was shipping as the meta
+    description on all 243 book pages and truncating in results. The
+    description now leads with what a parent is actually choosing on: title,
+    author and recommended age, and the hook fills whatever is left.
+  */
+  const ages = book.ageRange
+    .map((r) => AGE_GROUPS.find((ag) => ag.range === r)?.label)
+    .filter(Boolean)
+    .join(" y ");
+
   return buildPageMetadata({
-    title: `${book.title} de ${book.author} — Reseña y recomendación`,
-    description: book.hook,
+    title: `${book.title} de ${book.author}`,
+    description: `${book.title}, de ${book.author}. Recomendado para ${ages}. ${book.hook}`,
     path: `/libro/${book.slug}`,
   });
 }
