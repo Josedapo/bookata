@@ -59,11 +59,19 @@ export default function RootLayout({
     <html lang="es">
       {GA_ID && (
         <>
+          {/*
+            lazyOnload, not afterInteractive: gtag.js costs about 880 ms of
+            main-thread blocking on a throttled mobile CPU, which took the home
+            page from 90 ms to 970 ms of total blocking time and made its LCP
+            swing between 3 and 9 seconds. Loading it after the page has settled
+            keeps the measurement and costs only the events of a visitor who
+            leaves within the first seconds.
+          */}
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="ga4-init" strategy="afterInteractive">
+          <Script id="ga4-init" strategy="lazyOnload">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
