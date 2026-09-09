@@ -13,6 +13,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBookJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { AGE_GROUPS, GENRES, BASE_URL, GENRE_GLOW } from "@/lib/config";
 import AmazonButton from "@/components/AmazonButton";
+import BookView from "@/components/BookView";
 import StickyBuyBar from "@/components/StickyBuyBar";
 import BookCarousel from "@/components/BookCarousel";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -76,6 +77,7 @@ export default async function BookPage({
 
   return (
     <>
+      <BookView book={book} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBookJsonLd(book)) }}

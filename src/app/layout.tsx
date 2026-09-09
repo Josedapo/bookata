@@ -60,25 +60,26 @@ export default function RootLayout({
       {GA_ID && (
         <>
           {/*
-            lazyOnload, not afterInteractive: gtag.js costs about 880 ms of
-            main-thread blocking on a throttled mobile CPU, which took the home
-            page from 90 ms to 970 ms of total blocking time and made its LCP
-            swing between 3 and 9 seconds. Loading it after the page has settled
-            keeps the measurement and costs only the events of a visitor who
-            leaves within the first seconds.
+            Two scripts on purpose. The four-line queue shim runs early so
+            window.gtag always exists: an event fired before analytics has
+            loaded is queued and delivered later, instead of being dropped on
+            the floor. gtag.js itself stays lazyOnload because it costs about
+            880 ms of main-thread blocking on a throttled mobile CPU, which
+            took the home page from 90 ms to 970 ms of total blocking time and
+            made its LCP swing between 3 and 9 seconds.
           */}
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="lazyOnload"
-          />
-          <Script id="ga4-init" strategy="lazyOnload">
+          <Script id="ga4-queue" strategy="beforeInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
+              window.gtag = function(){window.dataLayer.push(arguments);};
               gtag('js', new Date());
               gtag('config', '${GA_ID}');
             `}
           </Script>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            strategy="lazyOnload"
+          />
         </>
       )}
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
