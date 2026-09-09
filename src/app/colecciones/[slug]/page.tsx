@@ -17,6 +17,11 @@ import PageHeader from "@/components/PageHeader";
  * with no backing sections is intentionally not generated, so the site never
  * ships an empty page to fill a slot.
  */
+const NOINDEX_COLLECTIONS = [
+  "aventuras-que-no-podras-soltar",
+  "historias-que-dejan-huella",
+];
+
 export function generateStaticParams() {
   return getPopulatedCollections().map(({ collection }) => ({
     slug: collection.slug,
@@ -32,11 +37,22 @@ export async function generateMetadata({
   const collection = getCollectionBySlug(slug);
   if (!collection) return {};
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     title: `${collection.label} — Colección Bookata`,
     description: collection.description,
     path: `/colecciones/${collection.slug}`,
   });
+
+  /*
+    Two collections target the same search intent as a genre page that already
+    owns it, so they stay for readers but out of the index. Decided in the
+    Seoseda keyword map, 2026-09-09.
+  */
+  if (NOINDEX_COLLECTIONS.includes(collection.slug)) {
+    metadata.robots = { index: false, follow: true };
+  }
+
+  return metadata;
 }
 
 export default async function CollectionPage({

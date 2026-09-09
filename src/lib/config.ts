@@ -10,6 +10,10 @@ export const AGE_GROUPS: AgeGroup[] = [
     tagline: "Primeras aventuras",
     label: "3 a 5 años",
     slug: "libros-ninos-3-5-anos",
+    lead:
+      "A los 3-5 años el libro se lee en voz alta y se mira tanto como se escucha.",
+    guidance:
+      "Álbumes ilustrados y cuentos cortos, con texto breve y una imagen que sostenga la historia. A esta edad el libro se comparte, así que funciona mejor lo que se puede leer entero de una sentada: rimas, repeticiones y humor físico.",
     description:
       "Libros para niños de 3 a 5 años: álbumes ilustrados, primeros cuentos y historias cortas perfectas para leer juntos antes de dormir o para sus primeros pasos como lectores.",
   },
@@ -19,6 +23,10 @@ export const AGE_GROUPS: AgeGroup[] = [
     tagline: "Empiezan las grandes historias",
     label: "6 a 8 años",
     slug: "libros-ninos-6-8-anos",
+    lead:
+      "A los 6-8 años empiezan a leer solos y necesitan capítulos cortos y letra grande.",
+    guidance:
+      "Capítulos cortos, letra grande y una sola historia por libro. Están aprendiendo a leer solos, así que la victoria es terminarlo. Las ilustraciones intercaladas y las series con el mismo personaje ayudan a que pidan el siguiente.",
     description:
       "Libros para niños de 6 a 8 años: primeros lectores autónomos que empiezan a disfrutar historias más largas con capítulos cortos, ilustraciones y mucha aventura.",
   },
@@ -28,6 +36,10 @@ export const AGE_GROUPS: AgeGroup[] = [
     tagline: "Historias que no podrán soltar",
     label: "8 a 10 años",
     slug: "libros-ninos-8-10-anos",
+    lead:
+      "A los 8-10 años ya leen del tirón y buscan personajes a los que volver.",
+    guidance:
+      "Novelas de 100 a 200 páginas con humor, aventura o misterio, y capítulos que acaben con ganas de seguir. Es la edad de las series largas: si un personaje les gusta, se leen los ocho tomos seguidos.",
     description:
       "Libros para niños de 8 a 10 años: lectores que ya devoran libros por su cuenta y buscan historias con más acción, misterio y personajes con los que identificarse.",
   },
@@ -37,6 +49,10 @@ export const AGE_GROUPS: AgeGroup[] = [
     tagline: "La edad de devorar libros",
     label: "10 a 12 años",
     slug: "libros-ninos-10-12-anos",
+    lead:
+      "A los 10-12 años ya leen solos y buscan historias largas que les duren.",
+    guidance:
+      "Novelas largas con trama propia, sea fantasía, misterio o realismo. Ya sostienen 300 páginas y agradecen que no se les hable como a niños pequeños. Es la mejor edad para engancharles a una saga.",
     description:
       "Libros para niños de 10 a 12 años: la edad dorada de la lectura infantil. Historias más complejas, mundos fantásticos, y tramas que enganchan de principio a fin.",
   },
@@ -46,6 +62,10 @@ export const AGE_GROUPS: AgeGroup[] = [
     tagline: "Mundos que se abren",
     label: "12 a 14 años",
     slug: "libros-adolescentes-12-14",
+    lead:
+      "A los 12-14 años el libro compite con el móvil y solo gana si engancha pronto.",
+    guidance:
+      "Historias con conflicto real y protagonistas de su edad. Funciona lo que arranca rápido: distopía, misterio, novela gráfica. Un libro que tarda cincuenta páginas en empezar se queda en la mesilla.",
     description:
       "Libros para adolescentes de 12 a 14 años: la transición a la literatura juvenil. Temas más maduros, protagonistas adolescentes y primeras reflexiones sobre identidad.",
   },
@@ -55,6 +75,10 @@ export const AGE_GROUPS: AgeGroup[] = [
     tagline: "Historias que dejan huella",
     label: "14 a 16 años",
     slug: "libros-adolescentes-14-16",
+    lead:
+      "A los 14-16 años quieren que les hablen de igual a igual, sin tono infantil.",
+    guidance:
+      "Novelas juveniles sin edulcorar: amor, identidad, injusticia, humor negro. A esta edad rechazan lo que suene a lectura obligatoria del colegio, así que pesa más el tema que el nivel de lectura.",
     description:
       "Libros para adolescentes de 14 a 16 años: literatura juvenil con profundidad. Romance, ciencia ficción, thrillers y novelas que desafían y emocionan a partes iguales.",
   },

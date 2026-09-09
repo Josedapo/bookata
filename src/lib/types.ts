@@ -53,6 +53,10 @@ export interface AgeGroup {
   tagline: string;
   slug: string;
   description: string;
+  /** Opening sentence of the page intro: what is true about reading at this age. */
+  lead: string;
+  /** The quotable answer under "¿Qué libros son buenos para…?". Written to survive being lifted alone. */
+  guidance: string;
 }
 
 /**

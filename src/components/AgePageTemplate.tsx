@@ -47,7 +47,7 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
       <PageHeader
         eyebrow={ageGroup.tagline}
         title={heading}
-        description={ageGroup.description}
+        description={`${ageGroup.lead} Aquí hay ${books.length} libros elegidos para esa edad, agrupados por lo que le gusta a cada lector.`}
         breadcrumbs={
           <Breadcrumbs
             variant="light"
@@ -59,9 +59,24 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
         }
       >
         <p className="mt-5 text-sm text-on-ink-soft/70">
-          {books.length} libros recomendados en {sectionRows.length} selecciones
+          {sectionRows.length} selecciones para esta edad
         </p>
       </PageHeader>
+
+      {/*
+        Question-form heading with a self-contained answer. It exists so a search
+        snippet or an LLM can lift the paragraph and attribute it, which the
+        editorial section titles below cannot do on their own.
+      */}
+      <section className="shell pt-10 sm:pt-12">
+        <h2 className="font-display text-xl font-bold text-text sm:text-2xl">
+          ¿Qué libros son buenos para un {audience === "niños" ? "niño" : "adolescente"} de{" "}
+          {ageGroup.label}?
+        </h2>
+        <p className="mt-3 max-w-3xl leading-relaxed text-text-secondary">
+          {ageGroup.guidance}
+        </p>
+      </section>
 
       {books.length > 0 ? (
         <div className="space-y-12 py-12 sm:space-y-14 sm:py-16">
@@ -75,6 +90,24 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
           pronto.
         </p>
       )}
+
+      <section className="shell border-t border-border py-10">
+        <h2 className="font-display text-xl font-bold text-text sm:text-2xl">
+          ¿Y si no le gusta leer?
+        </h2>
+        <p className="mt-3 max-w-3xl leading-relaxed text-text-secondary">
+          Es lo más habitual a esta edad, y casi siempre es cuestión de no haber
+          dado todavía con el libro.{" "}
+          <Link
+            href="/colecciones/para-quienes-dicen-que-no-les-gusta-leer"
+            className="text-primary underline underline-offset-4"
+          >
+            Esta selección
+          </Link>{" "}
+          reúne los que mejor funcionan con lectores que dicen que leer no es lo
+          suyo: entran rápido, se leen en pocas tardes y no parecen deberes.
+        </p>
+      </section>
 
       <nav className="shell border-t border-border py-10" aria-label="Otras edades">
         <h2 className="font-display text-lg font-bold text-text">Otras edades</h2>
