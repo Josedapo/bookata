@@ -20,7 +20,7 @@ export default function Hero() {
         priority
         fetchPriority="high"
         sizes="100vw"
-        quality={80}
+        quality={62}
         className="object-cover object-center"
       />
       <div className="scrim absolute inset-0" />
