@@ -8,13 +8,13 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 /*
- * Set NEXT_PUBLIC_GA_ID in the Vercel project (and in .env.local for local
- * runs). While it is unset, no analytics script is injected at all: the old
- * hardcoded "G-XXXXXXXXXX" placeholder made every page load googletagmanager
- * for a property that does not exist, so the `click_amazon` events had nowhere
- * to land and the request was pure waste.
+ * GA4 measurement id for the Bookata property, created 2026-09-09. It is not a
+ * secret: it ships in the HTML of every page by design, so it lives here rather
+ * than in a Vercel environment variable, where a missing value would silently
+ * mean no analytics at all. NEXT_PUBLIC_GA_ID still overrides it, which is what
+ * a staging property would use.
  */
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-DBKB5VF49W";
 
 export const viewport: Viewport = {
   width: "device-width",
