@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { SITE_DESCRIPTION } from "@/lib/config";
 import { Outfit, Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/Header";
@@ -22,12 +23,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  verification: {
+    google: "oYSYjFG44v1TZSHcp3_BPo2OJjDiWrTVy2niHiUnXd0",
+  },
   title: {
     default: "Bookata — Libros infantiles y juveniles recomendados por edad",
     template: "%s | Bookata",
   },
-  description:
-    "Descubre los mejores libros para niños y adolescentes organizados por edad y género. Recomendaciones curadas para padres con opinión editorial y enlace de compra.",
+  description: SITE_DESCRIPTION,
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
