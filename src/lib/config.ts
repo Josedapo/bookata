@@ -3,6 +3,14 @@ import type { AgeGroup, CollectionInfo, GenreInfo, SectionInfo } from "./types";
 export const BASE_URL = "https://bookata.es";
 export const SITE_NAME = "Bookata";
 
+/**
+ * The one description of what Bookata is. AI engines resolve entities before
+ * they choose passages, and a product described three different ways reads as
+ * three weak entities. Schema, footer and about page all use this string.
+ */
+export const SITE_DESCRIPTION =
+  "Recomendaciones de libros infantiles y juveniles seleccionadas una a una y organizadas por edad y por tipo de lector, para padres que buscan el libro adecuado para un niño concreto.";
+
 export const AGE_GROUPS: AgeGroup[] = [
   {
     range: "3-5",

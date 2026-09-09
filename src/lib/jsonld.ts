@@ -1,5 +1,5 @@
 import type { Book } from "./types";
-import { BASE_URL, SITE_NAME } from "./config";
+import { BASE_URL, SITE_NAME, SITE_DESCRIPTION } from "./config";
 
 export function buildWebsiteJsonLd() {
   return {
@@ -7,8 +7,7 @@ export function buildWebsiteJsonLd() {
     "@type": "WebSite",
     name: SITE_NAME,
     url: BASE_URL,
-    description:
-      "Descubre los mejores libros para niños y adolescentes organizados por edad y género literario.",
+    description: SITE_DESCRIPTION,
     inLanguage: "es",
   };
 }
@@ -19,8 +18,7 @@ export function buildOrganizationJsonLd() {
     "@type": "Organization",
     name: SITE_NAME,
     url: BASE_URL,
-    description:
-      "Recomendaciones curadas de libros infantiles y juveniles para padres en España.",
+    description: SITE_DESCRIPTION,
   };
 }
 

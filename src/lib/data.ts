@@ -225,3 +225,16 @@ export function getSearchIndex(): SearchEntry[] {
     g: b.genres,
   }));
 }
+
+/**
+ * Human-readable month the catalogue was last updated, taken from the data
+ * itself so it can never claim a freshness the books do not have.
+ */
+export function getCatalogueDate(): string {
+  const [year, month] = getBooksData().meta.lastUpdated.split("-");
+  const months = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+  ];
+  return `${months[parseInt(month, 10) - 1]} de ${year}`;
+}

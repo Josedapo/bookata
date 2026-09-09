@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AGE_GROUPS, GENRES } from "@/lib/config";
+import { AGE_GROUPS, GENRES, SITE_DESCRIPTION } from "@/lib/config";
+import { getAllBooks, getCatalogueDate } from "@/lib/data";
 
 export default function Footer() {
   return (
@@ -28,8 +29,11 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-on-ink-soft">
-              Recomendaciones curadas de libros infantiles y juveniles para
-              padres que quieren acertar con el próximo libro de sus hijos.
+              {SITE_DESCRIPTION}
+            </p>
+            <p className="mt-3 text-sm text-on-ink-soft/70">
+              Catálogo actualizado en {getCatalogueDate()}. {getAllBooks().length}{" "}
+              libros seleccionados.
             </p>
           </div>
 
