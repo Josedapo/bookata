@@ -230,6 +230,15 @@ export function getSearchIndex(): SearchEntry[] {
  * Human-readable month the catalogue was last updated, taken from the data
  * itself so it can never claim a freshness the books do not have.
  */
+/**
+ * The catalogue date as ISO 8601, for `dateModified` in structured data. Google
+ * cross-references the visible date against the structured one, so both must come
+ * from this single value in `books.json` and never be written by hand.
+ */
+export function getCatalogueDateISO(): string {
+  return getBooksData().meta.lastUpdated;
+}
+
 export function getCatalogueDate(): string {
   const [year, month] = getBooksData().meta.lastUpdated.split("-");
   const months = [
