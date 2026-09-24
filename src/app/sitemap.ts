@@ -3,7 +3,9 @@ import { getAllBooks, getCatalogueDateISO, getPopulatedCollections } from "@/lib
 import { AGE_GROUPS, GENRES, BASE_URL, NOINDEX_COLLECTIONS } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastMod = new Date();
+  // The catalogue date, not the build date: stamping every deploy as a change
+  // to 271 URLs teaches Google to ignore lastmod (audit B18).
+  const lastMod = getCatalogueDateISO();
 
   const home: MetadataRoute.Sitemap = [
     {
