@@ -4,6 +4,15 @@ export const BASE_URL = "https://bookata.es";
 export const SITE_NAME = "Bookata";
 
 /**
+ * Site owner for the legal pages (LSSI art. 10, RGPD art. 13). Confirmed by
+ * Joseda on 2026-09-24. The NIF is deliberately not published for now: do not
+ * add it, or a placeholder for it, without his say.
+ */
+export const LEGAL_OWNER = "Raúl Poveda";
+export const CONTACT_EMAIL = "raulopove@hotmail.com";
+export const LEGAL_UPDATED = "24 de septiembre de 2026";
+
+/**
  * The one description of what Bookata is. AI engines resolve entities before
  * they choose passages, and a product described three different ways reads as
  * three weak entities. Schema, footer and about page all use this string.

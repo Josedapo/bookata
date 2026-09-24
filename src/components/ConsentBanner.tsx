@@ -1,9 +1,34 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 /** Must match the key the consent script in layout.tsx reads on load. */
 const CONSENT_KEY = "bookata-consent";
+
+/** Dispatched by CookiePreferencesButton to show the banner again. */
+export const OPEN_CONSENT_EVENT = "bookata:open-consent";
+
+/**
+ * Removes the GA4 cookies after a withdrawal. gtag stops writing them once
+ * analytics_storage is denied but does not delete what is already there. They
+ * are set on the registrable domain (.bookata.es), so every parent domain of
+ * the current host is tried.
+ */
+function clearAnalyticsCookies() {
+  const names = document.cookie
+    .split(";")
+    .map((c) => c.split("=")[0].trim())
+    .filter((n) => n === "_ga" || n.startsWith("_ga_"));
+  const parts = window.location.hostname.split(".");
+  const domains = [""];
+  for (let i = 0; i < parts.length - 1; i++) domains.push(`; domain=.${parts.slice(i).join(".")}`);
+  for (const name of names) {
+    for (const domain of domains) {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domain}`;
+    }
+  }
+}
 
 type Choice = "granted" | "denied";
 
@@ -27,6 +52,10 @@ export default function ConsentBanner() {
       // Storage blocked: ask every time rather than assume either answer.
     }
     if (stored !== "granted" && stored !== "denied") setOpen(true);
+
+    const reopen = () => setOpen(true);
+    window.addEventListener(OPEN_CONSENT_EVENT, reopen);
+    return () => window.removeEventListener(OPEN_CONSENT_EVENT, reopen);
   }, []);
 
   const decide = (choice: Choice) => {
@@ -35,9 +64,10 @@ export default function ConsentBanner() {
     } catch {
       // The choice still applies to this page view.
     }
-    if (choice === "granted" && typeof window.gtag === "function") {
-      window.gtag("consent", "update", { analytics_storage: "granted" });
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", { analytics_storage: choice });
     }
+    if (choice === "denied") clearAnalyticsCookies();
     setOpen(false);
   };
 
@@ -57,7 +87,10 @@ export default function ConsentBanner() {
         <p className="text-sm leading-relaxed text-on-ink-soft">
           Usamos cookies de analítica (Google Analytics) para saber qué libros
           os resultan útiles. Solo se activan si las aceptas, y no usamos
-          cookies de publicidad.
+          cookies de publicidad.{" "}
+          <Link href="/cookies" className="text-white underline underline-offset-4">
+            Política de cookies
+          </Link>
         </p>
         <div className="flex flex-none gap-2.5">
           <button type="button" className={button} onClick={() => decide("denied")}>

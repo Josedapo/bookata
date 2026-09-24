@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { getAllBooks, getCatalogueDateISO, getPopulatedCollections } from "@/lib/data";
 import { AGE_GROUPS, GENRES, BASE_URL, NOINDEX_COLLECTIONS } from "@/lib/config";
 
+/** When the legal pages last changed; keep in step with LEGAL_UPDATED. */
+const LEGAL_UPDATED_ISO = "2026-09-24";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   // The catalogue date, not the build date: stamping every deploy as a change
   // to 271 URLs teaches Google to ignore lastmod (audit B18).
@@ -84,6 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
+    ...["aviso-legal", "privacidad", "cookies"].map((slug) => ({
+      url: `${BASE_URL}/${slug}`,
+      lastModified: LEGAL_UPDATED_ISO,
+      changeFrequency: "yearly" as const,
+      priority: 0.2,
+    })),
   ];
 
   return [

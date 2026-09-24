@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AGE_GROUPS, GENRES, SITE_DESCRIPTION } from "@/lib/config";
+import { AGE_GROUPS, CONTACT_EMAIL, GENRES, SITE_DESCRIPTION } from "@/lib/config";
 import { getAllBooks, getCatalogueDate } from "@/lib/data";
 
 export default function Footer() {
@@ -141,6 +141,32 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Bookata. Todos los derechos
             reservados.
           </p>
+          <nav aria-label="Información legal" className="mt-4">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+              {[
+                { href: "/aviso-legal", label: "Aviso legal" },
+                { href: "/privacidad", label: "Privacidad" },
+                { href: "/cookies", label: "Cookies" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-on-ink-soft transition-colors hover:text-primary"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-on-ink-soft transition-colors hover:text-primary"
+                >
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>
