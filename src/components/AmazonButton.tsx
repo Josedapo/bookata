@@ -1,9 +1,10 @@
 "use client";
 
 /**
- * The affiliate CTA. The href, target, rel and the GA `click_amazon` event are
- * exactly the ones Bookata already used: only the styling and the placement
- * change. Do not alter the link or the tracking call.
+ * The affiliate CTA. The href, target and the GA `click_amazon` event are
+ * exactly the ones Bookata already used. Do not alter the link or the tracking
+ * call. rel gained "sponsored" on 2026-09-24 (audit B15): Google's attribute
+ * for paid and affiliate links.
  */
 export default function AmazonButton({
   url,
@@ -35,7 +36,7 @@ export default function AmazonButton({
       id={id}
       href={url}
       target="_blank"
-      rel="noopener noreferrer nofollow"
+      rel="sponsored nofollow noopener noreferrer"
       onClick={handleClick}
       className={`inline-flex items-center rounded-full bg-primary-dark font-bold text-white shadow-lg transition-all duration-200 hover:bg-[#A33A17] hover:shadow-xl active:scale-[0.98] ${styles}`}
     >
