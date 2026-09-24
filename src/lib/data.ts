@@ -110,6 +110,43 @@ export function getBooksByCollection(collection: CollectionInfo): Book[] {
   return stableShuffle(matches, collection.id);
 }
 
+/** One block per age range, youngest first, as rendered by AgeGroupedBooks. */
+export interface AgeBlock {
+  range: AgeRange;
+  books: Book[];
+}
+
+/**
+ * Splits a list into age blocks. A book recommended for 6-10 appears under both
+ * 6-8 and 8-10: a parent looking for a nine-year-old must find it in 8-10.
+ * The input order is kept inside each block.
+ */
+export function groupBooksByAge(books: Book[]): AgeBlock[] {
+  return AGE_GROUPS.map((ag) => ({
+    range: ag.range,
+    books: books.filter((b) => b.ageRange.includes(ag.range)),
+  })).filter((block) => block.books.length > 0);
+}
+
+/**
+ * Age blocks for a collection, keyed on the age of the curated section that put
+ * each book in the collection (section ids start with their range, e.g.
+ * "8-10--acierto-seguro"). This follows the editor's placement exactly instead
+ * of the book's wider age span, so nothing is re-picked by hand.
+ */
+export function groupCollectionByAge(collection: CollectionInfo): AgeBlock[] {
+  const books = getBooksByCollection(collection);
+  return AGE_GROUPS.map((ag) => {
+    const sectionIds = new Set(
+      collection.sections.filter((id) => id.startsWith(`${ag.range}--`))
+    );
+    return {
+      range: ag.range,
+      books: books.filter((b) => b.sections.some((s) => sectionIds.has(s))),
+    };
+  }).filter((block) => block.books.length > 0);
+}
+
 export function getCollectionBySlug(slug: string): CollectionInfo | undefined {
   return COLLECTIONS.find((c) => c.slug === slug);
 }

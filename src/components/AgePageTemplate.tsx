@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { AgeGroup } from "@/lib/types";
 import { getBooksByAge } from "@/lib/data";
+import { ageAnchor } from "./AgeGroupedBooks";
 import { buildItemListJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/jsonld";
-import { AGE_GROUPS, BASE_URL, SECTIONS } from "@/lib/config";
+import { AGE_GROUPS, BASE_URL, GENRES, GENRE_ICONS, SECTIONS } from "@/lib/config";
 import BookCarousel from "./BookCarousel";
 import Breadcrumbs from "./Breadcrumbs";
 import PageHeader from "./PageHeader";
@@ -20,6 +21,10 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
       books: books.filter((b) => b.sections.includes(section.id)),
     }))
     .filter((row) => row.books.length > 0);
+
+  // Genres with at least one book at this age, each linking to this age's
+  // block on the genre page: the "su edad y sus gustos" path.
+  const genresHere = GENRES.filter((g) => books.some((b) => b.genres.includes(g.id)));
 
   const otherAges = AGE_GROUPS.filter((ag) => ag.range !== ageGroup.range);
 
@@ -91,6 +96,27 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
           {ageGroup.guidance}
         </p>
       </section>
+
+      {genresHere.length > 0 && (
+        <nav className="shell pt-8" aria-label="En esta edad, por género">
+          <h2 className="font-display text-lg font-bold text-text">
+            En esta edad, por género
+          </h2>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {genresHere.map((g) => (
+              <li key={g.id}>
+                <Link
+                  href={`/${g.slug}#${ageAnchor(ageGroup.range)}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm text-text-secondary transition-colors hover:border-primary hover:text-primary"
+                >
+                  <span aria-hidden="true">{GENRE_ICONS[g.id]}</span>
+                  {g.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
 
       {books.length > 0 ? (
         <div className="space-y-12 py-12 sm:space-y-14 sm:py-16">

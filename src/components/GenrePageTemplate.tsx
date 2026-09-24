@@ -1,15 +1,16 @@
 import Link from "next/link";
 import type { GenreInfo } from "@/lib/types";
-import { getBooksByGenre } from "@/lib/data";
+import { getBooksByGenre, groupBooksByAge } from "@/lib/data";
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { BASE_URL, GENRES, GENRE_ICONS } from "@/lib/config";
-import BookGrid from "./BookGrid";
+import AgeGroupedBooks from "./AgeGroupedBooks";
 import Breadcrumbs from "./Breadcrumbs";
 import PageHeader from "./PageHeader";
 
 export default function GenrePageTemplate({ genre }: { genre: GenreInfo }) {
   const books = getBooksByGenre(genre.id);
   const heading = `Libros de ${genre.label.toLowerCase()} para jóvenes`;
+  const blocks = groupBooksByAge(books);
   const otherGenres = GENRES.filter((g) => g.id !== genre.id);
 
   return (
@@ -47,7 +48,7 @@ export default function GenrePageTemplate({ genre }: { genre: GenreInfo }) {
 
       <div className="shell py-12 sm:py-16">
         {books.length > 0 ? (
-          <BookGrid books={books} />
+          <AgeGroupedBooks blocks={blocks} />
         ) : (
           <p className="py-8 text-center text-text-muted">
             Estamos preparando las recomendaciones para este género. Vuelve pronto.
