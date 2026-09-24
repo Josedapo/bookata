@@ -5,6 +5,7 @@ import { Outfit, Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ConsentBanner from "@/components/ConsentBanner";
 import "./globals.css";
 
 /*
@@ -68,10 +69,29 @@ export default function RootLayout({
             took the home page from 90 ms to 970 ms of total blocking time and
             made its LCP swing between 3 and 9 seconds.
           */}
+          {/*
+            Consent Mode v2. Every storage type starts denied, so no _ga cookie
+            is written until the visitor presses Aceptar in ConsentBanner. A
+            choice already stored in localStorage is replayed here, before
+            config, so a returning visitor who accepted is measured from the
+            first hit. Ad storage stays denied for everyone: Bookata runs no
+            ads. The key must match CONSENT_KEY in ConsentBanner.tsx.
+          */}
           <Script id="ga4-queue" strategy="beforeInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               window.gtag = function(){window.dataLayer.push(arguments);};
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied'
+              });
+              try {
+                if (localStorage.getItem('bookata-consent') === 'granted') {
+                  gtag('consent', 'update', { analytics_storage: 'granted' });
+                }
+              } catch (e) {}
               gtag('js', new Date());
               gtag('config', '${GA_ID}');
             `}
@@ -90,6 +110,7 @@ export default function RootLayout({
         */}
         <main>{children}</main>
         <Footer />
+        {GA_ID && <ConsentBanner />}
         <SpeedInsights />
       </body>
     </html>
