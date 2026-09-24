@@ -5,10 +5,11 @@ import {
   getBooksByCollection,
   getCollectionBySlug,
   getPopulatedCollections,
+  groupCollectionByAge,
 } from "@/lib/data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
-import BookGrid from "@/components/BookGrid";
+import AgeGroupedBooks from "@/components/AgeGroupedBooks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageHeader from "@/components/PageHeader";
 
@@ -108,8 +109,12 @@ export default async function CollectionPage({
       />
 
       <div className="shell py-12 sm:py-16">
-        <BookGrid
-          books={books}
+        {/*
+          Grouped by the age of the curated section that placed each book here,
+          so a collection spanning 3 to 12 no longer reads as one mixed shelf.
+        */}
+        <AgeGroupedBooks
+          blocks={groupCollectionByAge(collection)}
           showBadge={collection.id !== "los-clasicos-que-nunca-fallan"}
         />
 
