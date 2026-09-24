@@ -185,29 +185,34 @@ export default async function BookPage({
               </div>
 
               {/*
-                The curated reason comes first and sits right above the button:
-                a parent who does not trust a publisher blurb decides here. It
-                appears once on the page; the synopsis lives below, also once.
+                The curated reason sits right next to the button: a parent who
+                does not trust a publisher blurb decides here. It appears once
+                on the page; the synopsis lives below, also once. On desktop it
+                comes before the button; on mobile it follows it, because the
+                hook runs to ~400 characters and would push Ver precio out of
+                the first screen (redesign rule 3).
               */}
-              <section className="mx-auto mt-4 max-w-xl text-left sm:mx-0 sm:mt-6">
-                <h2 className="font-display text-sm font-bold uppercase tracking-wide text-primary-light sm:text-base">
-                  ¿Por qué lo recomendamos?
-                </h2>
-                <p className="mt-1.5 text-sm leading-relaxed text-white/85 sm:text-base">
-                  {book.hook}
-                </p>
-              </section>
+              <div className="flex flex-col">
+                <section className="order-2 mx-auto mt-5 max-w-xl text-left sm:order-1 sm:mx-0 sm:mt-6">
+                  <h2 className="font-display text-sm font-bold uppercase tracking-wide text-primary-light sm:text-base">
+                    ¿Por qué lo recomendamos?
+                  </h2>
+                  <p className="mt-1.5 text-sm leading-relaxed text-white/85 sm:text-base">
+                    {book.hook}
+                  </p>
+                </section>
 
-              <div className="mt-5 sm:mt-7">
-                <AmazonButton
-                  id={BUY_ANCHOR}
-                  url={book.amazonUrl}
-                  bookTitle={book.title}
-                />
-                <p className="mt-2 text-[11px] leading-snug text-white/50 sm:text-xs">
-                  Te llevamos a Amazon. Bookata recibe una pequeña comisión sin
-                  coste adicional para ti.
-                </p>
+                <div className="order-1 mt-5 sm:order-2 sm:mt-7">
+                  <AmazonButton
+                    id={BUY_ANCHOR}
+                    url={book.amazonUrl}
+                    bookTitle={book.title}
+                  />
+                  <p className="mt-2 text-[11px] leading-snug text-white/50 sm:text-xs">
+                    Te llevamos a Amazon. Bookata recibe una pequeña comisión sin
+                    coste adicional para ti.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
