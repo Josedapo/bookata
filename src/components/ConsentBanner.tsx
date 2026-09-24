@@ -72,7 +72,7 @@ export default function ConsentBanner() {
       // stops every further hit, including the user_engagement sent on page
       // hide (audit re-check B23), before the cookies are deleted.
       const w = window as unknown as Record<string, unknown>;
-      w[`ga-disable-${process.env.NEXT_PUBLIC_GA_ID}`] = true;
+      w[`ga-disable-${process.env.NEXT_PUBLIC_GA_ID ?? "G-DBKB5VF49W"}`] = true;
       if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: "denied" });
     }
     if (choice === "denied") clearAnalyticsCookies();
