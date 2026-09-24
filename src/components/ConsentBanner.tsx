@@ -67,8 +67,13 @@ export default function ConsentBanner() {
     }
     // Basic mode: gtag.js is only downloaded on Aceptar (see layout.tsx).
     if (choice === "granted") window.__bookataLoadGA?.();
-    else if (typeof window.gtag === "function") {
-      window.gtag("consent", "update", { analytics_storage: "denied" });
+    else {
+      // Withdrawal on a page where gtag.js already runs: GA's own opt-out flag
+      // stops every further hit, including the user_engagement sent on page
+      // hide (audit re-check B23), before the cookies are deleted.
+      const w = window as unknown as Record<string, unknown>;
+      w[`ga-disable-${process.env.NEXT_PUBLIC_GA_ID}`] = true;
+      if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: "denied" });
     }
     if (choice === "denied") clearAnalyticsCookies();
     setOpen(false);
