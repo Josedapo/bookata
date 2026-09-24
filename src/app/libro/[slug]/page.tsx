@@ -50,6 +50,11 @@ export async function generateMetadata({
     title: `${book.title} de ${book.author}`,
     description: `${book.title}, de ${book.author}. Recomendado para ${ages}. ${book.hook}`,
     path: `/libro/${book.slug}`,
+    // Amazon serves these covers 500 px wide; the height varies by book, so
+    // no dimensions are claimed and the crawler reads them from the image.
+    image: book.coverUrl
+      ? { url: book.coverUrl, alt: `Portada de ${book.title}` }
+      : undefined,
   });
 }
 
