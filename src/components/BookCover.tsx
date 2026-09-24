@@ -42,7 +42,7 @@ export default function BookCover({
       priority={priority}
       loading={priority ? undefined : "lazy"}
       onError={() => setFailed(true)}
-      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+      className="bk-img"
     />
   );
 }

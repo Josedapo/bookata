@@ -108,7 +108,9 @@ export default async function BookPage({
               alt=""
               fill
               priority
-              sizes="100vw"
+              // Blurred at 3xl behind the header: a 256 px source is
+              // indistinguishable from a full-width one and far lighter.
+              sizes="256px"
               className="scale-150 object-cover blur-3xl brightness-[0.35] saturate-150"
             />
             <div className="absolute inset-0 bg-ink/55" />

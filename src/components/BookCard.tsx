@@ -31,9 +31,7 @@ export default function BookCard({
   return (
     <Link href={`/libro/${book.slug}`} className="group block">
       <div
-        className={`relative aspect-2/3 overflow-hidden rounded-xl shadow-cover transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-cover-lift ${
-          tone === "dark" ? "bg-ink-soft" : "bg-surface-alt"
-        }`}
+        className={`bk-cover ${tone === "dark" ? "bg-ink-soft" : "bg-surface-alt"}`}
       >
         <BookCover
           src={book.coverUrl}
@@ -50,17 +48,13 @@ export default function BookCard({
         )}
 
         {/* Revealed on hover, hidden from touch devices where hover is meaningless. */}
-        <div className="scrim-card pointer-events-none absolute inset-0 flex items-end justify-center pb-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <span className="rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white shadow-lg">
-            Ver libro
-          </span>
+        <div className="bk-hover">
+          <span className="bk-pill">Ver libro</span>
         </div>
       </div>
 
       <div className="mt-2.5 px-0.5">
-        <h3
-          className={`line-clamp-2 font-body text-sm font-semibold leading-snug ${titleColor} transition-colors group-hover:text-primary`}
-        >
+        <h3 className={`bk-title ${titleColor}`}>
           {book.title}
         </h3>
         <p className={`mt-0.5 line-clamp-1 text-xs ${metaColor}`}>{book.author}</p>
