@@ -264,7 +264,8 @@ export default async function BookPage({
                 ))}
               </ul>
 
-              <div className="mt-6 border-t border-border pt-5">
+              {/* Desktop only: on mobile the sticky bar already carries the CTA (audit B16). */}
+              <div className="mt-6 hidden border-t border-border pt-5 lg:block">
                 <AmazonButton
                   url={book.amazonUrl}
                   bookTitle={book.title}
