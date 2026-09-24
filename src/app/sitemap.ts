@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getAllBooks, getPopulatedCollections } from "@/lib/data";
-import { AGE_GROUPS, GENRES, BASE_URL } from "@/lib/config";
+import { getAllBooks, getCatalogueDateISO, getPopulatedCollections } from "@/lib/data";
+import { AGE_GROUPS, GENRES, BASE_URL, NOINDEX_COLLECTIONS } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastMod = new Date();
@@ -44,7 +44,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Only collections that resolve to real books are generated, so only those
   // are listed here.
-  const collectionPages: MetadataRoute.Sitemap = getPopulatedCollections().map(
+  const collectionPages: MetadataRoute.Sitemap = getPopulatedCollections()
+    .filter(({ collection }) => !NOINDEX_COLLECTIONS.includes(collection.slug))
+    .map(
     ({ collection }) => ({
       url: `${BASE_URL}/colecciones/${collection.slug}`,
       lastModified: lastMod,

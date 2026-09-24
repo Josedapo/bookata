@@ -252,6 +252,16 @@ export const GENRE_GLOW: Record<string, string> = {
  * "Joyas que quizá no conozcas" stays declared and ready without inventing a
  * catalogue to fill it.
  */
+/**
+ * Collections kept for readers but out of the index: each targets the same
+ * search intent as a genre page that already owns it (Seoseda keyword map,
+ * 2026-09-09). The collection page sets noindex and the sitemap skips them.
+ */
+export const NOINDEX_COLLECTIONS = [
+  "aventuras-que-no-podras-soltar",
+  "historias-que-dejan-huella",
+];
+
 export const COLLECTIONS: CollectionInfo[] = [
   {
     id: "lectores-que-devoran-historias",

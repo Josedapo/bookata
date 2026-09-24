@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { COLLECTIONS, BASE_URL } from "@/lib/config";
+import { COLLECTIONS, BASE_URL, NOINDEX_COLLECTIONS } from "@/lib/config";
 import {
   getBooksByCollection,
   getCollectionBySlug,
@@ -18,10 +18,6 @@ import PageHeader from "@/components/PageHeader";
  * with no backing sections is intentionally not generated, so the site never
  * ships an empty page to fill a slot.
  */
-const NOINDEX_COLLECTIONS = [
-  "aventuras-que-no-podras-soltar",
-  "historias-que-dejan-huella",
-];
 
 export function generateStaticParams() {
   return getPopulatedCollections().map(({ collection }) => ({
