@@ -24,7 +24,8 @@ export default function BookView({ book }: { book: Book }) {
           item_id: book.isbn || book.slug,
           item_name: book.title,
           item_category: book.genres[0] ?? "",
-          item_category2: book.ageRange[0] ?? "",
+          // All ranges ("6-8|8-10"), not only the first (audit B17).
+          item_category2: book.ageRange.join("|"),
         },
       ],
       book_title: book.title,
