@@ -65,8 +65,8 @@ export default function CookiesPage() {
       <h2>Cómo aceptar, rechazar o retirar el consentimiento</h2>
       <p>
         La primera vez que entras aparece un aviso con dos botones del mismo
-        tamaño, Aceptar y Rechazar. Mientras no aceptes, Google Analytics
-        funciona sin cookies. Puedes cambiar de opinión cuando quieras con este
+        tamaño, Aceptar y Rechazar. Mientras no aceptes, Google Analytics no
+        se carga y no se envía nada a Google. Puedes cambiar de opinión cuando quieras con este
         botón, que vuelve a abrir el aviso; si rechazas después de haber
         aceptado, las cookies de analítica se borran.
       </p>

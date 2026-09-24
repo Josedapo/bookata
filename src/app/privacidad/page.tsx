@@ -35,10 +35,9 @@ export default function PrivacidadPage() {
           de forma seudónima qué páginas visitas, qué fichas de libro abres y
           cuándo pulsas un enlace a Amazon, junto con datos técnicos de tu
           navegador y tu ubicación aproximada. Sirve para saber qué
-          recomendaciones resultan útiles. Si pulsas Rechazar, no se guarda
-          ninguna cookie de analítica; Google Analytics puede recibir avisos
-          sin cookies y sin identificador que solo sirven para estimar el
-          tráfico de forma agregada.
+          recomendaciones resultan útiles. Mientras no aceptes, o si pulsas
+          Rechazar, Google Analytics ni siquiera se carga: no se envía nada a
+          Google ni se guarda ninguna cookie de analítica.
         </li>
         <li>
           <strong>Alojamiento.</strong> El sitio se sirve desde Vercel, que

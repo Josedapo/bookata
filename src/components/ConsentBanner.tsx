@@ -65,8 +65,10 @@ export default function ConsentBanner() {
     } catch {
       // The choice still applies to this page view.
     }
-    if (typeof window.gtag === "function") {
-      window.gtag("consent", "update", { analytics_storage: choice });
+    // Basic mode: gtag.js is only downloaded on Aceptar (see layout.tsx).
+    if (choice === "granted") window.__bookataLoadGA?.();
+    else if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", { analytics_storage: "denied" });
     }
     if (choice === "denied") clearAnalyticsCookies();
     setOpen(false);

@@ -70,12 +70,18 @@ export default function RootLayout({
             made its LCP swing between 3 and 9 seconds.
           */}
           {/*
-            Consent Mode v2. Every storage type starts denied, so no _ga cookie
-            is written until the visitor presses Aceptar in ConsentBanner. A
-            choice already stored in localStorage is replayed here, before
-            config, so a returning visitor who accepted is measured from the
-            first hit. Ad storage stays denied for everyone: Bookata runs no
-            ads. The key must match CONSENT_KEY in ConsentBanner.tsx.
+            Consent, basic mode (audit re-check B1, 2026-09-24). gtag.js is not
+            even downloaded until the visitor presses Aceptar: the EDPB's
+            guidelines 2/2023, which the AEPD follows, treat reading device data
+            and sending it to a third party as needing consent, cookies or not,
+            so the cookieless pings of Consent Mode's advanced mode are not
+            enough. The queue shim still runs first, so events fired before the
+            choice wait in dataLayer and are delivered only if the visitor
+            accepts during that page view; after Rechazar nothing ever leaves.
+            window.__bookataLoadGA is what ConsentBanner calls on Aceptar. A
+            stored "granted" loads it after the page settles, keeping the
+            lazyOnload timing that protected LCP. The key must match
+            CONSENT_KEY in ConsentBanner.tsx.
           */}
           <Script id="ga4-queue" strategy="beforeInteractive">
             {`
@@ -87,19 +93,26 @@ export default function RootLayout({
                 ad_user_data: 'denied',
                 ad_personalization: 'denied'
               });
-              try {
-                if (localStorage.getItem('bookata-consent') === 'granted') {
-                  gtag('consent', 'update', { analytics_storage: 'granted' });
-                }
-              } catch (e) {}
               gtag('js', new Date());
               gtag('config', '${GA_ID}');
+              window.__bookataLoadGA = function(){
+                if (window.__bookataGALoaded) return;
+                window.__bookataGALoaded = true;
+                gtag('consent', 'update', { analytics_storage: 'granted' });
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+                document.head.appendChild(s);
+              };
+              try {
+                if (localStorage.getItem('bookata-consent') === 'granted') {
+                  var load = function(){ window.__bookataLoadGA(); };
+                  if (document.readyState === 'complete') setTimeout(load, 0);
+                  else window.addEventListener('load', function(){ setTimeout(load, 0); });
+                }
+              } catch (e) {}
             `}
           </Script>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="lazyOnload"
-          />
         </>
       )}
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
