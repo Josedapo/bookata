@@ -8,6 +8,8 @@ import {
   getRelatedBooks,
   getSectionLabelsForBook,
   isSafeBet,
+  ageSpanLabel,
+  sortAges,
 } from "@/lib/data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBookJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonld";
@@ -61,7 +63,10 @@ export default async function BookPage({
   if (!book) notFound();
 
   const related = getRelatedBooks(book, 14);
-  const ageGroup = AGE_GROUPS.find((ag) => ag.range === book.ageRange[0]);
+  const ages = sortAges(book.ageRange);
+  // The breadcrumb needs a single parent: the youngest range the book fits.
+  const ageGroup = AGE_GROUPS.find((ag) => ag.range === ages[0]);
+  const ageSpan = ageSpanLabel(book.ageRange);
   const sectionLabels = getSectionLabelsForBook(book);
 
   return (
@@ -145,7 +150,7 @@ export default async function BookPage({
               <p className="mt-1.5 text-base text-white/75 sm:mt-2 sm:text-lg">{book.author}</p>
 
               <div className="mt-3 flex flex-wrap justify-center gap-2 sm:mt-4 sm:justify-start">
-                {book.ageRange.map((age) => {
+                {ages.map((age) => {
                   const ag = AGE_GROUPS.find((a) => a.range === age);
                   return (
                     <Link
@@ -228,10 +233,10 @@ export default async function BookPage({
                 Perfecto para...
               </h2>
               <ul className="mt-4 space-y-2.5">
-                {ageGroup && (
+                {ageSpan && (
                   <li className="flex gap-2.5 text-sm text-text-secondary">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-primary" />
-                    Lectores de {ageGroup.label}
+                    Lectores de {ageSpan}
                   </li>
                 )}
                 {book.genres.map((genre) => {

@@ -7,7 +7,7 @@ import type {
   CollectionInfo,
   Section,
 } from "./types";
-import { SECTIONS, COLLECTIONS } from "./config";
+import { SECTIONS, COLLECTIONS, AGE_GROUPS } from "./config";
 
 let cached: BooksData | null = null;
 
@@ -27,6 +27,35 @@ export function getBookBySlug(slug: string): Book | undefined {
 
 export function getBooksByAge(age: AgeRange): Book[] {
   return getAllBooks().filter((b) => b.ageRange.includes(age));
+}
+
+/** A book's age ranges in catalogue order, youngest first. */
+export function sortAges(ranges: AgeRange[]): AgeRange[] {
+  const order = AGE_GROUPS.map((ag) => ag.range);
+  return [...ranges].sort((a, b) => order.indexOf(a) - order.indexOf(b));
+}
+
+/**
+ * The whole span a book is recommended for, e.g. "6 a 10 años". Cards and the
+ * book page used to print only ageRange[0], so a 6-10 book listed on the 8-10
+ * page was labelled "6 a 8 años". Every range in the catalogue is contiguous;
+ * a gap would fall back to listing the labels.
+ */
+export function ageSpanLabel(ranges: AgeRange[]): string {
+  const sorted = sortAges(ranges);
+  if (sorted.length === 0) return "";
+  const order = AGE_GROUPS.map((ag) => ag.range);
+  const idx = sorted.map((r) => order.indexOf(r));
+  const contiguous = idx.every((v, i) => i === 0 || v === idx[i - 1] + 1);
+  if (!contiguous) {
+    return sorted
+      .map((r) => AGE_GROUPS.find((ag) => ag.range === r)?.label)
+      .filter(Boolean)
+      .join(" y ");
+  }
+  const from = sorted[0].split("-")[0];
+  const to = sorted[sorted.length - 1].split("-")[1];
+  return `${from} a ${to} años`;
 }
 
 export function getBooksByGenre(genre: Genre): Book[] {

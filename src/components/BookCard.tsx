@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Book } from "@/lib/types";
-import { AGE_GROUPS } from "@/lib/config";
-import { isSafeBet } from "@/lib/data";
+import { ageSpanLabel, isSafeBet } from "@/lib/data";
 import BookCover from "./BookCover";
 
 /**
@@ -23,7 +22,7 @@ export default function BookCard({
   /** Off inside collections where every book already carries the badge. */
   showBadge?: boolean;
 }) {
-  const ageLabel = AGE_GROUPS.find((ag) => ag.range === book.ageRange[0])?.label;
+  const ageLabel = ageSpanLabel(book.ageRange);
   const safeBet = showBadge && isSafeBet(book);
 
   const titleColor = tone === "dark" ? "text-on-ink" : "text-text";
