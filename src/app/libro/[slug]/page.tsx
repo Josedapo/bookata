@@ -51,16 +51,6 @@ export async function generateMetadata({
   });
 }
 
-/** Short teaser for the top block. The full synopsis still renders below. */
-function teaser(text: string, max = 210): string {
-  if (!text) return "";
-  if (text.length <= max) return text;
-  const cut = text.slice(0, max);
-  const lastStop = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("? "), cut.lastIndexOf("! "));
-  if (lastStop > max * 0.5) return cut.slice(0, lastStop + 1);
-  return `${cut.slice(0, cut.lastIndexOf(" "))}…`;
-}
-
 export default async function BookPage({
   params,
 }: {
@@ -73,7 +63,6 @@ export default async function BookPage({
   const related = getRelatedBooks(book, 14);
   const ageGroup = AGE_GROUPS.find((ag) => ag.range === book.ageRange[0]);
   const sectionLabels = getSectionLabelsForBook(book);
-  const shortDescription = teaser(book.synopsis || book.hook);
 
   return (
     <>
@@ -183,11 +172,19 @@ export default async function BookPage({
                 })}
               </div>
 
-              {shortDescription && (
-                <p className="mx-auto mt-3 line-clamp-3 max-w-xl text-sm leading-relaxed text-white/80 sm:mx-0 sm:mt-5 sm:line-clamp-none sm:text-base">
-                  {shortDescription}
+              {/*
+                The curated reason comes first and sits right above the button:
+                a parent who does not trust a publisher blurb decides here. It
+                appears once on the page; the synopsis lives below, also once.
+              */}
+              <section className="mx-auto mt-4 max-w-xl text-left sm:mx-0 sm:mt-6">
+                <h2 className="font-display text-sm font-bold uppercase tracking-wide text-primary-light sm:text-base">
+                  ¿Por qué lo recomendamos?
+                </h2>
+                <p className="mt-1.5 text-sm leading-relaxed text-white/85 sm:text-base">
+                  {book.hook}
                 </p>
-              )}
+              </section>
 
               <div className="mt-5 sm:mt-7">
                 <AmazonButton
@@ -207,7 +204,7 @@ export default async function BookPage({
 
       <article className="shell py-12 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="max-w-2xl space-y-10">
+          <div className="max-w-2xl">
             {book.synopsis && (
               <section>
                 <h2 className="font-display text-xl font-bold text-text sm:text-2xl">
@@ -218,13 +215,6 @@ export default async function BookPage({
                 </p>
               </section>
             )}
-
-            <section>
-              <h2 className="font-display text-xl font-bold text-text sm:text-2xl">
-                ¿Por qué lo recomendamos?
-              </h2>
-              <p className="mt-3 leading-relaxed text-text-secondary">{book.hook}</p>
-            </section>
           </div>
 
           {/*
