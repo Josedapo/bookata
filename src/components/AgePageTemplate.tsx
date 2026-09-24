@@ -140,7 +140,7 @@ export default function AgePageTemplate({ ageGroup }: { ageGroup: AgeGroup }) {
           dado todavía con el libro.{" "}
           <Link
             href="/colecciones/para-quienes-dicen-que-no-les-gusta-leer"
-            className="text-primary underline underline-offset-4"
+            className="text-primary-dark underline underline-offset-4"
           >
             Esta selección
           </Link>{" "}

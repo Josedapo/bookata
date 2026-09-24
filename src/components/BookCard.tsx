@@ -65,7 +65,7 @@ export default function BookCard({
         </h3>
         <p className={`mt-0.5 line-clamp-1 text-xs ${metaColor}`}>{book.author}</p>
         {ageLabel && (
-          <p className={`mt-0.5 text-xs ${metaColor} opacity-80`}>{ageLabel}</p>
+          <p className={`mt-0.5 text-xs font-medium ${metaColor}`}>{ageLabel}</p>
         )}
       </div>
     </Link>

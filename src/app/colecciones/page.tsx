@@ -57,7 +57,7 @@ export default function ColeccionesPage() {
               <h2 className="font-display text-xl font-bold leading-tight text-white">
                 {collection.label}
               </h2>
-              <p className="mt-1 text-sm text-primary">{collection.tagline}</p>
+              <p className="mt-1 text-sm text-primary-dark">{collection.tagline}</p>
               <p className="mt-1 text-xs text-white/60">{books.length} libros</p>
             </div>
           </Link>

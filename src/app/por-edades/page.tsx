@@ -100,7 +100,7 @@ export default function PorEdadesPage() {
             Casi siempre es que no ha dado con el libro, no que no le guste leer.{" "}
             <Link
               href="/colecciones/para-quienes-dicen-que-no-les-gusta-leer"
-              className="text-primary underline underline-offset-4"
+              className="text-primary-dark underline underline-offset-4"
             >
               Esta selección
             </Link>{" "}

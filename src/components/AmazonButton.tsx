@@ -37,7 +37,7 @@ export default function AmazonButton({
       target="_blank"
       rel="noopener noreferrer nofollow"
       onClick={handleClick}
-      className={`inline-flex items-center rounded-full bg-primary font-bold text-white shadow-lg transition-all duration-200 hover:bg-primary-dark hover:shadow-xl active:scale-[0.98] ${styles}`}
+      className={`inline-flex items-center rounded-full bg-primary-dark font-bold text-white shadow-lg transition-all duration-200 hover:bg-[#A33A17] hover:shadow-xl active:scale-[0.98] ${styles}`}
     >
       Ver precio
       <svg
