@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AGE_GROUPS } from "@/lib/config";
 
 /**
  * Home hero. Occupies roughly two thirds of the first screen.
@@ -12,7 +13,7 @@ import Link from "next/link";
  */
 export default function Hero() {
   return (
-    <section className="relative flex h-[68svh] max-h-[44rem] min-h-[30rem] items-end overflow-hidden bg-ink sm:h-[72svh]">
+    <section className="relative flex min-h-[max(30rem,68svh)] items-end overflow-hidden bg-ink sm:min-h-[min(44rem,72svh)]">
       <Image
         src="/images/brand/hero-portadas.jpg"
         alt=""
@@ -34,29 +35,39 @@ export default function Hero() {
 
       <div className="shell relative z-10 w-full pb-12 pt-28 sm:pb-16 lg:pb-20">
         <div className="max-w-2xl">
-          <p className="animate-reveal text-xs font-semibold uppercase tracking-[0.2em] text-primary sm:text-sm">
-            Libros infantiles y juveniles
-          </p>
-          <h1 className="animate-reveal-delay-1 mt-3 font-display text-4xl font-extrabold leading-[1.06] text-white sm:text-5xl lg:text-6xl">
+          {/*
+            Age is the first question a parent answers, so the six ranges are
+            the primary action. The orange eyebrow that sat above the H1 was
+            removed: over the cover wall it read badly on mobile (audit B20).
+          */}
+          <h1 className="animate-reveal font-display text-4xl font-extrabold leading-[1.06] text-white sm:text-5xl lg:text-6xl">
             Encuentra el próximo libro que le va a encantar
           </h1>
-          <p className="animate-reveal-delay-2 mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+          <p className="animate-reveal-delay-1 mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
             Recomendaciones de libros infantiles y juveniles seleccionadas por
             edad, género y tipo de lector.
           </p>
 
-          <div className="animate-reveal-delay-3 mt-7 flex flex-wrap gap-3">
+          <div className="animate-reveal-delay-2 mt-6">
+            <p className="text-sm font-semibold text-white">¿Qué edad tiene?</p>
+            <ul className="mt-2.5 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
+              {AGE_GROUPS.map((ag) => (
+                <li key={ag.range}>
+                  <Link
+                    href={`/${ag.slug}`}
+                    className="block rounded-full bg-white px-4 py-2.5 text-center text-sm font-bold text-ink shadow-lg transition-colors duration-200 hover:bg-primary-light sm:px-5 sm:text-base"
+                  >
+                    {ag.range.replace("-", " a ")}
+                    <span className="sr-only"> años</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
             <Link
-              href="#catalogo"
-              className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:bg-primary-dark hover:shadow-xl sm:text-base"
+              href="/colecciones/para-quienes-dicen-que-no-les-gusta-leer"
+              className="mt-4 inline-block text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
             >
-              Explorar libros
-            </Link>
-            <Link
-              href="/por-edades"
-              className="rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/20 sm:text-base"
-            >
-              Descubrir por edad
+              ¿Dice que leer es aburrido? Empieza por aquí
             </Link>
           </div>
         </div>

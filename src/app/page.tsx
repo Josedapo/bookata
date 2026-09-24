@@ -33,7 +33,7 @@ const AGE_RAIL_TITLES: Record<string, string> = {
 };
 
 export default function HomePage() {
-  const featured = getFeaturedBooks(18);
+  const featured = getFeaturedBooks(12);
   const booksByAge = AGE_GROUPS.map((ag) => ({
     ...ag,
     books: getBooksByAge(ag.range),
@@ -53,28 +53,36 @@ export default function HomePage() {
 
       <Hero />
 
-      <div className="py-12 sm:py-16">
-        <GenreShowcase />
-      </div>
-
-      <div id="catalogo" className="scroll-mt-20 space-y-12 pb-14 sm:space-y-14 sm:pb-20">
-        <BookCarousel
-          title="Libros destacados"
-          subtitle="Los que casi nunca fallan, elijas la edad que elijas"
-          books={featured}
-          href="/colecciones/los-clasicos-que-nunca-fallan"
-          priority
-          showBadge={false}
-        />
-
+      {/*
+        Age first, then taste: the six age rails come straight after the hero,
+        genres follow. Rails show 12 books each (the "Ver todos" link carries
+        the rest), which also keeps the home page HTML in check (audit B7).
+      */}
+      <div id="catalogo" className="scroll-mt-20 space-y-12 pt-12 sm:space-y-14 sm:pt-16">
         {booksByAge.map((ag) => (
           <BookCarousel
             key={ag.range}
             title={AGE_RAIL_TITLES[ag.range] ?? `Libros para ${ag.label}`}
             books={ag.books}
             href={`/${ag.slug}`}
+            limit={12}
           />
         ))}
+      </div>
+
+      <div className="py-12 sm:py-16">
+        <GenreShowcase />
+      </div>
+
+      <div className="pb-14 sm:pb-20">
+        <BookCarousel
+          title="Libros destacados"
+          subtitle="Los que casi nunca fallan, elijas la edad que elijas"
+          books={featured}
+          href="/colecciones/los-clasicos-que-nunca-fallan"
+          limit={12}
+          showBadge={false}
+        />
       </div>
 
       {/* Colecciones Bookata */}
@@ -89,7 +97,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/colecciones"
-            className="mt-3 inline-block text-sm font-semibold text-primary hover:text-primary-dark"
+            className="mt-3 inline-block text-sm font-semibold text-primary-dark hover:text-primary"
           >
             Ver todas las colecciones
             <span aria-hidden="true"> →</span>
@@ -104,6 +112,7 @@ export default function HomePage() {
               subtitle={collection.tagline}
               books={books}
               href={`/colecciones/${collection.slug}`}
+              limit={12}
               showBadge={collection.id !== "los-clasicos-que-nunca-fallan"}
             />
           ))}
