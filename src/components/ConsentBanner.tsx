@@ -20,8 +20,9 @@ function clearAnalyticsCookies() {
     .split(";")
     .map((c) => c.split("=")[0].trim())
     .filter((n) => n === "_ga" || n.startsWith("_ga_"));
-  const parts = window.location.hostname.split(".");
-  const domains = [""];
+  const host = window.location.hostname;
+  const parts = host.split(".");
+  const domains = ["", `; domain=${host}`];
   for (let i = 0; i < parts.length - 1; i++) domains.push(`; domain=.${parts.slice(i).join(".")}`);
   for (const name of names) {
     for (const domain of domains) {
