@@ -5,10 +5,19 @@ import { AGE_GROUPS, GENRES, BASE_URL, NOINDEX_COLLECTIONS } from "@/lib/config"
 /** When the legal pages last changed; keep in step with LEGAL_UPDATED. */
 const LEGAL_UPDATED_ISO = "2026-09-24";
 
+/**
+ * When the page templates last changed what a visitor reads (audit fixes B3,
+ * B4, B5, B7, B8, B16 on 2026-09-24). Bump it only for visible content changes,
+ * never for tracking, styling or build-only commits.
+ */
+const TEMPLATES_UPDATED_ISO = "2026-09-24";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  // The catalogue date, not the build date: stamping every deploy as a change
-  // to 271 URLs teaches Google to ignore lastmod (audit B18).
-  const lastMod = getCatalogueDateISO();
+  // The newer of the catalogue and template dates, never the build date:
+  // stamping every deploy as a change to 271 URLs teaches Google to ignore
+  // lastmod (audit B18).
+  const catalogue = getCatalogueDateISO();
+  const lastMod = catalogue > TEMPLATES_UPDATED_ISO ? catalogue : TEMPLATES_UPDATED_ISO;
 
   const home: MetadataRoute.Sitemap = [
     {
