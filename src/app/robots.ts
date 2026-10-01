@@ -24,6 +24,8 @@ const ANSWER_TIME = [
   "Claude-SearchBot",
   "Claude-User",
   "Applebot",
+  "Amzn-SearchBot",
+  "Amzn-User",
 ];
 
 const TRAINING = [
