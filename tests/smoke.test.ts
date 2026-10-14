@@ -101,7 +101,7 @@ beforeAll(async () => {
   base = `http://localhost:${port}`;
   server = spawn(path.join(ROOT, "node_modules", ".bin", "next"), ["start", "-p", String(port)], {
     cwd: ROOT,
-    env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1" },
+    env: { ...process.env, NODE_ENV: "production", NEXT_TELEMETRY_DISABLED: "1" },
     stdio: "ignore",
   });
   await waitUp(base + "/robots.txt");
