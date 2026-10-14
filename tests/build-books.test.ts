@@ -7,8 +7,8 @@ import { SECTIONS } from "@/lib/config";
 import { diffGolden, ROOT } from "./helpers";
 
 /*
- * scripts/build-books.py, run on a temporary copy, must rebuild the committed books.json and the
- * SECTIONS in config.ts from the committed Excel. Needs a Python with openpyxl
+ * scripts/build-books.py, run on a temporary copy, must rebuild the committed books.json and
+ * sections.json (SECTIONS in config.ts) from the committed Excel. Needs a Python with openpyxl
  * (scripts/requirements.txt); BK_PYTHON points to it.
  */
 const PYTHON = process.env.BK_PYTHON ?? path.join(os.homedir(), ".local/share/martin/venv-bookata/bin/python");
@@ -34,9 +34,12 @@ describe("build-books.py", () => {
         encoding: "utf8",
         env: { ...process.env, PYTHONHASHSEED: "0" },
       });
-      const read = (rel: string) => JSON.parse(fs.readFileSync(path.join(tmp, rel), "utf8"));
-      expect(read("src/data/books.json")).toEqual(committed);
-      expect(read("scripts/out/sections.json")).toEqual(SECTIONS);
+      // Byte-for-byte: rerunning the script in the repo must leave git clean.
+      for (const rel of ["src/data/books.json", "src/data/sections.json"]) {
+        const built = fs.readFileSync(path.join(tmp, rel), "utf8");
+        expect(built === fs.readFileSync(path.join(ROOT, rel), "utf8"), `${rel} differs from the committed file`).toBe(true);
+      }
+      expect(JSON.parse(fs.readFileSync(path.join(tmp, "src/data/sections.json"), "utf8"))).toEqual(SECTIONS);
       expect(diffGolden("build-books-stdout.json", { stdout: stdout.split("\n") })).toEqual([]);
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true });

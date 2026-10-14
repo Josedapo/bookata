@@ -6,7 +6,7 @@ its own ordered list of curated sections.
 
 Outputs:
   - src/data/books.json          (Book[] + meta)
-  - scripts/out/sections.json    (per-age SECTIONS, for config.ts)
+  - src/data/sections.json       (per-age SECTIONS, imported by src/lib/config.ts)
   - stdout report                (counts, warnings)
 """
 import json
@@ -20,7 +20,7 @@ import openpyxl
 ROOT = Path(__file__).resolve().parent.parent
 XLSX = ROOT / "scripts" / "source" / "Bookata_def.xlsx"
 BOOKS_OUT = ROOT / "src" / "data" / "books.json"
-SECTIONS_OUT = ROOT / "scripts" / "out" / "sections.json"
+SECTIONS_OUT = ROOT / "src" / "data" / "sections.json"
 
 GENRE_MAP = {
     "aventuras": "aventuras",
@@ -299,9 +299,8 @@ def write_outputs(books: list[dict], sections: list[dict]) -> None:
         "meta": {"lastUpdated": "2026-07-24", "totalBooks": len(books)},
         "books": books,
     }
-    BOOKS_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    SECTIONS_OUT.parent.mkdir(parents=True, exist_ok=True)
-    SECTIONS_OUT.write_text(json.dumps(sections, ensure_ascii=False, indent=2), encoding="utf-8")
+    BOOKS_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    SECTIONS_OUT.write_text(json.dumps(sections, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def print_report(books: list[dict], sections: list[dict], warnings: list[str]) -> None:
