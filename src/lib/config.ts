@@ -221,16 +221,6 @@ export const SECTIONS: SectionInfo[] = [
   { id: "14-16--libros-que-te-cambian-por-dentro", label: "Libros que te cambian por dentro", slug: "libros-que-te-cambian-por-dentro", ageRange: "14-16", order: 7 },
 ];
 
-export const GENRE_COLORS: Record<string, string> = {
-  aventuras: "#059669",
-  misterio: "#1D4ED8",
-  fantasia: "#7C3AED",
-  valores: "#D97706",
-  educativo: "#0891B2",
-  amor: "#DB2777",
-  comic: "#DC2626",
-};
-
 export const GENRE_ICONS: Record<string, string> = {
   aventuras: "\uD83E\uDDED",
   misterio: "\uD83D\uDD0D",
