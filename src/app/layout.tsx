@@ -50,34 +50,41 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      {GA_ID && (
-        <>
-          {/*
-            Two scripts on purpose. The four-line queue shim runs early so
-            window.gtag always exists: an event fired before analytics has
-            loaded is queued and delivered later, instead of being dropped on
-            the floor. gtag.js itself stays lazyOnload because it costs about
-            880 ms of main-thread blocking on a throttled mobile CPU, which
-            took the home page from 90 ms to 970 ms of total blocking time and
-            made its LCP swing between 3 and 9 seconds.
-          */}
-          {/*
-            Consent, basic mode (audit re-check B1, 2026-09-24). gtag.js is not
-            even downloaded until the visitor presses Aceptar: the EDPB's
-            guidelines 2/2023, which the AEPD follows, treat reading device data
-            and sending it to a third party as needing consent, cookies or not,
-            so the cookieless pings of Consent Mode's advanced mode are not
-            enough. The shim still runs first, so events fired before the
-            choice are held and delivered only if the visitor accepts during
-            that page view, after consent and config; after Rechazar nothing
-            ever leaves.
-            window.__bookataLoadGA is what ConsentBanner calls on Aceptar. A
-            stored "granted" loads it after the page settles, keeping the
-            lazyOnload timing that protected LCP. The key must match
-            CONSENT_KEY in ConsentBanner.tsx.
-          */}
-          <Script id="ga4-queue" strategy="beforeInteractive">
-            {`
+      <body className={`${outfit.variable} ${inter.variable} antialiased`}>
+        {/*
+          The shim is the first child of <body>, not of <html>: React renders
+          nothing but <head> and <body> inside <html>, and a script there broke
+          hydration in development. The served HTML already placed it at the
+          start of <body>, so production timing is unchanged.
+        */}
+        {GA_ID && (
+          <>
+            {/*
+              Two scripts on purpose. The four-line queue shim runs early so
+              window.gtag always exists: an event fired before analytics has
+              loaded is queued and delivered later, instead of being dropped on
+              the floor. gtag.js itself stays lazyOnload because it costs about
+              880 ms of main-thread blocking on a throttled mobile CPU, which
+              took the home page from 90 ms to 970 ms of total blocking time and
+              made its LCP swing between 3 and 9 seconds.
+            */}
+            {/*
+              Consent, basic mode (audit re-check B1, 2026-09-24). gtag.js is not
+              even downloaded until the visitor presses Aceptar: the EDPB's
+              guidelines 2/2023, which the AEPD follows, treat reading device data
+              and sending it to a third party as needing consent, cookies or not,
+              so the cookieless pings of Consent Mode's advanced mode are not
+              enough. The shim still runs first, so events fired before the
+              choice are held and delivered only if the visitor accepts during
+              that page view, after consent and config; after Rechazar nothing
+              ever leaves.
+              window.__bookataLoadGA is what ConsentBanner calls on Aceptar. A
+              stored "granted" loads it after the page settles, keeping the
+              lazyOnload timing that protected LCP. The key must match
+              CONSENT_KEY in ConsentBanner.tsx.
+            */}
+            <Script id="ga4-queue" strategy="beforeInteractive">
+              {`
               window.dataLayer = window.dataLayer || [];
               var held = [];
               var stored = null;
@@ -113,10 +120,9 @@ export default function RootLayout({
                 else window.addEventListener('load', function(){ setTimeout(load, 0); });
               }
             `}
-          </Script>
-        </>
-      )}
-      <body className={`${outfit.variable} ${inter.variable} antialiased`}>
+            </Script>
+          </>
+        )}
         <Header />
         {/*
           No container here on purpose: sections opt into `.shell` themselves so
