@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:update": "UPDATE_GOLDENS=1 vitest run"
   },
   "dependencies": {
     "@vercel/speed-insights": "^2.0.0",
@@ -22,6 +24,7 @@
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.5.27",
     "tailwindcss": "^4.1.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^5.0.4"
   }
 }

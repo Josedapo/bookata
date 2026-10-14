@@ -1,0 +1,8 @@
+# The safety net's goldens pair book slugs ("...secreto...") with SHA-256 hashes, which gitleaks
+# reads as generic API keys. Allowlisted by path, so re-pinning never needs new fingerprints.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Safety-net goldens: slugs and content hashes, no secrets"
+paths = ['''^tests/golden/''']
