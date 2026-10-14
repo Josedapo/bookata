@@ -11,7 +11,7 @@ import { SECTIONS, COLLECTIONS, AGE_GROUPS } from "./config";
 
 let cached: BooksData | null = null;
 
-export function getBooksData(): BooksData {
+function getBooksData(): BooksData {
   if (cached) return cached;
   cached = booksData as BooksData;
   return cached;
