@@ -1,4 +1,11 @@
 @import "tailwindcss";
+/*
+ * Tailwind scans every non-ignored file in the repo for class names. The safety net's goldens
+ * and fixtures and the code-health reports are not site sources: scanned, their words turn into
+ * stray utilities in the served CSS.
+ */
+@source not "../../tests";
+@source not "../../code-health";
 
 @theme {
   /* Dark stage. Deeper than the logo's navy outline so the logo separates cleanly. */
