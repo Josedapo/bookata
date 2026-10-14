@@ -12,15 +12,9 @@ const nextConfig: NextConfig = {
      */
     imageSizes: [128, 256, 384],
     deviceSizes: [640, 828, 1200, 1920, 2880],
+    // Only the host the covers actually come from: every allowed host is one anyone can make
+    // Bookata's optimizer fetch and resize.
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "covers.openlibrary.org",
-      },
-      {
-        protocol: "https",
-        hostname: "books.google.com",
-      },
       {
         protocol: "https",
         hostname: "m.media-amazon.com",
