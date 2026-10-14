@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GA_ID } from "@/lib/analytics";
 
 /** Must match the key the consent script in layout.tsx reads on load. */
 const CONSENT_KEY = "bookata-consent";
@@ -72,7 +73,7 @@ export default function ConsentBanner() {
       // stops every further hit, including the user_engagement sent on page
       // hide (audit re-check B23), before the cookies are deleted.
       const w = window as unknown as Record<string, unknown>;
-      w[`ga-disable-${process.env.NEXT_PUBLIC_GA_ID ?? "G-DBKB5VF49W"}`] = true;
+      w[`ga-disable-${GA_ID}`] = true;
       if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: "denied" });
     }
     if (choice === "denied") clearAnalyticsCookies();
