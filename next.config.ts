@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
      * larger device sizes are only for the full-bleed hero (2880 px source).
      */
     imageSizes: [128, 256, 384],
+    // Next 16 serves only the listed qualities: 62 for the hero backdrop (Hero.tsx), 75 (the
+    // default) for everything else.
+    qualities: [62, 75],
     deviceSizes: [640, 828, 1200, 1920, 2880],
     // Only the host the covers actually come from: every allowed host is one anyone can make
     // Bookata's optimizer fetch and resize.

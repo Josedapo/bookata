@@ -6,13 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "vitest run",
     "test:update": "UPDATE_GOLDENS=1 vitest run"
   },
   "dependencies": {
     "@vercel/speed-insights": "^2.0.0",
-    "next": "^15.5.27",
+    "next": "^16.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -22,7 +22,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "eslint": "^9.25.1",
-    "eslint-config-next": "^15.5.27",
+    "eslint-config-next": "^16.4.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3",
     "vitest": "^5.0.4"

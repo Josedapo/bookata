@@ -17,7 +17,8 @@ const bodies = files.filter((f) => f.endsWith(".body"));
 
 describe("build output", () => {
   it("prerenders the expected number of pages", () => {
-    expect({ pages: pages.length, bodies: bodies.length }).toEqual({ pages: 275, bodies: 4 });
+    // 275 routes plus _global-error.html, prerendered since Next 16.
+    expect({ pages: pages.length, bodies: bodies.length }).toEqual({ pages: 276, bodies: 4 });
   });
 
   it("matches the pinned content of every page and route body", () => {

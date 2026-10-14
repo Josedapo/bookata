@@ -25,7 +25,6 @@ const PAGES = [
   "/cookies",
 ];
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 let chromium: any;
 let browser: any;
 let server: ChildProcess;
@@ -127,7 +126,7 @@ describe("smoke on next start", () => {
     });
   }
 
-  it("serves covers through the optimizer from Amazon only", async () => {
+  it("serves covers from Amazon only and the hero at quality 62", async () => {
     const { context, page } = await openPage("denied");
     await page.goto(base + "/libro/la-vaca-que-puso-un-huevo", { waitUntil: "load" });
     const srcs: string[] = await page.$$eval("img", (imgs: HTMLImageElement[]) => imgs.map((i) => i.getAttribute("src") ?? ""));
@@ -137,6 +136,9 @@ describe("smoke on next start", () => {
       `${base}/_next/image?url=${encodeURIComponent("https://covers.openlibrary.org/b/isbn/9788498381498-M.jpg")}&w=128&q=75`,
     );
     expect(other.status).toBe(400);
+    // The hero is optimised at quality 62, which Next 16 serves only if images.qualities lists it.
+    const hero = await fetch(`${base}/_next/image?url=%2Fimages%2Fbrand%2Fhero-portadas.jpg&w=640&q=62`);
+    expect(hero.status).toBe(200);
   });
 
   it("consent: nothing loads before a choice, gtag.js once after Aceptar", async () => {

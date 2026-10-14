@@ -53,6 +53,8 @@ export default function ConsentBanner() {
     } catch {
       // Storage blocked: ask every time rather than assume either answer.
     }
+    // localStorage only exists after hydration, so the banner can only open from an effect.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (stored !== "granted" && stored !== "denied") setOpen(true);
 
     const reopen = () => setOpen(true);

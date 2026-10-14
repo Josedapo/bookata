@@ -25,6 +25,7 @@ export default function Header() {
 
   // Any navigation closes whatever was open.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on route change, kept as is in the Next 16 upgrade
     setMobileOpen(false);
     setGenresOpen(false);
     setSearchOpen(false);
