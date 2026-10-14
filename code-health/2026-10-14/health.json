@@ -1,315 +1,316 @@
 {
- "repo": "Bookata (bookata-app)",
- "date": "2026-10-14",
- "commit": "bb7587d",
- "mode": "fix",
- "summary": "Fix run on martin/2026-10-close: the safety net exists (15 tests, about 17 s, offline, green twice in a row, red on mutations in a clone) and every approved finding is applied, including Next 16 (D1) and the shim move (D2), each checked against the content extract and the consent probe. npm audit went from 7 to 5, all in the linter's braces chain with no patched release; Tailwind 4.3.3 changes the served CSS and comes back as decision D4. Building the net found that Tailwind scanned tests/ and code-health/ for class names, which would have shipped stray CSS: both are now excluded and the CSS is byte-identical to production.",
- "lenses": [
-  {
-   "id": "safety",
-   "status": "green",
-   "summary": "15 tests (10 in vitest list; the page smoke is one loop over 6 routes), about 17 s. Offline build from a clean .next (fonts from fixtures over a local server, clock frozen, NODE_ENV production), byte goldens of 1659 files, per-page content extract, data goldens over 243 books, build-books.py byte golden, Playwright smoke with the consent probe. Green twice in a row and in a fresh clone; 6 of 15 red with three mutations in the clone."
+  "repo": "Bookata (bookata-app)",
+  "date": "2026-10-14",
+  "commit": "bb7587d",
+  "mode": "fix",
+  "summary": "Fix run on martin/2026-10-close: the safety net exists (15 tests, about 17 s, offline, green twice in a row, red on mutations in a clone) and every approved finding is applied, including Next 16 (D1) and the shim move (D2), each checked against the content extract and the consent probe. npm audit went from 7 to 5, all in the linter's braces chain with no patched release; Tailwind 4.3.3 changes the served CSS and comes back as decision D4. Building the net found that Tailwind scanned tests/ and code-health/ for class names, which would have shipped stray CSS: both are now excluded and the CSS is byte-identical to production.",
+  "lenses": [
+    {
+      "id": "safety",
+      "status": "green",
+      "summary": "15 tests (10 in vitest list; the page smoke is one loop over 6 routes), about 17 s. Offline build from a clean .next (fonts from fixtures over a local server, clock frozen, NODE_ENV production), byte goldens of 1659 files, per-page content extract, data goldens over 243 books, build-books.py byte golden, Playwright smoke with the consent probe. Green twice in a row and in a fresh clone; 6 of 15 red with three mutations in the clone."
+    },
+    {
+      "id": "security",
+      "status": "amber",
+      "summary": "0 critical, 0 moderate. 5 high remain, all in braces via fast-glob 3.3.1 inside @next/eslint-plugin-next 16.4.0: lint-time only and braces has no patched release (card). gitleaks 0; .gitignore now covers every .env file."
+    },
+    {
+      "id": "deps",
+      "status": "amber",
+      "summary": "Next and eslint-config-next 16.4.0, react 19.3.0, types and eslint in range. Left: Tailwind 4.3.3 (changes the served CSS, decision D4), typescript 7 and @types/node 26 (kept out by Joseda). Python deps pinned in scripts/requirements.txt."
+    },
+    {
+      "id": "dead",
+      "status": "green",
+      "summary": "All four dead items removed. knip 0 after the ignore list (test fixtures loaded through env paths)."
+    },
+    {
+      "id": "debt",
+      "status": "green",
+      "summary": "build-books.py main() CCN 44 split (top function now 16); one GA_ID; SECTIONS generated into src/data/sections.json; the shim no longer sits under <html> (no dev hydration error)."
+    },
+    {
+      "id": "crossrepo",
+      "status": "pending",
+      "summary": "Runs once in the last repo of the monthly pass."
+    },
+    {
+      "id": "docs",
+      "status": "green",
+      "summary": "README rewritten (commands, pipeline, safety net); .env.example and the workspace Bookata/CLAUDE.md state the GA fallback, the commands and the cover-host constraint."
+    }
+  ],
+  "findings": [
+    {
+      "id": "BK-SEC-01",
+      "lens": "security",
+      "severity": "critical",
+      "title": "Next.js 15.x critical RCE in the image optimizer, plus remotePatterns open to two hosts",
+      "evidence": "npm audit before 466dd92 reported next critical. After: next 15.5.27, npm audit 0 critical; build 281 pages; covers serve through /_next/image (200) locally and in production; covers.openlibrary.org rejected (400).",
+      "fix": "next and eslint-config-next 15.5.27, npm audit fix without --force, remotePatterns reduced to m.media-amazon.com. Deployed by the orchestrator after Joseda's approval.",
+      "file": "next.config.ts:16",
+      "action": "fixed",
+      "commit": "466dd92"
+    },
+    {
+      "id": "BK-SAF-01",
+      "lens": "safety",
+      "severity": "high",
+      "title": "No safety net: no test runner, no goldens, no smoke",
+      "evidence": "package.json has no test script; node_modules/.bin has no vitest or playwright; metric tests = 0.",
+      "fix": "Built in 9e227ac and hardened in f981101 (Tailwind scan), 876e93b (production NODE_ENV) and bb7587d. `npm test`; `npm run test:update` re-pins. Test-only devDependency: vitest 5.0.4. Playwright from BK_PLAYWRIGHT (default Dieter's), Python from BK_PYTHON (default ~/.local/share/martin/venv-bookata).",
+      "action": "fixed",
+      "commit": "9e227ac"
+    },
+    {
+      "id": "BK-SEC-02",
+      "lens": "security",
+      "severity": "low",
+      "title": "Residual npm audit: 6 high, 1 moderate, none reachable from a visitor request",
+      "evidence": "After f547e67 (Next 16.4.0) npm audit: 5 high, 0 moderate (was 6 high, 1 moderate). postcss cleared. Left: braces 3.0.3 < micromatch 4.0.8 < fast-glob 3.3.1 < @next/eslint-plugin-next 16.4.0 < eslint-config-next (GHSA-vfj7-8cjw-p6xm, range *, npm's only fix is eslint-config-next 14). npm view braces versions: 3.0.3 is the latest.",
+      "fix": "Blocked by a third party: no patched braces exists. Unblocks when braces publishes a fix or @next/eslint-plugin-next moves off fast-glob 3.3.1; then `npm update`. Runs only inside `npm run lint` on repo globs.",
+      "action": "card"
+    },
+    {
+      "id": "BK-SEC-03",
+      "lens": "security",
+      "severity": "low",
+      "title": ".gitignore ignores only .env*.local; a plain .env or .env.production would be committed",
+      "evidence": ".gitignore:29 `.env*.local`; .env.example is tracked on purpose.",
+      "fix": "Replace with `.env*` plus `!.env.example`. No effect on the build or the site.",
+      "file": ".gitignore:29",
+      "action": "fixed",
+      "commit": "f8104fa"
+    },
+    {
+      "id": "BK-DEP-01",
+      "lens": "deps",
+      "severity": "medium",
+      "title": "Pending majors: next/eslint-config-next 16 applied; in-range updates applied",
+      "evidence": "npm outdated --json: next 15.5.27 -> 16.4.0, eslint-config-next 15.5.27 -> 16.4.0, typescript 5.9.3 -> 7.0.2, @types/node 22.19.15 -> 26.6.5. `npm run lint` prints that `next lint` is removed in 16; next dev warns Hero.tsx:24 quality={62} is not in images.qualities, required in 16. params are already awaited (libro/[slug]/page.tsx:34), so the main 15->16 breaking change is done.",
+      "fix": "next and eslint-config-next 16.4.0 in f547e67 (D1); @types/*, eslint in a249c44; react 19.3.0 in 942178c (byte-identical output). Tailwind 4.3.3 split into BK-DEP-04; typescript 7 and @types/node 26 into BK-DEP-05.",
+      "action": "fixed",
+      "commit": "f547e67"
+    },
+    {
+      "id": "BK-DEP-02",
+      "lens": "deps",
+      "severity": "low",
+      "title": "Python data scripts import openpyxl and Pillow with no requirements file",
+      "evidence": "scripts/build-books.py:17 `import openpyxl`; scripts/build-hero.py:12 and build-og.py:19 `from PIL import ...`. System python3 has no openpyxl (ModuleNotFoundError). In a scratch venv with openpyxl 3.1.5 and Pillow 12.3.0, build-books.py reproduces the committed books.json exactly (parsed JSON equal; only the trailing newline differs).",
+      "fix": "Add scripts/requirements.txt pinning openpyxl==3.1.5 and pillow==12.3.0, and the venv command in CLAUDE.md.",
+      "action": "fixed",
+      "commit": "f76431a"
+    },
+    {
+      "id": "BK-DEP-03",
+      "lens": "deps",
+      "severity": "low",
+      "title": "eslint.config.mjs imports @eslint/eslintrc, not listed in package.json",
+      "evidence": "knip unlisted: eslint.config.mjs:3 `import { FlatCompat } from \"@eslint/eslintrc\"`; resolves today only as a transitive dependency.",
+      "fix": "eslint.config.mjs is now eslint-config-next's flat config; FlatCompat and the @eslint/eslintrc import are gone.",
+      "file": "eslint.config.mjs:3",
+      "action": "fixed",
+      "commit": "f547e67"
+    },
+    {
+      "id": "BK-DEAD-01",
+      "lens": "dead",
+      "severity": "medium",
+      "title": "scripts/fetch-covers.mjs is a leftover of the Google Books cover approach and would break every cover if run",
+      "evidence": "knip: unused file. Last touched in 6e10063; superseded by resolve-covers.py (Amazon). All 243 books have coverUrl on m.media-amazon.com; the script writes Google Books URLs, a host next.config.ts:16 no longer allows since 466dd92, and with --sync overwrites synopses that now come from the Excel (build-books.py:140). Not referenced by CLAUDE.md, Context/ or any script.",
+      "fix": "Decision D3: `git -C /Users/joseda/Claude/Bookata/bookata-app rm scripts/fetch-covers.mjs`.",
+      "file": "scripts/fetch-covers.mjs:1",
+      "action": "fixed",
+      "commit": "404cb2c"
+    },
+    {
+      "id": "BK-DEAD-02",
+      "lens": "dead",
+      "severity": "low",
+      "title": "GENRE_COLORS is exported and never used",
+      "evidence": "knip unused export; grep -rn GENRE_COLORS src scripts finds only the definition.",
+      "fix": "Delete the constant. No output change.",
+      "file": "src/lib/config.ts:224",
+      "action": "fixed",
+      "commit": "1d93d27"
+    },
+    {
+      "id": "BK-DEAD-03",
+      "lens": "dead",
+      "severity": "low",
+      "title": "valid_cover() in resolve-covers.py is never called",
+      "evidence": "vulture scripts --min-confidence 60: unused function 'valid_cover'; main() skips any truthy coverUrl without validating it.",
+      "fix": "Delete the function. No output change.",
+      "file": "scripts/resolve-covers.py:73",
+      "action": "fixed",
+      "commit": "4a7d857"
+    },
+    {
+      "id": "BK-DEAD-04",
+      "lens": "dead",
+      "severity": "low",
+      "title": "getBooksData is exported but only used inside data.ts",
+      "evidence": "knip unused export; used at data.ts:21,305,309 only.",
+      "fix": "Drop the `export` keyword.",
+      "file": "src/lib/data.ts:14",
+      "action": "fixed",
+      "commit": "04d4a6f"
+    },
+    {
+      "id": "BK-DEBT-01",
+      "lens": "debt",
+      "severity": "medium",
+      "title": "GA queue shim is rendered as a direct child of <html> (dev hydration error); consent guarantee intact",
+      "evidence": "layout.tsx:87 <Script id=\"ga4-queue\" strategy=\"beforeInteractive\"> sits between <html> and <body>. next dev on localhost (all external requests aborted): React errors 'Cannot render a sync or defer <script> outside the main document' and '<html> cannot contain a nested <script> ... will cause a hydration error' on every page. Production build via next start, same probe on /, a book page and an age page: no console error, shim runs once, 0 googletagmanager requests with no choice or with 'denied', exactly one gtag/js request after Aceptar (dataLayer consent, js, config in that order), one on load with stored 'granted'. Static HTML already places the shim at the start of <body>.",
+      "fix": "D2 applied. Only the RSC tree moved (550 files); served markup, inline script text and route bodies byte-identical; consent probe green before and after; next dev shows 0 console errors on / and a book page.",
+      "file": "src/app/layout.tsx:87",
+      "action": "fixed",
+      "commit": "befa726"
+    },
+    {
+      "id": "BK-DEBT-02",
+      "lens": "debt",
+      "severity": "low",
+      "title": "GA id fallback written twice",
+      "evidence": "src/app/layout.tsx:18 and src/components/ConsentBanner.tsx:75 both carry `process.env.NEXT_PUBLIC_GA_ID ?? \"G-DBKB5VF49W\"` (71d3c5f copied it on purpose).",
+      "fix": "GA_ID lives in src/lib/analytics.ts (its own module, so the client ConsentBanner does not pull config.ts into a new chunk). Only chunk hashes and one client module id changed.",
+      "file": "src/components/ConsentBanner.tsx:75",
+      "action": "fixed",
+      "commit": "f1d1fde"
+    },
+    {
+      "id": "BK-DEBT-03",
+      "lens": "debt",
+      "severity": "low",
+      "title": "build-books.py main() has cyclomatic complexity 44",
+      "evidence": "lizard: scripts/build-books.py main CCN 44, 120 NLOC (next highest in the repo: 14).",
+      "fix": "Split into read rows / build book / collect sections / write outputs, after the Python golden pins books.json and sections from the committed Excel.",
+      "file": "scripts/build-books.py:180",
+      "action": "fixed",
+      "commit": "e4e23b4"
+    },
+    {
+      "id": "BK-DEBT-04",
+      "lens": "debt",
+      "severity": "low",
+      "title": "SECTIONS is generated by build-books.py and pasted by hand into config.ts",
+      "evidence": "config.ts:156-222 equals scripts/out/sections.ts.txt byte for byte today (66 lines); scripts/out/ is gitignored, so the copy step is manual and invisible to git.",
+      "fix": "build-books.py writes src/data/sections.json (and both JSON files with a trailing newline, so a rerun leaves git clean); config.ts imports it; the Python golden compares both byte for byte.",
+      "file": "src/lib/config.ts:156",
+      "action": "fixed",
+      "commit": "cbf6f9e"
+    },
+    {
+      "id": "BK-DOC-01",
+      "lens": "docs",
+      "severity": "medium",
+      "title": "Bookata/CLAUDE.md misstates analytics and lacks commands and the cover-host constraint",
+      "evidence": "CLAUDE.md 'Analytics' says no script loads while NEXT_PUBLIC_GA_ID is unset; layout.tsx:18 falls back to G-DBKB5VF49W (and .env.example says so). No commands (npm run build/lint, the Python venv for scripts); nothing says a new cover host needs next.config.ts remotePatterns since 466dd92.",
+      "fix": "/Users/joseda/Claude/Bookata/CLAUDE.md (workspace file, not in this repo): analytics line corrected, Next 16, sections.json, cover-host constraint, Commands section.",
+      "action": "fixed"
+    },
+    {
+      "id": "BK-DOC-02",
+      "lens": "docs",
+      "severity": "low",
+      "title": "Repo README is a one-line stub",
+      "evidence": "README.md contains only '# Bookata' (11 bytes); the GitHub repo carries no setup or pipeline notes.",
+      "fix": "Short README: what the app is, commands, data pipeline order, pointer to the workspace CLAUDE.md.",
+      "file": "README.md:1",
+      "action": "fixed",
+      "commit": "2d98ca3"
+    },
+    {
+      "id": "BK-SAF-02",
+      "lens": "safety",
+      "severity": "medium",
+      "title": "Tailwind scanned tests/ and code-health/ for class names, changing the served CSS",
+      "evidence": "Tailwind 4 scans every non-ignored file. Built as production, with tests/ committed (9e227ac) the CSS was b897c2fb...; production at 466dd92 and 404cb2c is ca45ea8f.... Deploying the branch before the fix would have shipped stray utilities.",
+      "fix": "`@source not \"../../tests\"` and `\"../../code-health\"` in globals.css; CSS byte-identical to the 466dd92 build and all 554 files equal to it once build id, chunk hashes and client module ids are normalised.",
+      "file": "src/app/globals.css:2",
+      "action": "fixed",
+      "commit": "f981101"
+    },
+    {
+      "id": "BK-DEP-04",
+      "lens": "deps",
+      "severity": "low",
+      "title": "Tailwind 4.3.3 (in range) changes the served CSS",
+      "evidence": "npm update tailwindcss @tailwindcss/postcss to 4.3.3 on a249c44: net red on bytes only, content extract unchanged; CSS 624 -> 622 rules, 18 removed and 16 added, mostly shorter equivalents (inset:0 for calc(var(--spacing)*0)) but .bk-hover loses its inset declaration in the rule shown and the stray .end utility disappears. Reverted.",
+      "fix": "Decision D4.",
+      "action": "flagged"
+    },
+    {
+      "id": "BK-DEP-05",
+      "lens": "deps",
+      "severity": "low",
+      "title": "typescript 7 and @types/node 26 kept out",
+      "evidence": "npm outdated: typescript 5.9.3 -> 7.0.2, @types/node 22.20.5 -> 26.6.5.",
+      "fix": "Deferred by Joseda in this run. Unblocks when Next supports TypeScript 7 and when the Vercel project's Node major is 26.",
+      "action": "card"
+    },
+    {
+      "id": "BK-DEBT-05",
+      "lens": "debt",
+      "severity": "low",
+      "title": "react-hooks 7 flags setState inside two effects",
+      "evidence": "`npm run lint` with eslint-config-next 16: react-hooks/set-state-in-effect at ConsentBanner.tsx (open the banner after reading localStorage) and Header.tsx (close menus on route change).",
+      "fix": "Disabled on those two lines only, with the reason: localStorage exists only after hydration, and the route reset is unchanged behaviour. The rule stays active for new code.",
+      "file": "src/components/Header.tsx:28",
+      "action": "fixed",
+      "commit": "f547e67"
+    }
+  ],
+  "metrics": {
+    "tests": 10,
+    "vulns_critical": 0,
+    "vulns_high": 5,
+    "vulns_other": 0,
+    "secrets": 0,
+    "outdated": 5,
+    "outdated_major": 3,
+    "dead_items": 0,
+    "complexity_top10": 115,
+    "duplication_pct": 0.53,
+    "loc": 6127
   },
-  {
-   "id": "security",
-   "status": "amber",
-   "summary": "0 critical, 0 moderate. 5 high remain, all in braces via fast-glob 3.3.1 inside @next/eslint-plugin-next 16.4.0: lint-time only and braces has no patched release (card). gitleaks 0; .gitignore now covers every .env file."
-  },
-  {
-   "id": "deps",
-   "status": "amber",
-   "summary": "Next and eslint-config-next 16.4.0, react 19.3.0, types and eslint in range. Left: Tailwind 4.3.3 (changes the served CSS, decision D4), typescript 7 and @types/node 26 (kept out by Joseda). Python deps pinned in scripts/requirements.txt."
-  },
-  {
-   "id": "dead",
-   "status": "green",
-   "summary": "All four dead items removed. knip 0 after the ignore list (test fixtures loaded through env paths)."
-  },
-  {
-   "id": "debt",
-   "status": "green",
-   "summary": "build-books.py main() CCN 44 split (top function now 16); one GA_ID; SECTIONS generated into src/data/sections.json; the shim no longer sits under <html> (no dev hydration error)."
-  },
-  {
-   "id": "crossrepo",
-   "status": "pending",
-   "summary": "Runs once in the last repo of the monthly pass."
-  },
-  {
-   "id": "docs",
-   "status": "green",
-   "summary": "README rewritten (commands, pipeline, safety net); .env.example and the workspace Bookata/CLAUDE.md state the GA fallback, the commands and the cover-host constraint."
-  }
- ],
- "findings": [
-  {
-   "id": "BK-SEC-01",
-   "lens": "security",
-   "severity": "critical",
-   "title": "Next.js 15.x critical RCE in the image optimizer, plus remotePatterns open to two hosts",
-   "evidence": "npm audit before 466dd92 reported next critical. After: next 15.5.27, npm audit 0 critical; build 281 pages; covers serve through /_next/image (200) locally and in production; covers.openlibrary.org rejected (400).",
-   "fix": "next and eslint-config-next 15.5.27, npm audit fix without --force, remotePatterns reduced to m.media-amazon.com. Deployed by the orchestrator after Joseda's approval.",
-   "file": "next.config.ts:16",
-   "action": "fixed",
-   "commit": "466dd92"
-  },
-  {
-   "id": "BK-SAF-01",
-   "lens": "safety",
-   "severity": "high",
-   "title": "No safety net: no test runner, no goldens, no smoke",
-   "evidence": "package.json has no test script; node_modules/.bin has no vitest or playwright; metric tests = 0.",
-   "fix": "Built in 9e227ac and hardened in f981101 (Tailwind scan), 876e93b (production NODE_ENV) and bb7587d. `npm test`; `npm run test:update` re-pins. Test-only devDependency: vitest 5.0.4. Playwright from BK_PLAYWRIGHT (default Dieter's), Python from BK_PYTHON (default ~/.local/share/martin/venv-bookata).",
-   "action": "fixed",
-   "commit": "9e227ac"
-  },
-  {
-   "id": "BK-SEC-02",
-   "lens": "security",
-   "severity": "low",
-   "title": "Residual npm audit: 6 high, 1 moderate, none reachable from a visitor request",
-   "evidence": "After f547e67 (Next 16.4.0) npm audit: 5 high, 0 moderate (was 6 high, 1 moderate). postcss cleared. Left: braces 3.0.3 < micromatch 4.0.8 < fast-glob 3.3.1 < @next/eslint-plugin-next 16.4.0 < eslint-config-next (GHSA-vfj7-8cjw-p6xm, range *, npm's only fix is eslint-config-next 14). npm view braces versions: 3.0.3 is the latest.",
-   "fix": "Blocked by a third party: no patched braces exists. Unblocks when braces publishes a fix or @next/eslint-plugin-next moves off fast-glob 3.3.1; then `npm update`. Runs only inside `npm run lint` on repo globs.",
-   "action": "card"
-  },
-  {
-   "id": "BK-SEC-03",
-   "lens": "security",
-   "severity": "low",
-   "title": ".gitignore ignores only .env*.local; a plain .env or .env.production would be committed",
-   "evidence": ".gitignore:29 `.env*.local`; .env.example is tracked on purpose.",
-   "fix": "Replace with `.env*` plus `!.env.example`. No effect on the build or the site.",
-   "file": ".gitignore:29",
-   "action": "fixed",
-   "commit": "f8104fa"
-  },
-  {
-   "id": "BK-DEP-01",
-   "lens": "deps",
-   "severity": "medium",
-   "title": "Pending majors: next/eslint-config-next 16 applied; in-range updates applied",
-   "evidence": "npm outdated --json: next 15.5.27 -> 16.4.0, eslint-config-next 15.5.27 -> 16.4.0, typescript 5.9.3 -> 7.0.2, @types/node 22.19.15 -> 26.6.5. `npm run lint` prints that `next lint` is removed in 16; next dev warns Hero.tsx:24 quality={62} is not in images.qualities, required in 16. params are already awaited (libro/[slug]/page.tsx:34), so the main 15->16 breaking change is done.",
-   "fix": "next and eslint-config-next 16.4.0 in f547e67 (D1); @types/*, eslint in a249c44; react 19.3.0 in 942178c (byte-identical output). Tailwind 4.3.3 split into BK-DEP-04; typescript 7 and @types/node 26 into BK-DEP-05.",
-   "action": "fixed",
-   "commit": "f547e67"
-  },
-  {
-   "id": "BK-DEP-02",
-   "lens": "deps",
-   "severity": "low",
-   "title": "Python data scripts import openpyxl and Pillow with no requirements file",
-   "evidence": "scripts/build-books.py:17 `import openpyxl`; scripts/build-hero.py:12 and build-og.py:19 `from PIL import ...`. System python3 has no openpyxl (ModuleNotFoundError). In a scratch venv with openpyxl 3.1.5 and Pillow 12.3.0, build-books.py reproduces the committed books.json exactly (parsed JSON equal; only the trailing newline differs).",
-   "fix": "Add scripts/requirements.txt pinning openpyxl==3.1.5 and pillow==12.3.0, and the venv command in CLAUDE.md.",
-   "action": "fixed",
-   "commit": "f76431a"
-  },
-  {
-   "id": "BK-DEP-03",
-   "lens": "deps",
-   "severity": "low",
-   "title": "eslint.config.mjs imports @eslint/eslintrc, not listed in package.json",
-   "evidence": "knip unlisted: eslint.config.mjs:3 `import { FlatCompat } from \"@eslint/eslintrc\"`; resolves today only as a transitive dependency.",
-   "fix": "eslint.config.mjs is now eslint-config-next's flat config; FlatCompat and the @eslint/eslintrc import are gone.",
-   "file": "eslint.config.mjs:3",
-   "action": "fixed",
-   "commit": "f547e67"
-  },
-  {
-   "id": "BK-DEAD-01",
-   "lens": "dead",
-   "severity": "medium",
-   "title": "scripts/fetch-covers.mjs is a leftover of the Google Books cover approach and would break every cover if run",
-   "evidence": "knip: unused file. Last touched in 6e10063; superseded by resolve-covers.py (Amazon). All 243 books have coverUrl on m.media-amazon.com; the script writes Google Books URLs, a host next.config.ts:16 no longer allows since 466dd92, and with --sync overwrites synopses that now come from the Excel (build-books.py:140). Not referenced by CLAUDE.md, Context/ or any script.",
-   "fix": "Decision D3: `git -C /Users/joseda/Claude/Bookata/bookata-app rm scripts/fetch-covers.mjs`.",
-   "file": "scripts/fetch-covers.mjs:1",
-   "action": "fixed",
-   "commit": "404cb2c"
-  },
-  {
-   "id": "BK-DEAD-02",
-   "lens": "dead",
-   "severity": "low",
-   "title": "GENRE_COLORS is exported and never used",
-   "evidence": "knip unused export; grep -rn GENRE_COLORS src scripts finds only the definition.",
-   "fix": "Delete the constant. No output change.",
-   "file": "src/lib/config.ts:224",
-   "action": "fixed",
-   "commit": "1d93d27"
-  },
-  {
-   "id": "BK-DEAD-03",
-   "lens": "dead",
-   "severity": "low",
-   "title": "valid_cover() in resolve-covers.py is never called",
-   "evidence": "vulture scripts --min-confidence 60: unused function 'valid_cover'; main() skips any truthy coverUrl without validating it.",
-   "fix": "Delete the function. No output change.",
-   "file": "scripts/resolve-covers.py:73",
-   "action": "fixed",
-   "commit": "4a7d857"
-  },
-  {
-   "id": "BK-DEAD-04",
-   "lens": "dead",
-   "severity": "low",
-   "title": "getBooksData is exported but only used inside data.ts",
-   "evidence": "knip unused export; used at data.ts:21,305,309 only.",
-   "fix": "Drop the `export` keyword.",
-   "file": "src/lib/data.ts:14",
-   "action": "fixed",
-   "commit": "04d4a6f"
-  },
-  {
-   "id": "BK-DEBT-01",
-   "lens": "debt",
-   "severity": "medium",
-   "title": "GA queue shim is rendered as a direct child of <html> (dev hydration error); consent guarantee intact",
-   "evidence": "layout.tsx:87 <Script id=\"ga4-queue\" strategy=\"beforeInteractive\"> sits between <html> and <body>. next dev on localhost (all external requests aborted): React errors 'Cannot render a sync or defer <script> outside the main document' and '<html> cannot contain a nested <script> ... will cause a hydration error' on every page. Production build via next start, same probe on /, a book page and an age page: no console error, shim runs once, 0 googletagmanager requests with no choice or with 'denied', exactly one gtag/js request after Aceptar (dataLayer consent, js, config in that order), one on load with stored 'granted'. Static HTML already places the shim at the start of <body>.",
-   "fix": "D2 applied. Only the RSC tree moved (550 files); served markup, inline script text and route bodies byte-identical; consent probe green before and after; next dev shows 0 console errors on / and a book page.",
-   "file": "src/app/layout.tsx:87",
-   "action": "fixed",
-   "commit": "befa726"
-  },
-  {
-   "id": "BK-DEBT-02",
-   "lens": "debt",
-   "severity": "low",
-   "title": "GA id fallback written twice",
-   "evidence": "src/app/layout.tsx:18 and src/components/ConsentBanner.tsx:75 both carry `process.env.NEXT_PUBLIC_GA_ID ?? \"G-DBKB5VF49W\"` (71d3c5f copied it on purpose).",
-   "fix": "GA_ID lives in src/lib/analytics.ts (its own module, so the client ConsentBanner does not pull config.ts into a new chunk). Only chunk hashes and one client module id changed.",
-   "file": "src/components/ConsentBanner.tsx:75",
-   "action": "fixed",
-   "commit": "f1d1fde"
-  },
-  {
-   "id": "BK-DEBT-03",
-   "lens": "debt",
-   "severity": "low",
-   "title": "build-books.py main() has cyclomatic complexity 44",
-   "evidence": "lizard: scripts/build-books.py main CCN 44, 120 NLOC (next highest in the repo: 14).",
-   "fix": "Split into read rows / build book / collect sections / write outputs, after the Python golden pins books.json and sections from the committed Excel.",
-   "file": "scripts/build-books.py:180",
-   "action": "fixed",
-   "commit": "e4e23b4"
-  },
-  {
-   "id": "BK-DEBT-04",
-   "lens": "debt",
-   "severity": "low",
-   "title": "SECTIONS is generated by build-books.py and pasted by hand into config.ts",
-   "evidence": "config.ts:156-222 equals scripts/out/sections.ts.txt byte for byte today (66 lines); scripts/out/ is gitignored, so the copy step is manual and invisible to git.",
-   "fix": "build-books.py writes src/data/sections.json (and both JSON files with a trailing newline, so a rerun leaves git clean); config.ts imports it; the Python golden compares both byte for byte.",
-   "file": "src/lib/config.ts:156",
-   "action": "fixed",
-   "commit": "cbf6f9e"
-  },
-  {
-   "id": "BK-DOC-01",
-   "lens": "docs",
-   "severity": "medium",
-   "title": "Bookata/CLAUDE.md misstates analytics and lacks commands and the cover-host constraint",
-   "evidence": "CLAUDE.md 'Analytics' says no script loads while NEXT_PUBLIC_GA_ID is unset; layout.tsx:18 falls back to G-DBKB5VF49W (and .env.example says so). No commands (npm run build/lint, the Python venv for scripts); nothing says a new cover host needs next.config.ts remotePatterns since 466dd92.",
-   "fix": "/Users/joseda/Claude/Bookata/CLAUDE.md (workspace file, not in this repo): analytics line corrected, Next 16, sections.json, cover-host constraint, Commands section.",
-   "action": "fixed"
-  },
-  {
-   "id": "BK-DOC-02",
-   "lens": "docs",
-   "severity": "low",
-   "title": "Repo README is a one-line stub",
-   "evidence": "README.md contains only '# Bookata' (11 bytes); the GitHub repo carries no setup or pipeline notes.",
-   "fix": "Short README: what the app is, commands, data pipeline order, pointer to the workspace CLAUDE.md.",
-   "file": "README.md:1",
-   "action": "fixed",
-   "commit": "2d98ca3"
-  },
-  {
-   "id": "BK-SAF-02",
-   "lens": "safety",
-   "severity": "medium",
-   "title": "Tailwind scanned tests/ and code-health/ for class names, changing the served CSS",
-   "evidence": "Tailwind 4 scans every non-ignored file. Built as production, with tests/ committed (9e227ac) the CSS was b897c2fb...; production at 466dd92 and 404cb2c is ca45ea8f.... Deploying the branch before the fix would have shipped stray utilities.",
-   "fix": "`@source not \"../../tests\"` and `\"../../code-health\"` in globals.css; CSS byte-identical to the 466dd92 build and all 554 files equal to it once build id, chunk hashes and client module ids are normalised.",
-   "file": "src/app/globals.css:2",
-   "action": "fixed",
-   "commit": "f981101"
-  },
-  {
-   "id": "BK-DEP-04",
-   "lens": "deps",
-   "severity": "low",
-   "title": "Tailwind 4.3.3 (in range) changes the served CSS",
-   "evidence": "npm update tailwindcss @tailwindcss/postcss to 4.3.3 on a249c44: net red on bytes only, content extract unchanged; CSS 624 -> 622 rules, 18 removed and 16 added, mostly shorter equivalents (inset:0 for calc(var(--spacing)*0)) but .bk-hover loses its inset declaration in the rule shown and the stray .end utility disappears. Reverted.",
-   "fix": "Decision D4.",
-   "action": "flagged"
-  },
-  {
-   "id": "BK-DEP-05",
-   "lens": "deps",
-   "severity": "low",
-   "title": "typescript 7 and @types/node 26 kept out",
-   "evidence": "npm outdated: typescript 5.9.3 -> 7.0.2, @types/node 22.20.5 -> 26.6.5.",
-   "fix": "Deferred by Joseda in this run. Unblocks when Next supports TypeScript 7 and when the Vercel project's Node major is 26.",
-   "action": "card"
-  },
-  {
-   "id": "BK-DEBT-05",
-   "lens": "debt",
-   "severity": "low",
-   "title": "react-hooks 7 flags setState inside two effects",
-   "evidence": "`npm run lint` with eslint-config-next 16: react-hooks/set-state-in-effect at ConsentBanner.tsx (open the banner after reading localStorage) and Header.tsx (close menus on route change).",
-   "fix": "Disabled on those two lines only, with the reason: localStorage exists only after hydration, and the route reset is unchanged behaviour. The rule stays active for new code.",
-   "file": "src/components/Header.tsx:28",
-   "action": "fixed",
-   "commit": "f547e67"
-  }
- ],
- "metrics": {
-  "tests": 10,
-  "vulns_critical": 0,
-  "vulns_high": 5,
-  "vulns_other": 0,
-  "secrets": 0,
-  "outdated": 5,
-  "outdated_major": 3,
-  "dead_items": 0,
-  "complexity_top10": 115,
-  "duplication_pct": 0.53,
-  "loc": 6127
- },
- "passed": [
-  "npm test: 15 passed twice in a row (about 17 s each) and in a fresh APFS clone",
-  "Mutation proof in a clone (related-books weight, consent condition, build-books slugify): 6 of 15 tests red, each on the expected layer",
-  "npm run build (Next 16.4.0, Turbopack): 280 static routes, exit 0",
-  "npm run lint (eslint .): no warnings or errors",
-  "tsc --noEmit: clean",
-  "D1 content extract: identical on 275 pages and 4 route bodies except the raw title order on _not-found (browser tab title identical on 15.5.27 and 16.4.0, 404 + noindex unchanged)",
-  "Consent probe on next start: no gtag.js before a choice, after Rechazar or with a stored denial; exactly one after Aceptar (consent, js, config) and one with a stored grant; shim runs once",
-  "Hero at quality 62 served (200) under Next 16 images.qualities; non-Amazon cover host answers 400",
-  "Served CSS byte-identical to the production build of 466dd92",
-  "gitleaks: 0 leaks in history",
-  "build-books.py rebuilds books.json and sections.json byte for byte from the committed Excel",
-  "Metrics at the review (466dd92), same commands: tests 0, vulns 0/6/1, outdated 11 (4 major), dead 4, complexity top10 137, duplication 0.39%, loc 5666. trend.json keeps one entry per date, so the fix run replaced it"
- ],
- "decisions": [
-  {
-   "id": "D1",
-   "text": "Upgrade to Next 16 now? Recommendation: yes, in today's fix run right after the safety net, as its own commit through 'approved output change'. Security gain at runtime is nil (residual vulns are build/lint only and 15.5 still gets backports), but it clears audit noise so the next real alert stands out, and the migration is small: params already async; `next lint` -> ESLint CLI (codemod), images.qualities [62, 75], flat eslint config. If approved: every page's framework markup changes, so the byte goldens are re-pinned and the semantic extract plus the Playwright smoke are the guard. TypeScript 7 and @types/node 26 stay out.",
-   "decided": "Approved by Joseda on 2026-10-14; applied in f547e67"
-  },
-  {
-   "id": "D2",
-   "text": "Move <Script id=\"ga4-queue\"> from directly under <html> to the first child of <body> (layout.tsx:87)? Recommendation: yes. It removes the dev hydration error, keeps the shim in the same spot of the served HTML and does not touch the consent logic; the consent probe must pass before and after.",
-   "decided": "Approved by Joseda on 2026-10-14; applied in befa726"
-  },
-  {
-   "id": "D3",
-   "text": "Delete scripts/fetch-covers.mjs? Recommendation: yes; it is dead and running it would replace all 243 Amazon covers with a host the site now rejects. Command for the orchestrator: git -C /Users/joseda/Claude/Bookata/bookata-app rm scripts/fetch-covers.mjs",
-   "decided": "Approved by Joseda on 2026-10-14; applied in 404cb2c"
-  },
-  {
-   "id": "D4",
-   "text": "Apply Tailwind 4.3.3 (in range)? Recommendation: yes, but only with a visual check first: it changes the served CSS (34 rules), mostly to shorter equivalents, and the hover overlay rule .bk-hover is the one to look at. If approved: Dieter screenshots the cover hover on / and a book page before and after, then it goes in as an approved output change with the bytes re-pinned and the content extract unchanged."
-  }
- ],
- "branch": "martin/2026-10-close"
+  "passed": [
+    "npm test: 15 passed twice in a row (about 17 s each) and in a fresh APFS clone",
+    "Mutation proof in a clone (related-books weight, consent condition, build-books slugify): 6 of 15 tests red, each on the expected layer",
+    "npm run build (Next 16.4.0, Turbopack): 280 static routes, exit 0",
+    "npm run lint (eslint .): no warnings or errors",
+    "tsc --noEmit: clean",
+    "D1 content extract: identical on 275 pages and 4 route bodies except the raw title order on _not-found (browser tab title identical on 15.5.27 and 16.4.0, 404 + noindex unchanged)",
+    "Consent probe on next start: no gtag.js before a choice, after Rechazar or with a stored denial; exactly one after Aceptar (consent, js, config) and one with a stored grant; shim runs once",
+    "Hero at quality 62 served (200) under Next 16 images.qualities; non-Amazon cover host answers 400",
+    "Served CSS byte-identical to the production build of 466dd92",
+    "gitleaks: 0 leaks in history",
+    "build-books.py rebuilds books.json and sections.json byte for byte from the committed Excel",
+    "Metrics at the review (466dd92), same commands: tests 0, vulns 0/6/1, outdated 11 (4 major), dead 4, complexity top10 137, duplication 0.39%, loc 5666. trend.json keeps one entry per date, so the fix run replaced it"
+  ],
+  "decisions": [
+    {
+      "id": "D1",
+      "text": "Upgrade to Next 16 now? Recommendation: yes, in today's fix run right after the safety net, as its own commit through 'approved output change'. Security gain at runtime is nil (residual vulns are build/lint only and 15.5 still gets backports), but it clears audit noise so the next real alert stands out, and the migration is small: params already async; `next lint` -> ESLint CLI (codemod), images.qualities [62, 75], flat eslint config. If approved: every page's framework markup changes, so the byte goldens are re-pinned and the semantic extract plus the Playwright smoke are the guard. TypeScript 7 and @types/node 26 stay out.",
+      "decided": "Approved by Joseda on 2026-10-14; applied in f547e67"
+    },
+    {
+      "id": "D2",
+      "text": "Move <Script id=\"ga4-queue\"> from directly under <html> to the first child of <body> (layout.tsx:87)? Recommendation: yes. It removes the dev hydration error, keeps the shim in the same spot of the served HTML and does not touch the consent logic; the consent probe must pass before and after.",
+      "decided": "Approved by Joseda on 2026-10-14; applied in befa726"
+    },
+    {
+      "id": "D3",
+      "text": "Delete scripts/fetch-covers.mjs? Recommendation: yes; it is dead and running it would replace all 243 Amazon covers with a host the site now rejects. Command for the orchestrator: git -C /Users/joseda/Claude/Bookata/bookata-app rm scripts/fetch-covers.mjs",
+      "decided": "Approved by Joseda on 2026-10-14; applied in 404cb2c"
+    },
+    {
+      "id": "D4",
+      "text": "Apply Tailwind 4.3.3 (in range)? Recommendation: yes, but only with a visual check first: it changes the served CSS (34 rules), mostly to shorter equivalents, and the hover overlay rule .bk-hover is the one to look at. If approved: Dieter screenshots the cover hover on / and a book page before and after, then it goes in as an approved output change with the bytes re-pinned and the content extract unchanged.",
+      "decided": "Sí (2026-10-14). Hover de portadas comparado antes/después en local: idéntico. Tests de contenido, consentimiento y smoke en verde; solo cambian los bytes por la nueva hoja de estilos."
+    }
+  ],
+  "branch": "martin/2026-10-close"
 }
