@@ -70,12 +70,6 @@ def isbn13_to_isbn10(isbn13: str) -> str | None:
     return core + ("X" if check == 10 else str(check))
 
 
-def valid_cover(book: dict) -> bool:
-    url = book.get("coverUrl") or ""
-    m = re.search(r"/P/([A-Z0-9]{10})\.", url)
-    return bool(m) and cover_bytes(m.group(1)) >= MIN_BYTES
-
-
 def main() -> None:
     data = json.loads(BOOKS.read_text(encoding="utf-8"))
     books = data["books"]
