@@ -1,0 +1,19 @@
+[
+  {
+    "date": "2026-10-14",
+    "commit": "bb7587d",
+    "metrics": {
+      "tests": 10,
+      "vulns_critical": 0,
+      "vulns_high": 5,
+      "vulns_other": 0,
+      "secrets": 0,
+      "outdated": 5,
+      "outdated_major": 3,
+      "dead_items": 0,
+      "complexity_top10": 115,
+      "duplication_pct": 0.53,
+      "loc": 6127
+    }
+  }
+]
