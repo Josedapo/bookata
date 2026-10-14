@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export const ROOT = path.resolve(__dirname, "..");
-export const NEXT_DIR = path.join(ROOT, ".next");
+const NEXT_DIR = path.join(ROOT, ".next");
 export const APP_DIR = path.join(NEXT_DIR, "server", "app");
 const GOLDEN_DIR = path.join(__dirname, "golden");
 export const UPDATE = process.env.UPDATE_GOLDENS === "1";
