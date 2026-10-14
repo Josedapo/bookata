@@ -1,0 +1,4 @@
+# Data scripts (build-books.py, build-hero.py, build-og.py). resolve-covers.py needs only the
+# standard library and curl.
+openpyxl==3.1.5
+pillow==12.3.0
