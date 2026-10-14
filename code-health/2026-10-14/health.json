@@ -69,7 +69,7 @@
       "severity": "low",
       "title": "Residual npm audit: 6 high, 1 moderate, none reachable from a visitor request",
       "evidence": "After f547e67 (Next 16.4.0) npm audit: 5 high, 0 moderate (was 6 high, 1 moderate). postcss cleared. Left: braces 3.0.3 < micromatch 4.0.8 < fast-glob 3.3.1 < @next/eslint-plugin-next 16.4.0 < eslint-config-next (GHSA-vfj7-8cjw-p6xm, range *, npm's only fix is eslint-config-next 14). npm view braces versions: 3.0.3 is the latest.",
-      "fix": "Blocked by a third party: no patched braces exists. Unblocks when braces publishes a fix or @next/eslint-plugin-next moves off fast-glob 3.3.1; then `npm update`. Runs only inside `npm run lint` on repo globs.",
+      "fix": "Blocked by a third party: no patched braces exists. Unblocks when braces publishes a fix or @next/eslint-plugin-next moves off fast-glob 3.3.1; then `npm update`. Runs only inside `npm run lint` on repo globs. The monthly pass re-checks it; no card.",
       "action": "card"
     },
     {
@@ -240,7 +240,8 @@
       "title": "Tailwind 4.3.3 (in range) changes the served CSS",
       "evidence": "npm update tailwindcss @tailwindcss/postcss to 4.3.3 on a249c44: net red on bytes only, content extract unchanged; CSS 624 -> 622 rules, 18 removed and 16 added, mostly shorter equivalents (inset:0 for calc(var(--spacing)*0)) but .bk-hover loses its inset declaration in the rule shown and the stray .end utility disappears. Reverted.",
       "fix": "Decision D4.",
-      "action": "flagged"
+      "action": "fixed",
+      "commit": "2736ec2"
     },
     {
       "id": "BK-DEP-05",
@@ -248,7 +249,7 @@
       "severity": "low",
       "title": "typescript 7 and @types/node 26 kept out",
       "evidence": "npm outdated: typescript 5.9.3 -> 7.0.2, @types/node 22.20.5 -> 26.6.5.",
-      "fix": "Deferred by Joseda in this run. Unblocks when Next supports TypeScript 7 and when the Vercel project's Node major is 26.",
+      "fix": "Blocked outside the session: Next 16 does not support TypeScript 7 yet, and @types/node 26 should match the Node major Vercel runs. The monthly pass re-checks both; no card.",
       "action": "card"
     },
     {
