@@ -12,6 +12,7 @@ Outputs:
 import json
 import re
 import unicodedata
+from collections import Counter
 from pathlib import Path
 
 import openpyxl
@@ -177,111 +178,123 @@ def load_existing_covers() -> dict[str, str]:
     }
 
 
-def main() -> None:
-    wb = openpyxl.load_workbook(XLSX, data_only=True)
-    existing_covers = load_existing_covers()
+# age range per sheet, in sheet order
+SHEET_AGE = {
+    "3 a 5": "3-5",
+    "6 a 8": "6-8",
+    "8 a 10": "8-10",
+    "10 a 12": "10-12",
+    "12 a 14": "12-14",
+    "14 a 16": "14-16",
+}
 
-    # age range per sheet, in sheet order
-    sheet_age = {
-        "3 a 5": "3-5",
-        "6 a 8": "6-8",
-        "8 a 10": "8-10",
-        "10 a 12": "10-12",
-        "12 a 14": "12-14",
-        "14 a 16": "14-16",
-    }
 
-    sections = []  # SectionInfo list
-    section_index = {}  # (age, label) -> section id
-    books_by_isbn = {}  # isbn13 -> book dict (for dedup/merge)
-    order_out = []  # preserve first-seen order of books
-    warnings = []
+class Catalogue:
+    """Books and sections accumulated across the sheets, in first-seen order."""
 
-    for ws in wb.worksheets:
-        age = sheet_age.get(ws.title.strip())
+    def __init__(self, existing_covers: dict[str, str]):
+        self.existing_covers = existing_covers
+        self.sections = []  # SectionInfo list
+        self.section_index = {}  # (age, label) -> section id
+        self.books_by_isbn = {}  # isbn13 -> book dict (for dedup/merge)
+        self.order_out = []  # preserve first-seen order of books
+        self.warnings = []
+
+    def add_section(self, age: str, raw_label, sec_order: int) -> tuple[str, int]:
+        """Register the section a marker row opens; return its id and the next order."""
+        label = section_label(raw_label)
+        if (age, label) not in self.section_index:
+            self.section_index[(age, label)] = f"{age}--{slugify(label)}"
+            self.sections.append({
+                "id": self.section_index[(age, label)],
+                "label": label,
+                "slug": slugify(label),
+                "ageRange": age,
+                "order": sec_order,
+            })
+            sec_order += 1
+        return self.section_index[(age, label)], sec_order
+
+    def add_book_row(self, r, age: str, section_id: str | None) -> None:
+        title = str(r[C_TITLE]).strip() if r[C_TITLE] else ""
+        if not title:
+            return
+
+        isbn13 = clean_isbn(str(r[C_ISBN] or ""))
+        ages = parse_ages(str(r[C_AGE] or "")) or [age]
+        genres = parse_genres(str(r[C_GENRE] or ""))
+        raw_syn = str(r[C_SYN] or "")
+        hook, found = extract_hook(raw_syn)
+        if not found:
+            self.warnings.append(f"[hook sin marcador] {title}")
+        synopsis, syn_found = extract_synopsis(raw_syn)
+        if not syn_found:
+            self.warnings.append(f"[synopsis sin marcador 'De qué va'] {title}")
+        amazon = str(r[C_AMAZON]).strip() if r[C_AMAZON] else ""
+
+        key = isbn13 or slugify(title)
+        if key in self.books_by_isbn:
+            merge_book(self.books_by_isbn[key], ages, genres, section_id)
+            return
+
+        slug = slugify(re.sub(r"\(.*?\)", "", title))
+        self.books_by_isbn[key] = {
+            "id": slug,
+            "title": title,
+            "author": str(r[C_AUTHOR]).strip() if r[C_AUTHOR] else "",
+            "isbn": isbn13,
+            "ageRange": ages,
+            "genres": genres,
+            "sections": [section_id] if section_id else [],
+            "synopsis": synopsis,
+            "hook": hook,
+            "amazonUrl": amazon,
+            "coverUrl": self.existing_covers.get(isbn13) or cover_url(isbn13),
+            "slug": slug,
+        }
+        self.order_out.append(key)
+
+    def read_sheet(self, ws) -> None:
+        age = SHEET_AGE.get(ws.title.strip())
         if not age:
-            warnings.append(f"Hoja desconocida saltada: {ws.title}")
-            continue
+            self.warnings.append(f"Hoja desconocida saltada: {ws.title}")
+            return
         current_section_id = None
         sec_order = 0
         for r in list(ws.iter_rows(values_only=True))[1:]:
             # new section marker in col A
             if r[C_SECTION] and str(r[C_SECTION]).strip():
-                label = section_label(r[C_SECTION])
-                sec_id = f"{age}--{slugify(label)}"
-                if (age, label) not in section_index:
-                    section_index[(age, label)] = sec_id
-                    sections.append({
-                        "id": sec_id,
-                        "label": label,
-                        "slug": slugify(label),
-                        "ageRange": age,
-                        "order": sec_order,
-                    })
-                    sec_order += 1
-                current_section_id = section_index[(age, label)]
+                current_section_id, sec_order = self.add_section(age, r[C_SECTION], sec_order)
+            self.add_book_row(r, age, current_section_id)
 
-            title = str(r[C_TITLE]).strip() if r[C_TITLE] else ""
-            if not title:
-                continue
+    def books(self) -> list[dict]:
+        """Books in first-seen order, with duplicate slugs made unique."""
+        books = [self.books_by_isbn[k] for k in self.order_out]
+        seen_slugs = {}
+        for b in books:
+            s = b["slug"]
+            if s in seen_slugs:
+                seen_slugs[s] += 1
+                b["slug"] = b["id"] = f"{s}-{seen_slugs[s]}"
+                self.warnings.append(f"[slug duplicado] {b['title']} -> {b['slug']}")
+            else:
+                seen_slugs[s] = 1
+        return books
 
-            isbn13 = clean_isbn(str(r[C_ISBN] or ""))
-            ages = parse_ages(str(r[C_AGE] or "")) or [age]
-            genres = parse_genres(str(r[C_GENRE] or ""))
-            raw_syn = str(r[C_SYN] or "")
-            hook, found = extract_hook(raw_syn)
-            if not found:
-                warnings.append(f"[hook sin marcador] {title}")
-            synopsis, syn_found = extract_synopsis(raw_syn)
-            if not syn_found:
-                warnings.append(f"[synopsis sin marcador 'De qué va'] {title}")
-            amazon = str(r[C_AMAZON]).strip() if r[C_AMAZON] else ""
 
-            key = isbn13 or slugify(title)
-            if key in books_by_isbn:
-                # merge: union ageRange + sections
-                b = books_by_isbn[key]
-                for a in ages:
-                    if a not in b["ageRange"]:
-                        b["ageRange"].append(a)
-                if current_section_id and current_section_id not in b["sections"]:
-                    b["sections"].append(current_section_id)
-                for g in genres:
-                    if g not in b["genres"]:
-                        b["genres"].append(g)
-                continue
+def merge_book(b: dict, ages: list[str], genres: list[str], section_id: str | None) -> None:
+    """A book listed again (another sheet or section): union ageRange, sections and genres."""
+    for a in ages:
+        if a not in b["ageRange"]:
+            b["ageRange"].append(a)
+    if section_id and section_id not in b["sections"]:
+        b["sections"].append(section_id)
+    for g in genres:
+        if g not in b["genres"]:
+            b["genres"].append(g)
 
-            slug = slugify(re.sub(r"\(.*?\)", "", title))
-            book = {
-                "id": slug,
-                "title": title,
-                "author": str(r[C_AUTHOR]).strip() if r[C_AUTHOR] else "",
-                "isbn": isbn13,
-                "ageRange": ages,
-                "genres": genres,
-                "sections": [current_section_id] if current_section_id else [],
-                "synopsis": synopsis,
-                "hook": hook,
-                "amazonUrl": amazon,
-                "coverUrl": existing_covers.get(isbn13) or cover_url(isbn13),
-                "slug": slug,
-            }
-            books_by_isbn[key] = book
-            order_out.append(key)
 
-    books = [books_by_isbn[k] for k in order_out]
-
-    # ensure unique slugs
-    seen_slugs = {}
-    for b in books:
-        s = b["slug"]
-        if s in seen_slugs:
-            seen_slugs[s] += 1
-            b["slug"] = b["id"] = f"{s}-{seen_slugs[s]}"
-            warnings.append(f"[slug duplicado] {b['title']} -> {b['slug']}")
-        else:
-            seen_slugs[s] = 1
-
+def write_outputs(books: list[dict], sections: list[dict]) -> None:
     data = {
         "meta": {"lastUpdated": "2026-07-24", "totalBooks": len(books)},
         "books": books,
@@ -290,9 +303,9 @@ def main() -> None:
     SECTIONS_OUT.parent.mkdir(parents=True, exist_ok=True)
     SECTIONS_OUT.write_text(json.dumps(sections, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    # report
+
+def print_report(books: list[dict], sections: list[dict], warnings: list[str]) -> None:
     print(f"Libros únicos: {len(books)}")
-    from collections import Counter
     ac = Counter()
     for b in books:
         for a in b["ageRange"]:
@@ -313,6 +326,16 @@ def main() -> None:
     print(f"\nAvisos ({len(warnings)}):")
     for w in warnings:
         print("   ", w)
+
+
+def main() -> None:
+    wb = openpyxl.load_workbook(XLSX, data_only=True)
+    cat = Catalogue(load_existing_covers())
+    for ws in wb.worksheets:
+        cat.read_sheet(ws)
+    books = cat.books()
+    write_outputs(books, cat.sections)
+    print_report(books, cat.sections, cat.warnings)
 
 
 if __name__ == "__main__":
